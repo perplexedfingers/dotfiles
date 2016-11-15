@@ -130,6 +130,13 @@ Non Lazy-Loaded Plugins
 | `vim-parenmatch`_ | Intelligent pair matching              |
 +-------------------+----------------------------------------|
 
+.. _dein: https://github.com/Shougo/dein.vim
+.. _vimproc: https://github.com/Shougo/vimproc.vim
+.. _colorschemes: https://github.com/rafi/awesome-vim-colorschemes
+.. _cursorword: https://github.com/itchyny/vim-cursorword
+.. _gitbranch: https://github.com/itchyny/vim-gitbranch
+.. _gitgutter: https://github.com/airblade/vim-gitgutter
+
 Lazy-Loaded Plugins
 ===================
 
@@ -261,13 +268,6 @@ Operators & Text Objects
 +-----------------------+------------------------------------------------------+
 | `CamelCaseMotion`_    | Better movement in camel case names                  |
 +-----------------------+------------------------------------------------------+
-
-.. _dein: https://github.com/Shougo/dein.vim
-.. _vimproc: https://github.com/Shougo/vimproc.vim
-.. _colorschemes: https://github.com/rafi/awesome-vim-colorschemes
-.. _cursorword: https://github.com/itchyny/vim-cursorword
-.. _gitbranch: https://github.com/itchyny/vim-gitbranch
-.. _gitgutter: https://github.com/airblade/vim-gitgutter
 
 .. _polyglot: https://github.com/sheerun/vim-polyglot
 .. _mustache: https://github.com/mustache/vim-mustache-handlebars
