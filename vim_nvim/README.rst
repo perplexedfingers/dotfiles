@@ -52,7 +52,6 @@ VIM (Not Neovim!) looks for its configuration in the `~/.vim` directory.
 My setup **also** supports the XDG location, `.config/vim`. If you want to
 use the XDG specification standard, add this somewhere
 in your `.profile` or `.bashrc`:
-
 .. code:: sh
 
     # Set vimrc's location and source it on vim startup
