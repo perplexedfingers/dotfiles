@@ -278,4 +278,10 @@ if dein#tap('ale') "{{{
 endif
 
 "}}}
+if dein#tap('vim-table-mode') "{{{
+  autocmd MyAutoCmd *.md,*.makrdown let g:table_mode_corner="|"
+  autocmd MyAutoCmd *.rst let g:table_mode_corner_corner="+"
+  autocmd MyAutoCmd *.rst let g:table_mode_header_fillchar="="
+endif
+"}}}
 " vim: set ts=2 sw=2 tw=80 et :

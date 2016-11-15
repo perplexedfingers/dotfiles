@@ -129,13 +129,15 @@ Non Lazy-Loaded Plugins
 +-------------------+----------------------------------------+
 | `vim-parenmatch`_ | Intelligent pair matching              |
 +-------------------+----------------------------------------+
+| `vim-quantum`_    | PaperColor alternative                 |
++-------------------+----------------------------------------+
 
 .. _dein: https://github.com/Shougo/dein.vim
 .. _vimproc: https://github.com/Shougo/vimproc.vim
 .. _colorschemes: https://github.com/rafi/awesome-vim-colorschemes
 .. _cursorword: https://github.com/itchyny/vim-cursorword
 .. _gitbranch: https://github.com/itchyny/vim-gitbranch
-.. _gitgutter: https://github.com/airblade/vim-gitgutter
+.. _vim-quantum: https://github.com/tyrannicaltoucan/vim-quantum
 
 Lazy-Loaded Plugins
 ===================
@@ -144,21 +146,42 @@ Language
 --------
 Mainly use `polyglot`_
 
-+----------------+--------------------------------------------------------+
-| Name           | Description                                            |
-+================+========================================================+
-| `mustache`_    | Mustache and handlebars syntax                         |
-+----------------+--------------------------------------------------------+
-| `jinja`_       | Jinja support in vim                                   |
-+----------------+--------------------------------------------------------+
-| `css3-syntax`_ | CSS3 syntax support to vim's built-in `syntax/css.vim` |
-+----------------+--------------------------------------------------------+
-| `csv`_         | Handling column separated data                         |
-+----------------+--------------------------------------------------------+
-| `i3`_          | i3 window manager config syntax                        |
-+----------------+--------------------------------------------------------+
-| `portfile`_    | Macports portfile configuration files                  |
-+----------------+--------------------------------------------------------+
++------------------+--------------------------------------------------------+
+| Name             | Description                                            |
++==================+========================================================+
+| `mustache`_      | Mustache and handlebars syntax                         |
++------------------+--------------------------------------------------------+
+| `jinja`_         | Jinja support in vim                                   |
++------------------+--------------------------------------------------------+
+| `css3-syntax`_   | CSS3 syntax support to vim's built-in `syntax/css.vim` |
++------------------+--------------------------------------------------------+
+| `csv`_           | Handling column separated data                         |
++------------------+--------------------------------------------------------+
+| `i3`_            | i3 window manager config syntax                        |
++------------------+--------------------------------------------------------+
+| `portfile`_      | Macports portfile configuration files                  |
++------------------+--------------------------------------------------------+
+| `vim-git`_       | Git support                                            |
++------------------+--------------------------------------------------------+
+| `syntax-vim-ex`_ | Vim script syntax enhance                              |
++------------------+--------------------------------------------------------+
+| `neco-vim`_      | Vim source for neocomplete/deoplete                    |
++------------------+--------------------------------------------------------+
+| `logstash.vim`_  | Logstash support                                       |
++------------------+--------------------------------------------------------+
+
+.. _polyglot: https://github.com/sheerun/vim-polyglot
+.. _mustache: https://github.com/mustache/vim-mustache-handlebars
+.. _jinja: https://github.com/mitsuhiko/vim-jinja
+.. _css3-syntax: https://github.com/hail2u/vim-css3-syntax
+.. _csv: https://github.com/chrisbra/csv.vim
+.. _logstash: https://github.com/robbles/logstash.vim
+.. _i3: https://github.com/PotatoesMaster/i3-vim-syntax
+.. _portfile: https://github.com/jstrater/mpvim
+.. _vim-git: https://github.com/tpope/vim-git
+.. _syntax-vim-ex: https://github.com/vim-jp/syntax-vim-ex
+.. _neco-vim: https://github.com/Shougo/neco-vim
+.. _logstash.vim: https://github.com/robbles/logstash.vim
 
 Commands
 --------
@@ -196,11 +219,27 @@ Commands
 +-------------------+-----------------------------------------------------+
 | `vim-abolish`_    | Replace variant of words                            |
 +-------------------+-----------------------------------------------------+
-| `neomake`_        | Syntax check and others                             |
+| `asyncrun`_       | As the name is                                      |
 +-------------------+-----------------------------------------------------+
 | `tagbar`_         | Tag view                                            |
 +-------------------+-----------------------------------------------------+
 
+.. _vim-commentary: https://github.com/tpope/vim-commentary
+.. _nerdtree: https://github.com/scrooloose/nerdtree
+.. _gita: https://github.com/lambdalisue/vim-gita
+.. _vim-asterisk: https://github.com/haya14busa/vim-asterisk
+.. _vim-anzu: https://github.com/osyo-manga/vim-anzu
+.. _undotree: https://github.com/mbbill/undotree
+.. _incsearch: https://github.com/haya14busa/incsearch.vim
+.. _codi: https://github.com/metakirby5/codi.vim
+.. _vim-peekaboo: https://github.com/junegunn/vim-peekaboo
+.. _vim-indent: https://github.com/timkendrick/vim-indent
+.. _vim-abolish: https://github.com/tpope/vim-abolish
+.. _expand-region: https://github.com/terryma/vim-expand-region
+.. _prettyprint: https://github.com/thinca/vim-prettyprint
+.. _tagbar: https://github.com/majutsushi/tagbar
+.. _asyncrun: https://github.com/skywind3000/asyncrun.vim
+.. _choosewin: https://github.com/t9md/vim-choosewin
 
 Interface
 ---------
@@ -228,23 +267,60 @@ Interface
 +------------------+-----------------------------------------------------+
 | `vim-repeat`_    | Improved ``.``                                      |
 +------------------+-----------------------------------------------------+
+| `ale`_           | Linter                                              |
++------------------+-----------------------------------------------------+
+
+.. _indentline: https://github.com/Yggdroot/indentLine
+.. _vim-parenmatch: https://github.com/itchyny/vim-parenmatch
+.. _lightline: https://github.com/itchyny/lightline.vim
+.. _vim-signature: https://github.com/kshenoy/vim-signature
+.. _indentLine: https://github.com/Yggdroot/indentLine
+.. _rainbow: https://github.com/luochen1990/rainbow
+.. _GoldenView: https://github.com/zhaocai/GoldenView.Vim
+.. _vim-sneak: https://github.com/justinmk/vim-sneak
+.. _committia: https://github.com/rhysd/committia.vim
+.. _FastFold: https://github.com/Konfekt/FastFold
+.. _vim-repeat: https://github.com/tpope/vim-repeat
+.. _ale: https://github.com/w0rp/ale
+.. _gitgutter: https://github.com/airblade/vim-gitgutter
 
 Completion
 ----------
 
-+----------------+---------------------------------------------------------------+
-| Name           | Description                                                   |
-+================+===============================================================+
-| `delimitmate`_ | Insert mode auto-completion for quotes, parenthesis, brackets |
-+----------------+---------------------------------------------------------------+
-| `deoplete`_    | Neovim: Dark powered asynchronous completion framework        |
-+----------------+---------------------------------------------------------------+
-| `neocomplete`_ | Next generation completion framework                          |
-+----------------+---------------------------------------------------------------+
-| `gen_tags`_    | Tags management                                               |
-+----------------+---------------------------------------------------------------+
-| `emmet-vim`_   | Html, CSS, JS edit enhancement                                |
-+----------------+---------------------------------------------------------------+
++-------------------+---------------------------------------------------------------+
+| Name              | Description                                                   |
++===================+===============================================================+
+| `delimitmate`_    | Insert mode auto-completion for quotes, parenthesis, brackets |
++-------------------+---------------------------------------------------------------+
+| `deoplete`_       | Neovim: Dark powered asynchronous completion framework        |
++-------------------+---------------------------------------------------------------+
+| `neocomplete`_    | Next generation completion framework                          |
++-------------------+---------------------------------------------------------------+
+| `gen_tags`_       | Tags management                                               |
++-------------------+---------------------------------------------------------------+
+| `emmet-vim`_      | Html, CSS, JS edit enhancement                                |
++-------------------+---------------------------------------------------------------+
+| `neoinclude`_     | Include completion framework for neocomplete/deoplete         |
++-------------------+---------------------------------------------------------------+
+| `neopairs`_       | Auto insert pairs when complete done                          |
++-------------------+---------------------------------------------------------------+
+| `deoplete-go`_    | deoplete.nvim source for Go                                   |
++-------------------+---------------------------------------------------------------+
+| `gen_tags`_       | A simple plugin generate ctags and gtags database for vim     |
++-------------------+---------------------------------------------------------------+
+| `vim-table-mode`_ | VIM Table Mode for instant table creation                     |
++-------------------+---------------------------------------------------------------+
+
+.. _delimitmate: https://github.com/Raimondi/delimitMate
+.. _deoplete: https://github.com/Shougo/deoplete.nvim
+.. _neocomplete: https://github.com/Shougo/neocomplete.vim
+.. _emmet-vim: https://github.com/mattn/emmet-vim
+.. _gen_tags: https://github.com/jsfaint/gen_tags.vim
+.. _neoinclude: https://github.com/Shougo/neoinclude.vim
+.. _neopairs: https://github.com/Shougo/neopairs.vim
+.. _deoplete-go: https://github.com/zchee/deoplete-go
+.. _deoplete-jedi: https://github.com/zchee/deoplete-jedi
+.. _vim-table-mode: https://github.com/dhruvasagar/vim-table-mode
 
 Operators & Text Objects
 ------------------------
@@ -268,50 +344,6 @@ Operators & Text Objects
 +-----------------------+------------------------------------------------------+
 | `CamelCaseMotion`_    | Better movement in camel case names                  |
 +-----------------------+------------------------------------------------------+
-
-.. _polyglot: https://github.com/sheerun/vim-polyglot
-.. _mustache: https://github.com/mustache/vim-mustache-handlebars
-.. _jinja: https://github.com/mitsuhiko/vim-jinja
-.. _css3-syntax: https://github.com/hail2u/vim-css3-syntax
-.. _csv: https://github.com/chrisbra/csv.vim
-.. _logstash: https://github.com/robbles/logstash.vim
-.. _i3: https://github.com/PotatoesMaster/i3-vim-syntax
-.. _portfile: https://github.com/jstrater/mpvim
-
-.. _vim-commentary: https://github.com/tpope/vim-commentary
-.. _nerdtree: https://github.com/scrooloose/nerdtree
-.. _gita: https://github.com/lambdalisue/vim-gita
-.. _vim-asterisk: https://github.com/haya14busa/vim-asterisk
-.. _vim-anzu: https://github.com/osyo-manga/vim-anzu
-.. _undotree: https://github.com/mbbill/undotree
-.. _incsearch: https://github.com/haya14busa/incsearch.vim
-.. _codi: https://github.com/metakirby5/codi.vim
-.. _vim-peekaboo: https://github.com/junegunn/vim-peekaboo
-.. _vim-indent: https://github.com/timkendrick/vim-indent
-.. _vim-abolish: https://github.com/tpope/vim-abolish
-.. _expand-region: https://github.com/terryma/vim-expand-region
-.. _prettyprint: https://github.com/thinca/vim-prettyprint
-.. _tagbar: https://github.com/majutsushi/tagbar
-
-.. _indentline: https://github.com/Yggdroot/indentLine
-.. _choosewin: https://github.com/t9md/vim-choosewin
-.. _vim-parenmatch: https://github.com/itchyny/vim-parenmatch
-.. _lightline: https://github.com/itchyny/lightline.vim
-.. _vim-signature: https://github.com/kshenoy/vim-signature
-.. _indentLine: https://github.com/Yggdroot/indentLine
-.. _rainbow: https://github.com/luochen1990/rainbow
-.. _GoldenView: https://github.com/zhaocai/GoldenView.Vim
-.. _vim-sneak: https://github.com/justinmk/vim-sneak
-.. _committia: https://github.com/rhysd/committia.vim
-.. _FastFold: https://github.com/Konfekt/FastFold
-.. _neomake: https://github.com/neomake/neomake
-.. _vim-repeat: https://github.com/tpope/vim-repeat
-
-.. _delimitmate: https://github.com/Raimondi/delimitMate
-.. _deoplete: https://github.com/Shougo/deoplete.nvim
-.. _neocomplete: https://github.com/Shougo/neocomplete.vim
-.. _emmet-vim: https://github.com/mattn/emmet-vim
-.. _gen_tags: https://github.com/jsfaint/gen_tags.vim
 
 .. _operator-user: https://github.com/kana/vim-operator-user
 .. _operator-replace: https://github.com/kana/vim-operator-replace

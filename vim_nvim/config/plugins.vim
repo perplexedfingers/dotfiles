@@ -41,9 +41,9 @@ call dein#add('jstrater/mpvim', {'on_ft': 'portfile'})
 call dein#add('tpope/vim-git', {
   \'on_ft': ['gitcommit', 'gitrebase', 'gitconfig', 'gitsendemail']})
 call dein#add('vim-jp/syntax-vim-ex', {'on_ft': 'vim'})
-call dein#add('andreshazard/vim-logreview', {'on_ft': 'vim'})
 call dein#add('Shougo/neco-vim', {'on_ft': 'vim'})
 call dein#add('sheerun/vim-polyglot', {'on_path': '.*'})
+call dein#add('robbles/logstash.vim', {'on_ft': 'logstash'})
 
 " }}}
 " Commands {{{
@@ -116,12 +116,6 @@ call dein#add('zchee/deoplete-jedi', {
   \'on_ft': 'python', 'on_event': 'InsertEnter',
   \'on_source': 'deoplete.nvim',
   \'if': 'has("nvim")'})
-call dein#add('carlitux/deoplete-ternjs', {
-  \ 'if': 'executable("tern") && has("nvim")',
-  \ 'on_source': 'deoplete.nvim',
-  \ 'on_ft': 'javascript',
-  \ 'on_event': 'InsertEnter'
-  \ })
 call dein#add('Raimondi/delimitMate', {
   \ 'on_event': 'InsertEnter',
   \ 'hook_source': 'let g:delimitMate_expand_cr = 1',
@@ -131,6 +125,8 @@ call dein#add('jsfaint/gen_tags.vim', {
 
 call dein#add('mattn/emmet-vim', {
   \'on_event': 'InsertEnter', 'on_ft': ['css', 'html', 'jsx']})
+call dein#add('dhruvasagar/vim-table-mode', {
+  \'on_cmd': ['TableModeToggle', 'Tableize', 'TableSort']})
 " }}}
 " Operators {{{
 " ---------
