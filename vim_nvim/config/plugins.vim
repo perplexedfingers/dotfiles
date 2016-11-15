@@ -12,7 +12,6 @@ function! s:vimproc_make()
     let l:cmd = 'make'
   endif
   let g:dein#plugin.build = l:cmd
-  let g:vimproc#dll_path = '~/.cache/vim/dein/repos/github.com/Shougo/vimproc.vim/lib/vimproc_freebsd_amd64.so'
 endfunction
 
 " Loaded on startup {{{

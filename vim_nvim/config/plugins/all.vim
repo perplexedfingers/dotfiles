@@ -2,6 +2,10 @@ scriptencoding utf-8
 " Plugin Settings
 "---------------------------------------------------------
 
+if dein#tap('vimproc')
+  let g:vimproc#dll_path = '~/.cache/vim/dein/repos/github.com/Shougo/vimproc.vim/lib/vimproc_freebsd_amd64.so'
+endif
+
 if dein#tap('vim-commentary')
   xmap gc  <Plug>Commentary
   nmap gc  <Plug>Commentary
@@ -279,9 +283,9 @@ endif
 
 "}}}
 if dein#tap('vim-table-mode') "{{{
-  autocmd MyAutoCmd *.md,*.makrdown let g:table_mode_corner="|"
-  autocmd MyAutoCmd *.rst let g:table_mode_corner_corner="+"
-  autocmd MyAutoCmd *.rst let g:table_mode_header_fillchar="="
+  autocmd MyAutoCmd BufEnter *.md,*.makrdown let g:table_mode_corner="|"
+  autocmd MyAutoCmd BufEnter *.rst let g:table_mode_corner_corner="+"
+  autocmd MyAutoCmd BufEnter *.rst let g:table_mode_header_fillchar="="
 endif
 "}}}
 " vim: set ts=2 sw=2 tw=80 et :
