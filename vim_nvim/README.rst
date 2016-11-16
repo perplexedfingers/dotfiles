@@ -10,12 +10,14 @@ Features
 - Neovim-centric
 - Fast startup time
 - Robust, yet light weight
-- Lazy-load 90% of plugins with [dein]
+- Lazy-load 90% of plugins with `dein`__
 - Modular configuration
 - Extensive ``deoplete`` and ``neocomplete`` setup
 - Lightweight simple status
 - Easy customizable theme
 - Premium color-schemes
+
+__ https://github.com/Shougo/dein.vim
 
 Install
 =======
