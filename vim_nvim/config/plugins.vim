@@ -42,6 +42,7 @@ call dein#add('tpope/vim-git', {
 call dein#add('vim-jp/syntax-vim-ex', {'on_ft': 'vim'})
 call dein#add('Shougo/neco-vim', {'on_ft': 'vim'})
 call dein#add('sheerun/vim-polyglot', {'on_path': '.*'})
+call dein#add('Shougo/context_filetype.vim', {'lazy': 1})
 call dein#add('robbles/logstash.vim', {'on_ft': 'logstash'})
 
 " }}}
@@ -56,12 +57,11 @@ call dein#add('haya14busa/vim-asterisk', {'on_map': {'vn': '<Plug>'}})
 call dein#add('osyo-manga/vim-anzu', {'on_map': {'vn': '<Plug>'}})
 call dein#add('mbbill/undotree', {'on_cmd': 'UndotreeToggle'})
 call dein#add('metakirby5/codi.vim', {'on_cmd': 'Codi'})
-call dein#add('thinca/vim-prettyprint', {'on_cmd': 'PP', 'on_func': 'PP'})
 call dein#add('junegunn/vim-peekaboo', {'on_map': {'n': '"'}})
 call dein#add('timkendrick/vim-indent', {
   \'on_cmd': ['IndentTabsToSpaces', 'IndentSpacesToTabs', 'IndentCleanup']})
 call dein#add('tpope/vim-abolish', {'on_cmd': 'Subvert'})
-call dein#add('tpope/vim-commentary', {'on_map': '<Plug>Commentary'})
+call dein#add('tyru/caw.vim', {'on_map': {'nx': '<Plug>'}})
 call dein#add('terryma/vim-expand-region', {'on_map': '<Plug>'})
 call dein#add('skywind3000/asyncrun.vim', {'on_cmd': 'AsyncRun'})
 " }}}

@@ -19,29 +19,6 @@ Features
 
 __ https://github.com/Shougo/dein.vim
 
-Install
-=======
-
-If you are using Neovim, clone with:
-
-.. code:: sh
-
-    mkdir -p "${XDG_CONFIG_HOME:=$HOME/.config}"
-    git clone git@github.com:r2qokk/vim-config.git "${XDG_CONFIG_HOME:=$HOME/.config}/nvim"
-
-Or, if you are using Vim:
-
-.. code:: sh
-
-    git clone git@github.com:r2qokk/vim-config.git ~/.vim
-
-Once cloned,
-
-1. Enter the directory you've cloned into
-2. Run `make test` to make sure you have required dependencies
-3. Run `make`
-4. That's it! Start `nvim` or `vim`.
-
 Upgrade
 =======
 
@@ -60,7 +37,7 @@ in your `.profile` or `.bashrc`:
     # Set vimrc's location and source it on vim startup
     export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
-If you're curious how it's done, see `vimrc:13-20`__ 
+If you're curious how it's done, see `vimrc:13-20`__
 
 __ ./config/vimrc#L13-L20
 
@@ -116,23 +93,25 @@ Plugin Highlights
 Non Lazy-Loaded Plugins
 =======================
 
-+-------------------+----------------------------------------+
-| Name              | Description                            |
-+===================+========================================+
-| `dein`_           | Dark powered Vim/Neovim plugin manager |
-+-------------------+----------------------------------------+
-| `vimproc`_        | Interactive command execution          |
-+-------------------+----------------------------------------+
-| `colorschemes`_   | Awesome color-schemes                  |
-+-------------------+----------------------------------------+
-| `cursorword`_     | Underlines word under cursor           |
-+-------------------+----------------------------------------+
-| `gitbranch`_      | Lightweight git branch detection       |
-+-------------------+----------------------------------------+
-| `vim-parenmatch`_ | Intelligent pair matching              |
-+-------------------+----------------------------------------+
-| `vim-quantum`_    | PaperColor alternative                 |
-+-------------------+----------------------------------------+
++-------------------------+-----------------------------------------+
+| Name                    | Description                             |
++=========================+=========================================+
+| `dein`_                 | Dark powered Vim/Neovim plugin manager  |
++-------------------------+-----------------------------------------+
+| `vimproc`_              | Interactive command execution           |
++-------------------------+-----------------------------------------+
+| `colorschemes`_         | Awesome color-schemes                   |
++-------------------------+-----------------------------------------+
+| `cursorword`_           | Underlines word under cursor            |
++-------------------------+-----------------------------------------+
+| `gitbranch`_            | Lightweight git branch detection        |
++-------------------------+-----------------------------------------+
+| `vim-parenmatch`_       | Intelligent pair matching               |
++-------------------------+-----------------------------------------+
+| `vim-quantum`_          | PaperColor alternative                  |
++-------------------------+-----------------------------------------+
+| `context_filetype.vim`_ | Context filetype library for Vim script |
++-------------------------+-----------------------------------------+
 
 .. _dein: https://github.com/Shougo/dein.vim
 .. _vimproc: https://github.com/Shougo/vimproc.vim
@@ -140,6 +119,7 @@ Non Lazy-Loaded Plugins
 .. _cursorword: https://github.com/itchyny/vim-cursorword
 .. _gitbranch: https://github.com/itchyny/vim-gitbranch
 .. _vim-quantum: https://github.com/tyrannicaltoucan/vim-quantum
+.. _context_filetype.vim: https://github.com/Shougo/context_filetype.vim
 
 Lazy-Loaded Plugins
 ===================
@@ -188,57 +168,51 @@ Mainly use `polyglot`_
 Commands
 --------
 
-+-------------------+-----------------------------------------------------+
-| Name              | Description                                         |
-+===================+=====================================================+
-| `vim-commentary`_ | Robust commenting                                   |
-+-------------------+-----------------------------------------------------+
-| `gita`_           | An awesome git handling plugin                      |
-+-------------------+-----------------------------------------------------+
-| `undotree`_       | Ultimate undo history visualizer                    |
-+-------------------+-----------------------------------------------------+
-| `incsearch`_      | Improved incremental searching                      |
-+-------------------+-----------------------------------------------------+
-| `expand-region`_  | Visually select increasingly larger regions of text |
-+-------------------+-----------------------------------------------------+
-| `prettyprint`_    | Pretty-print vim variables                          |
-+-------------------+-----------------------------------------------------+
-| `indentline`_     | Display vertical indention lines                    |
-+-------------------+-----------------------------------------------------+
-| `choosewin`_      | Choose window to use, like tmux's 'display-pane'    |
-+-------------------+-----------------------------------------------------+
-| `nerdtree`_       | File browser                                        |
-+-------------------+-----------------------------------------------------+
-| `vim-asterisk`_   | Improved wild card character                        |
-+-------------------+-----------------------------------------------------+
-| `vim-anzu`_       | Improved search output                              |
-+-------------------+-----------------------------------------------------+
-| `codi`_           | Script playground                                   |
-+-------------------+-----------------------------------------------------+
-| `vim-peekaboo`_   | Yank management                                     |
-+-------------------+-----------------------------------------------------+
-| `vim-indent`_     | Tab Space convert                                   |
-+-------------------+-----------------------------------------------------+
-| `vim-abolish`_    | Replace variant of words                            |
-+-------------------+-----------------------------------------------------+
-| `asyncrun`_       | As the name is                                      |
-+-------------------+-----------------------------------------------------+
-| `tagbar`_         | Tag view                                            |
-+-------------------+-----------------------------------------------------+
++------------------+---------------------------------------------------------------------------------------------------------+
+| Name             | Description                                                                                             |
++==================+=========================================================================================================+
+| `caw.vim`_       | Vim comment plugin: supported operator/non-operator mappings, repeatable by dot-command, 300+ filetypes |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `gita`_          | An awesome git handling plugin                                                                          |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `undotree`_      | Ultimate undo history visualizer                                                                        |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `expand-region`_ | Visually select increasingly larger regions of text                                                     |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `indentline`_    | Display vertical indention lines                                                                        |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `choosewin`_     | Choose window to use, like tmux's 'display-pane'                                                        |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `nerdtree`_      | File browser                                                                                            |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `vim-asterisk`_  | Improved wild card character                                                                            |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `vim-anzu`_      | Improved search output                                                                                  |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `codi`_          | Script playground                                                                                       |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `vim-peekaboo`_  | Yank management                                                                                         |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `vim-indent`_    | Tab Space convert                                                                                       |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `vim-abolish`_   | Replace variant of words                                                                                |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `asyncrun`_      | As the name is                                                                                          |
++------------------+---------------------------------------------------------------------------------------------------------+
+| `tagbar`_        | Tag view                                                                                                |
++------------------+---------------------------------------------------------------------------------------------------------+
 
-.. _vim-commentary: https://github.com/tpope/vim-commentary
+.. _caw.vim: https://github.com/tyru/caw.vim
 .. _nerdtree: https://github.com/scrooloose/nerdtree
 .. _gita: https://github.com/lambdalisue/vim-gita
 .. _vim-asterisk: https://github.com/haya14busa/vim-asterisk
 .. _vim-anzu: https://github.com/osyo-manga/vim-anzu
 .. _undotree: https://github.com/mbbill/undotree
-.. _incsearch: https://github.com/haya14busa/incsearch.vim
 .. _codi: https://github.com/metakirby5/codi.vim
 .. _vim-peekaboo: https://github.com/junegunn/vim-peekaboo
 .. _vim-indent: https://github.com/timkendrick/vim-indent
 .. _vim-abolish: https://github.com/tpope/vim-abolish
 .. _expand-region: https://github.com/terryma/vim-expand-region
-.. _prettyprint: https://github.com/thinca/vim-prettyprint
 .. _tagbar: https://github.com/majutsushi/tagbar
 .. _asyncrun: https://github.com/skywind3000/asyncrun.vim
 .. _choosewin: https://github.com/t9md/vim-choosewin

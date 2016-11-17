@@ -6,32 +6,37 @@ if dein#tap('vimproc')
   let g:vimproc#dll_path = '~/.cache/vim/dein/repos/github.com/Shougo/vimproc.vim/lib/vimproc_freebsd_amd64.so'
 endif
 
-if dein#tap('vim-commentary')
-  xmap gc  <Plug>Commentary
-  nmap gc  <Plug>Commentary
-  omap gc  <Plug>Commentary
-  nmap gcc <Plug>CommentaryLine
-  nmap cgc <Plug>ChangeCommentary
-  nmap gcu <Plug>Commentary<Plug>Commentary
-endif
-
-if dein#tap('deoplete-jedi') && has('nvim') "{{{
-  autocmd MyAutoCmd FileType python setlocal omnifunc=
-endif
-
 "}}}
-if dein#tap('neocomplete') && has('lua') "{{{
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#data_directory = $VARPATH.'/complete'
+if dein#tap('caw.vim') "{{{
+	let g:caw_zeropos_sp = ''
+	let g:caw_zeropos_sp_right = ''
+	let g:caw_hatpos_sp = ''
+	let g:caw_hatpos_skip_blank_line = 1
+	let g:caw_dollarpos_sp_right = ''
+	let g:caw_dollarpos_skip_blank_line = 1
+	let g:caw_box_sp_right = ''
+	autocmd MyAutoCmd FileType * call s:init_caw()
+	function! s:init_caw()
+		if ! &l:modifiable
+			silent! nunmap <buffer> gc
+			silent! xunmap <buffer> gc
+			silent! nunmap <buffer> <Leader>v
+			silent! xunmap <buffer> <Leader>v
+			silent! nunmap <buffer> <Leader>V
+			silent! xunmap <buffer> <Leader>V
+		else
+			nmap <buffer> gc <Plug>(caw:prefix)
+			xmap <buffer> gc <Plug>(caw:prefix)
+			nmap <buffer> <Leader>V <Plug>(caw:hatpos:toggle)
+			xmap <buffer> <Leader>V <Plug>(caw:hatpos:toggle)
+			nmap <buffer> <Leader>v <Plug>(caw:zeropos:toggle)
+			xmap <buffer> <Leader>v <Plug>(caw:zeropos:toggle)
+		endif
+	endfunction
 endif
 
 "}}}
 if dein#tap('emmet-vim') "{{{
-  let g:use_emmet_complete_tag = 0
-  let g:user_emmet_install_global = 0
-  let g:user_emmet_install_command = 0
-  let g:user_emmet_mode = 'i'
-
   autocmd MyAutoCmd FileType html,css,jsx,javascript.jsx
     \ EmmetInstall
     \ | imap <buffer> <C-Return> <Plug>(emmet-expand-abbr)
@@ -59,7 +64,7 @@ endif
 
 "}}}
 if dein#tap('committia.vim') "{{{
-  let g:committia_min_window_width = 79
+  let g:committia_min_window_width = 70
   let g:committia_hooks = {}
   function! g:committia_hooks.edit_open(info)
     " If no commit message, start with insert mode
@@ -70,8 +75,8 @@ if dein#tap('committia.vim') "{{{
 
     " Scroll the diff window from insert mode
     " Map <C-n> and <C-p>
-    imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
-    imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
+    imap <buffer><C-d> <Plug>(committia-scroll-diff-down-half)
+    imap <buffer><C-u> <Plug>(committia-scroll-diff-up-half)
   endfunction
 endif
 
@@ -88,9 +93,6 @@ if dein#tap('vim-signature') "{{{
   let g:SignatureMarkTextHLDynamic = 1
   let g:SignatureMarkerTextHLDynamic = 1
   let g:SignaturePurgeConfirmation = 1
-  let g:SignatureDeleteConfirmation = 0
-  let g:SignatureForceRemoveGlobal = 1
-  let g:signature_set_location_list_convenience_maps = 0
   let g:SignatureMap = {
     \ 'ListBufferMarks':   'm/',
     \ 'ListBufferMarkers': 'm?',
@@ -157,11 +159,9 @@ if dein#tap('vim-choosewin') "{{{
   nmap _         <Plug>(choosewin)
   nmap <Leader>- :<C-u>ChooseWinSwap<CR>
 
-  let g:choosewin_label = 'FGHJKLZXCVBNM'
   let g:choosewin_overlay_enable = 1
   let g:choosewin_statusline_replace = 1
-  let g:choosewin_tabline_replace = 1
-  let g:choosewin_label_padding = 3
+  let g:choosewin_overlay_clear_multibyte = 0
   let g:choosewin_blink_on_land = 0
 
   let g:choosewin_color_label = {
@@ -178,9 +178,8 @@ endif
 
 "}}}
 if dein#tap('vim-gitgutter') "{{{
-" let g:gitgutter_realtime = 1
-" let g:gitgutter_eager = 0
   let g:gitgutter_map_keys = 0
+  let g:gitgutter_sh = $SHELL
 
   nmap <Leader>hj <Plug>GitGutterNextHunk
   nmap <Leader>hk <Plug>GitGutterPrevHunk
@@ -213,37 +212,26 @@ if dein#tap('vim-markdown') "{{{
 endif
 
 "}}}
-if dein#tap('undotree') "{{{
-  nnoremap <Leader>gu  :UndotreeToggle<CR>
-endif
-
-"}}}
 if dein#tap('vim-anzu') "{{{
-  let g:anzu_status_format = 'match %i of %l'
+	let g:anzu_status_format = 'match %i of %l'
 
-  autocmd MyAutoCmd CursorMoved * call anzu#clear_search_status()
+	nmap n n<Plug>(anzu-update-search-status)
+	nmap N N<Plug>(anzu-update-search-status)
+	nmap <silent> <Leader>cc :<C-u>call anzu#clear_search_status()<CR>
+	autocmd MyAutoCmd CursorHold * call anzu#clear_search_status()
 endif
 
 "}}}
-if dein#tap('incsearch.vim') "{{{
-  let g:incsearch#auto_nohlsearch = 1
+if dein#tap('vim-asterisk') "{{{
+	map *   <Plug>(asterisk-g*)<Plug>(anzu-update-search-status)
+	map g*  <Plug>(asterisk-*)<Plug>(anzu-update-search-status)
+	map #   <Plug>(asterisk-g#)<Plug>(anzu-update-search-status)
+	map g#  <Plug>(asterisk-#)<Plug>(anzu-update-search-status)
 
-  map /  <Plug>(incsearch-forward)
-  map ?  <Plug>(incsearch-backward)
-  map g/ <Plug>(incsearch-stay)
-
-  map n <Plug>(incsearch-nohl)<Plug>(anzu-n)
-  map N <Plug>(incsearch-nohl)<Plug>(anzu-N)
-
-  map *   <Plug>(incsearch-nohl)<Plug>(asterisk-*)<Plug>(anzu-update-search-status)
-  map g*  <Plug>(incsearch-nohl)<Plug>(asterisk-g*)<Plug>(anzu-update-search-status)
-  map #   <Plug>(incsearch-nohl)<Plug>(asterisk-#)<Plug>(anzu-update-search-status)
-  map g#  <Plug>(incsearch-nohl)<Plug>(asterisk-g#)<Plug>(anzu-update-search-status)
-
-  map z*  <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)<Plug>(anzu-update-search-status)
-  map gz* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)<Plug>(anzu-update-search-status)
-  map z#  <Plug>(incsearch-nohl0)<Plug>(asterisk-z#)<Plug>(anzu-update-search-status)
-  map gz# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)<Plug>(anzu-update-search-status)
+	map z*  <Plug>(asterisk-z*)<Plug>(anzu-update-search-status)
+	map gz* <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status)
+	map z#  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status)
+	map gz# <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status)
 endif
 
 "}}}
@@ -285,7 +273,7 @@ endif
 if dein#tap('vim-table-mode') "{{{
   autocmd MyAutoCmd BufEnter *.md,*.makrdown let g:table_mode_corner="|"
   autocmd MyAutoCmd BufEnter *.rst let g:table_mode_corner_corner="+"
-  autocmd MyAutoCmd BufEnter *.rst let g:table_mode_header_fillchar="="
+    \ | let g:table_mode_header_fillchar="="
 endif
 "}}}
 " vim: set ts=2 sw=2 tw=80 et :
