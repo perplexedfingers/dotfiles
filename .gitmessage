@@ -1,0 +1,75 @@
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+
+# 50-character subject line
+# 72-character wrapped longer description.
+#
+# Allowed <type>:
+# feat (feature)
+# fix (bug fix)
+# docs (documentation)
+# style (formatting, missing semi colons, …)
+# refactor
+# test (when adding missing tests)
+# chore (maintain)
+#
+# <subject> text:
+# This is a very short description of the change.
+# use imperative, present tense: "change" not "changed" nor "changes"
+# don't capitalize first letter
+# no dot (.) at the end
+#
+# <body> text:
+# just as in <subject> use imperative, present tense
+# includes motivation for the change and contrasts with previous behavior
+#
+# <footer> text:
+# breaking changes
+# referencing issues
+# Closes #123
+# Closes #US321, #D234, #QXCR1001345821
+#
+#
+# Examples:
+#
+# ====================
+# fix(module): reboot module behavior refactor
+#
+# Couple of enhancements:
+# - New reboot module snippet introduced in Utility folder
+# - Refactor reboot module unused variables
+# - Provide more guidances on error reporting/handling
+#
+# Closes #D388
+#
+# ===================
+# fix(core): interpolated variables for local/global
+#
+# Fixed variable type error resided in job.py, which didn't convert
+# variable type to string.
+#
+# Dependency commitID: 7b324f9e
+#
+# Closes #D383
+#
+# ===================
+# feat(l2a): add testcells into L2A DB via Cirrus
+#
+# New l2a_api.json snippet created for L2A DB API manipulation.
+# Modify fetch.py in L2 module to support API action.
+#
+# Closes #US2066
+#
+# ==================
+# refactor(snippets): fix the include path issue
+#
+# The snippets' folder structure was adjusted in commit
+# 7b054577205deeb8bd105a89e49ca0fc3f4b3881, so the original include path in
+# Linux_hello_ctrl_alm_notify.json should make corresponding change as wll
+#
+# BREAKING CHANGE: All cirrus snippets have been restructured for general purpose
+# 
+# Closes #QXCR1001435702
