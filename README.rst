@@ -1,27 +1,37 @@
 Usage
 =====
 
-for neovim
+for neovim/vim with XDG support
 ----------
 .. code:: sh
 
-    mkdir -p ~/.config
-    ln -s vim_nvim ~/.config/nvim
-    cd ~/.config/nvim
+    mkdir ~/.config
+    cd ~/.config
+    ln -s path/to/vim_nvim nvim
+    cd nvim
     make test
     make install
 
-for vim
+for vim/neovim without XDG support
 -------
 .. code:: sh
 
-    ln -s vim_nvim ~/.vim
+    cd ~
+    ln -s path/to/vim_nvim ~/.vim
     cd ~/.vim
     make test
     make install
 
 for tmux
 --------
-.. code-block:: shell
+.. code:: sh
 
     ln -s .tmux.conf ~/.tmux.conf
+
+
+for git configuration
+---------------------
+.. code:: sh
+
+    ln -s .gitmessage ~/.gitmessage
+    ln -s .gitcommit ~/.gitcommit
