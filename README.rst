@@ -17,8 +17,8 @@ for vim/neovim without XDG support
 .. code:: sh
 
     cd ~
-    ln -s path/to/vim_nvim ~/.vim
-    cd ~/.vim
+    ln -s path/to/vim_nvim .vim
+    cd .vim
     make test
     make install
 
@@ -26,12 +26,14 @@ for tmux
 --------
 .. code:: sh
 
-    ln -s .tmux.conf ~/.tmux.conf
+    cd ~
+    ln -s path/to/.tmux.conf .tmux.conf
 
 
 for git configuration
 ---------------------
 .. code:: sh
 
-    ln -s .gitmessage ~/.gitmessage
-    ln -s .gitcommit ~/.gitcommit
+    cd ~
+    ln -s path/to/.gitmessage .gitmessage
+    ln -s path/to/.gitcommit .gitcommit
