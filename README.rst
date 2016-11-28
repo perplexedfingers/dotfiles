@@ -27,7 +27,7 @@ for tmux
 .. code:: sh
 
     cd ~
-    ln -s path/to/.tmux.conf .tmux.conf
+    ln -s path/to/tmux.conf .tmux.conf
 
 
 for git configuration
@@ -35,5 +35,5 @@ for git configuration
 .. code:: sh
 
     cd ~
-    ln -s path/to/.gitmessage .gitmessage
-    ln -s path/to/.gitcommit .gitcommit
+    ln -s path/to/gitmessage .gitmessage
+    ln -s path/to/gitcommit .gitcommit

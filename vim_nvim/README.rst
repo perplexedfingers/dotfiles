@@ -177,8 +177,6 @@ Commands
 +------------------+---------------------------------------------------------------------------------------------------------+
 | `undotree`_      | Ultimate undo history visualizer                                                                        |
 +------------------+---------------------------------------------------------------------------------------------------------+
-| `expand-region`_ | Visually select increasingly larger regions of text                                                     |
-+------------------+---------------------------------------------------------------------------------------------------------+
 | `indentline`_    | Display vertical indention lines                                                                        |
 +------------------+---------------------------------------------------------------------------------------------------------+
 | `choosewin`_     | Choose window to use, like tmux's 'display-pane'                                                        |
@@ -212,7 +210,6 @@ Commands
 .. _vim-peekaboo: https://github.com/junegunn/vim-peekaboo
 .. _vim-indent: https://github.com/timkendrick/vim-indent
 .. _vim-abolish: https://github.com/tpope/vim-abolish
-.. _expand-region: https://github.com/terryma/vim-expand-region
 .. _tagbar: https://github.com/majutsushi/tagbar
 .. _asyncrun: https://github.com/skywind3000/asyncrun.vim
 .. _choosewin: https://github.com/t9md/vim-choosewin

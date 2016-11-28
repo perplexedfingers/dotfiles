@@ -62,7 +62,6 @@ call dein#add('timkendrick/vim-indent', {
   \'on_cmd': ['IndentTabsToSpaces', 'IndentSpacesToTabs', 'IndentCleanup']})
 call dein#add('tpope/vim-abolish', {'on_cmd': 'Subvert'})
 call dein#add('tyru/caw.vim', {'on_map': {'nx': '<Plug>'}})
-call dein#add('terryma/vim-expand-region', {'on_map': '<Plug>'})
 call dein#add('skywind3000/asyncrun.vim', {'on_cmd': 'AsyncRun'})
 " }}}
 " Interface {{{
