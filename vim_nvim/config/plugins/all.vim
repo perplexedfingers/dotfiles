@@ -207,6 +207,35 @@ if dein#tap('CamelCaseMotion') "{{{
 endif
 
 "}}}
+if dein#tap('caw.vim') "{{{
+	let g:caw_zeropos_sp = ''
+	let g:caw_zeropos_sp_right = ''
+	let g:caw_hatpos_sp = ''
+	let g:caw_hatpos_skip_blank_line = 1
+	let g:caw_dollarpos_sp_right = ''
+	let g:caw_dollarpos_skip_blank_line = 1
+	let g:caw_box_sp_right = ''
+	autocmd MyAutoCmd FileType * call s:init_caw()
+	function! s:init_caw()
+		if ! &l:modifiable
+			silent! nunmap <buffer> gc
+			silent! xunmap <buffer> gc
+			silent! nunmap <buffer> <Leader>v
+			silent! xunmap <buffer> <Leader>v
+			silent! nunmap <buffer> <Leader>V
+			silent! xunmap <buffer> <Leader>V
+		else
+			nmap <buffer> gc <Plug>(caw:prefix)
+			xmap <buffer> gc <Plug>(caw:prefix)
+			nmap <buffer> <Leader>V <Plug>(caw:tildepos:toggle)
+			xmap <buffer> <Leader>V <Plug>(caw:tildepos:toggle)
+			nmap <buffer> <Leader>v <Plug>(caw:zeropos:toggle)
+			xmap <buffer> <Leader>v <Plug>(caw:zeropos:toggle)
+		endif
+	endfunction
+endif
+
+"}}}
 if dein#tap('gen_tags.vim') "{{{
   autocmd MyAutoCmd BufReadPost,FileReadPost,StdinReadPost *.c{,pp} execute ":GenGTAGS"
   " autocmd MyAutoCmd VimLeavePre *.c{,pp} execute ":ClearGTAGS!"

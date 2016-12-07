@@ -70,6 +70,7 @@ call dein#add('itchyny/lightline.vim', {'on_path': '.*',
   \ 'hook_add': 'source '.$VIMPATH.'/config/plugins/lightline.vim'})
 call dein#add('airblade/vim-gitgutter', {'on_path': '.*'})
 call dein#add('kshenoy/vim-signature', {'on_path': '.*'})
+call dein#add('bronson/vim-trailing-whitespace', {'on_path': '.*'})
 call dein#add('Yggdroot/indentLine', {'on_cmd': 'IndentLinesToggle'})
 call dein#add('luochen1990/rainbow', {'on_path': '.*'})
 call dein#add('zhaocai/GoldenView.Vim', {'on_map': {'n': '<Plug>GoldenView'},
@@ -109,11 +110,11 @@ call dein#add('zchee/deoplete-go', {
   \'on_ft': 'go', 'on_event': 'InsertEnter',
   \'on_source': 'deoplete.nvim',
   \'if': 'has("nvim")'})
-" need python-jedi
-call dein#add('zchee/deoplete-jedi', {
-  \'on_ft': 'python', 'on_event': 'InsertEnter',
-  \'on_source': 'deoplete.nvim',
-  \'if': 'has("nvim")'})
+"" need python-jedi
+"call dein#add('zchee/deoplete-jedi', {
+"  \'on_ft': 'python', 'on_event': 'InsertEnter',
+"  \'on_source': 'deoplete.nvim',
+"  \'if': 'has("nvim")'})
 call dein#add('Raimondi/delimitMate', {
   \ 'on_event': 'InsertEnter',
   \ 'hook_source': 'let g:delimitMate_expand_cr = 1',

@@ -59,7 +59,6 @@ set splitbelow        " Puts new split windows to the bottom of the current
 set autowrite         " Automatically write a file when leaving a modified buffer
 set mousehide         " Hide the mouse cursor while typing
 set hidden            " Allow buffer switching without saving
-set t_Co=256          " Use 256 colors
 set ruler             " Show the ruler
 set showcmd           " Show partial commands in status line and Selected characters/lines in visual mode
 set showmode          " Show current mode in command-line
@@ -76,7 +75,7 @@ set synmaxcol=1000    " Don't syntax highlight long lines
 set winminheight=0
 set wildmode=list:longest,full
 
-set listchars=tab:→\ ,extends:→,precedes:←,nbsp:‡,trail:·
+set listchars=tab:>-,extends:>,precedes:<,nbsp:‡,trail:~,eol:$
 
 set termencoding=utf-8
 set fileencoding=utf-8
@@ -149,18 +148,6 @@ set updatetime=1500 " Idle time to write swap and trigger CursorHold
 if has('nvim')
   " https://github.com/neovim/neovim/issues/2017
   set ttimeoutlen=-1
-endif
-
-if has('gui_running')
-  set guioptions-=r        " Hide the right scrollbar
-  set guioptions-=L        " Hide the left scrollbar
-  set guioptions-=T
-  set guioptions-=e
-  set shortmess+=c
-  " No annoying sound on errors
-  set noerrorbells
-  set novisualbell
-  set t_vb=
 endif
 
 " Key (re)Mappings {
