@@ -11,13 +11,8 @@ else
   set t_Co=256
 endif
 
-if exists('+termguicolors')
-  set background=dark
-  colorscheme quantum
-else
-  set background=dark
-  colorscheme PaperColor
-endif
+set background=dark
+colorscheme PaperColor
 
 if has('gui_running')
   set guifont=Monaco:h14
