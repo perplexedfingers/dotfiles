@@ -22,8 +22,8 @@ augroup MyAutoCmd
 
   " Disable paste and/or update diff when leaving insert mode
   autocmd InsertLeave *
-      \ if &paste | setlocal nopaste mouse=a | echo 'nopaste' | endif |
-      \ if &l:diff | diffupdate | endif
+    \ if &paste | setlocal nopaste mouse=a | echo 'nopaste' | endif |
+    \ if &l:diff | diffupdate | endif
 
   " Open Quickfix window automatically
   autocmd QuickFixCmdPost [^l]* leftabove copen

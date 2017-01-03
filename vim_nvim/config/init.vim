@@ -25,9 +25,9 @@ endif
 
 " }}}
 " Load vault settings "{{{
-if filereadable(expand('$VIMPATH/.vault.vim'))
-  execute 'source' expand('$VIMPATH/.vault.vim')
-endif
+" if filereadable(expand('$VIMPATH/.vault.vim'))
+"   execute 'source' expand('$VIMPATH/.vault.vim')
+" endif
 
 " }}}
 " Respect XDG specification {{{

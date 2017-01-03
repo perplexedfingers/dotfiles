@@ -3,7 +3,8 @@ scriptencoding utf-8
 "---------------------------------------------------------
 
 if dein#tap('vimproc')
-  let g:vimproc#dll_path = '~/.cache/vim/dein/repos/github.com/Shougo/vimproc.vim/lib/vimproc_freebsd_amd64.so'
+  "let g:vimproc#dll_path = '~/.cache/vim/dein/repos/github.com/Shougo/vimproc.vim/lib/vimproc_freebsd_amd64.so'
+  let g:vimproc#dll_path = '~/.cache/vim/dein/repos/github.com/Shougo/vimproc.vim/lib/vimproc_cygwin.dll'
 endif
 
 "}}}
@@ -109,12 +110,12 @@ if dein#tap('tagbar')
 endif
 
 if dein#tap('vim-sneak')
-    nmap s <Plug>Sneak_s
-    nmap S <Plug>Sneak_S
-    xmap s <Plug>Sneak_s
-    xmap S <Plug>Sneak_S
-    omap s <Plug>Sneak_s
-    omap S <Plug>Sneak_S
+  nmap s <Plug>Sneak_s
+  nmap S <Plug>Sneak_S
+  xmap s <Plug>Sneak_s
+  xmap S <Plug>Sneak_S
+  omap s <Plug>Sneak_s
+  omap S <Plug>Sneak_S
 endif
 
 if dein#tap('rainbow')
@@ -237,10 +238,10 @@ endif
 
 "}}}
 if dein#tap('gen_tags.vim') "{{{
-  autocmd MyAutoCmd BufReadPost,FileReadPost,StdinReadPost *.c{,pp} execute ":GenGTAGS"
+  "autocmd MyAutoCmd BufReadPost,FileReadPost,StdinReadPost *.c{,pp} execute ":GenGTAGS"
   " autocmd MyAutoCmd VimLeavePre *.c{,pp} execute ":ClearGTAGS!"
   " Gtags supports only c, cpp and some (v6.5.3)
-  autocmd MyAutoCmd BufReadPost,FileReadPost,StdinReadPost *.{py,js} execute ":GenAll"
+  "autocmd MyAutoCmd BufReadPost,FileReadPost,StdinReadPost *.{py,js} execute ":GenAll"
   " autocmd MyAutoCmd VimLeavePre *.{py,js} execute ":ClearCtags!"
 endif
 

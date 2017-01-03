@@ -106,15 +106,16 @@ call dein#add('Shougo/neopairs.vim', {
   \'on_source': ['neocomplete.vim', 'deoplete.nvim']})
 
 " need build
-call dein#add('zchee/deoplete-go', {
-  \'on_ft': 'go', 'on_event': 'InsertEnter',
-  \'on_source': 'deoplete.nvim',
-  \'if': 'has("nvim")'})
+"call dein#add('zchee/deoplete-go', {
+"  \'on_ft': 'go', 'on_event': 'InsertEnter',
+"  \'on_source': 'deoplete.nvim',
+"  \'if': 'has("nvim")'})
 "" need python-jedi
 "call dein#add('zchee/deoplete-jedi', {
 "  \'on_ft': 'python', 'on_event': 'InsertEnter',
 "  \'on_source': 'deoplete.nvim',
 "  \'if': 'has("nvim")'})
+
 call dein#add('Raimondi/delimitMate', {
   \ 'on_event': 'InsertEnter',
   \ 'hook_source': 'let g:delimitMate_expand_cr = 1',

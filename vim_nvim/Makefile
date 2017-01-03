@@ -5,7 +5,7 @@ XDG_CACHE_HOME ?= $(HOME)/.cache
 default: install
 
 install:
-	pip install flake8 vim-vint yamllint jedi
+	pip install --user flake8 vim-vint yamllint jedi
 	@mkdir -vp "$(XDG_CACHE_HOME)/vim/"{backup,session,swap,tags,undo,view}; \
 	$(vim) -c 'call dein#recache_runtimepath() | echo "Installation complete!"' +q
 
@@ -44,10 +44,10 @@ test:
 			$(info OK),\
 			$(error .. MISSING! Install $(vim) with "+job" enabled))
 	endif
-		$(info Testing pip...)
-		$(if $(shell which pip), $(info OK),\
-			$(error .. MISSING! Is pip available in PATH?))
-		@echo All tests passed, hooray!
+    $(info Testing pip...)
+    $(if $(shell which pip), $(info OK),\
+        $(error .. MISSING! Is pip available in PATH?))
+    @echo All tests passed, hooray!
 
 
 .PHONY: install update upgrade uninstall test
