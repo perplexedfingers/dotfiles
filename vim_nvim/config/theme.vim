@@ -2,7 +2,6 @@ scriptencoding utf-8
 " Theme {{{
 " -----
 
-
 " Enable true color
 if exists('+termguicolors')
   set termguicolors

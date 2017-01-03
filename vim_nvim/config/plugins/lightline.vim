@@ -1,26 +1,28 @@
+scriptencoding utf-8
+
 let g:lightline = {
-    \ 'colorscheme': 'PaperColor',
-    \ 'mode_map': { 'c': 'NORMAL' },
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-    \ },
-    \ 'component': {
-    \   'readonly': '%{&readonly?"x":""}',
-    \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-    \  },
-    \ 'component_function': {
-    \   'modified': 'LightLineModified',
-    \   'readonly': 'LightLineReadonly',
-    \   'fugitive': 'LightLineFugitive',
-    \   'filename': 'LightLineFilename',
-    \   'fileformat': 'LightLineFileformat',
-    \   'filetype': 'LightLineFiletype',
-    \   'fileencoding': 'LightLineFileencoding',
-    \   'mode': 'LightLineMode',
-    \ },
-    \ 'separator': { 'left': '|', 'right': '|' },
-    \ 'subseparator': { 'left': '|', 'right': '|' },
-    \ }
+  \ 'colorscheme': 'PaperColor',
+  \ 'mode_map': { 'c': 'NORMAL' },
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+  \ },
+  \ 'component': {
+  \   'readonly': '%{&readonly?"x":""}',
+  \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+  \  },
+  \ 'component_function': {
+  \   'modified': 'LightLineModified',
+  \   'readonly': 'LightLineReadonly',
+  \   'fugitive': 'LightLineFugitive',
+  \   'filename': 'LightLineFilename',
+  \   'fileformat': 'LightLineFileformat',
+  \   'filetype': 'LightLineFiletype',
+  \   'fileencoding': 'LightLineFileencoding',
+  \   'mode': 'LightLineMode',
+  \ },
+  \ 'separator': { 'left': '|', 'right': '|' },
+  \ 'subseparator': { 'left': '|', 'right': '|' },
+  \ }
 
 function! LightLineModified()
     return &filetype =~? 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -41,8 +43,8 @@ endfunction
 
 function! LightLineFugitive()
     if &filetype !~? 'vimfiler\|gundo' && exists('*fugitigveg#head')
-        let branch = fugitive#head()
-        return branch !=# '' ? '⭠ '.branch : ''
+        let l:branch = fugitive#head()
+        return l:branch !=# '' ? '⭠ '.l:branch : ''
     endif
     return ''
 endfunction

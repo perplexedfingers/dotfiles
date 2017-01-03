@@ -12,7 +12,7 @@ nnoremap > >>_
 nnoremap < <<_
 
 " Disable EX-mode
-nnoremap  Q <Nop>
+nnoremap Q <Nop>
 nnoremap gQ <Nop>
 
 " Navigation in command line
