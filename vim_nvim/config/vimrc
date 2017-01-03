@@ -55,8 +55,7 @@ if dein#load_state(s:path)
   if isdirectory(expand('$VIMPATH/dev'))
     call dein#local(expand('$VIMPATH/dev'), {'frozen': 1, 'merged': 0})
   endif
-  call dein#local(dein#get('awesome-vim-colorschemes').path)
-
+  "call dein#local(dein#get('awesome-vim-colorschemes').path)
   call dein#end()
   call dein#save_state()
   if dein#check_install()
