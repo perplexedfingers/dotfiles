@@ -33,6 +33,9 @@ endfunction
 " Set augroup
 augroup MyAutoCmd
   autocmd!
+  " Lazy-loading filetype syntax and highlighting
+  autocmd MyAutoCmd FileType,Syntax,BufNewFile,BufNew,BufRead
+        \ * call s:lazy_load_filetype()
 augroup END
 
 " Initialize base requirements

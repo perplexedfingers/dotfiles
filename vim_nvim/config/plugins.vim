@@ -21,7 +21,6 @@ call dein#add('itchyny/vim-parenmatch')
 call dein#add('itchyny/vim-cursorword')
 call dein#add('Shougo/vimproc.vim', {
   \'hook_post_update': 'call ' . s:vimproc_make()})
-call dein#add('rafi/awesome-vim-colorschemes')
 call dein#add('NLKNguyen/papercolor-theme')
 call dein#add('tyrannicaltoucan/vim-quantum')
 

@@ -2,16 +2,17 @@ scriptencoding utf-8
 " Theme {{{
 " -----
 
-" Enable true color
-if exists('+termguicolors')
+if exists('+termguicolors') && $TERM !~# '^rxvt'
+  " Enable true color
   set termguicolors
+  set background=dark
+  colorscheme quantum
 else
   " Enable 256 color terminal
   set t_Co=256
+  set background=dark
+  colorscheme PaperColor
 endif
-
-set background=dark
-colorscheme PaperColor
 
 if has('gui_running')
   set guifont=Monaco:h14
