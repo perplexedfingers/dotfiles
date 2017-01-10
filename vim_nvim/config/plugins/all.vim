@@ -209,13 +209,8 @@ endif
 
 "}}}
 if dein#tap('caw.vim') "{{{
-	let g:caw_zeropos_sp = ''
-	let g:caw_zeropos_sp_right = ''
-	let g:caw_hatpos_sp = ''
 	let g:caw_hatpos_skip_blank_line = 1
-	let g:caw_dollarpos_sp_right = ''
 	let g:caw_dollarpos_skip_blank_line = 1
-	let g:caw_box_sp_right = ''
 	autocmd MyAutoCmd FileType * call s:init_caw()
 	function! s:init_caw()
 		if ! &l:modifiable
@@ -248,6 +243,28 @@ endif
 "}}}
 if dein#tap('ale') "{{{
   let g:ale_sign_column_always = 1
+endif
+
+"}}}
+if dein#tap('Neoformat') "{{{
+  let g:neoformat_python_autopep8 = {
+    \ 'exe': 'autopep8',
+    \ 'args': ['-s 4', '-E'],
+    \ 'replace': 1,
+    \ 'stdin': 1,
+    \ 'no_append': 1,
+    \ }
+
+  let g:neoformat_enabled_python = ['autopep8']
+
+  " Enable alignment
+  let g:neoformat_basic_format_align = 1
+
+  " Enable tab to spaces conversion
+  let g:neoformat_basic_format_retab = 1
+
+  " Enable trimmming of trailing whitespace
+  let g:neoformat_basic_format_trim = 1
 endif
 
 "}}}
