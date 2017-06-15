@@ -56,6 +56,8 @@ if exists('$TMUX') "{{{
   " 6 -> solid vertical bar
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>[3 q\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>[0 q\<Esc>\\"
+  " let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  " let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 "}}}
 else "{{{
@@ -64,6 +66,8 @@ else "{{{
   " Cursor shape outside of tmux
   let &t_SI = "\<Esc>[3 q"
   let &t_EI = "\<Esc>[0 q"
+  " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  " let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif "}}}
 
 " vim: set ts=2 sw=2 tw=80 et :

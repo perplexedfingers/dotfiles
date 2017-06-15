@@ -38,6 +38,7 @@ if !has('nvim')
 
 endif
 
+set lazyredraw                 " redraw on-demand
 set showfulltag                " Show tag and tidy search in completion
 set complete-=i                " Exclude files completion
 set completeopt=menuone        " Show menu even for one item
@@ -84,13 +85,6 @@ set wildignore+=*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip
 set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
 set wildignore+=*\\tmp\\*,*.exe            " Windows
 
-" Visual shifting (does not exit Visual mode)
-vnoremap < <gv
-vnoremap > >gv
-" Treat long lines as break lines (useful when moving around in them)
-map j gj
-map k gk
-
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 command! W w !sudo tee % > /dev/null
@@ -102,14 +96,15 @@ set number                    " Line numbers on
 set relativenumber            " Relative numbers on
 set linebreak
 set foldenable
-set foldlevel=3
+set foldlevelstart=3
+set foldnestmax=10
 set foldmethod=syntax
-set foldcolumn=3
 
 highlight clear SignColumn
 highlight clear LineNr
 
-if ( ! has('nvim') || $DISPLAY !=? '') && has('clipboard')
+" if ( ! has('nvim') || $DISPLAY !=? '') && has('clipboard')
+if has('clipboard')
   if has('unnamedplus')
     set clipboard& clipboard+=unnamedplus
   else
@@ -117,22 +112,15 @@ if ( ! has('nvim') || $DISPLAY !=? '') && has('clipboard')
   endif
 endif
 
-if exists('g:vim_better_default_backup_on') && g:vim_better_default_backup_on
-  set backup
-else
-  set nobackup
-  set noswapfile
-  set nowritebackup
-endif
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
 
-if !exists('g:vim_better_default_persistent_undo') ||
-      \ g:vim_better_default_persistent_undo
-  if has('persistent_undo')
-    set undofile             " Persistent undo
-    set undolevels=1000      " Maximum number of changes that can be undone
-    set undoreload=10000     " Maximum number lines to save for undo on a buffer reload
-  endif
-endif
+set undofile             " Persistent undo
+set undolevels=1000      " Maximum number of changes that can be undone
+set undoreload=10000     " Maximum number lines to save for undo on a buffer reload
 
 set timeout ttimeout
 set timeoutlen=750  " Time out on mappings

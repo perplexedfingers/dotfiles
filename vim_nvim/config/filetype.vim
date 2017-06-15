@@ -33,8 +33,19 @@ augroup MyAutoCmd " {{{
 
   autocmd FileType gitcommit,qfreplace setlocal nofoldenable
 
-  " https://webpack.github.io/docs/webpack-dev-server.html#working-with-editors-ides-supporting-safe-write
-  autocmd FileType html,css,jsx,javascript.jsx setlocal backupcopy=yes
+  autocmd BufNewFile,BufRead *.js,*.html,*.css
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4
+
+  autocmd BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
 
   autocmd FileType zsh setlocal foldenable foldmethod=marker
 

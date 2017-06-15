@@ -2,15 +2,14 @@ scriptencoding utf-8
 " Theme {{{
 " -----
 
+set background=dark
 if exists('+termguicolors') && $TERM !~# '^rxvt'
   " Enable true color
   set termguicolors
-  set background=dark
-  colorscheme quantum
+  colorscheme PaperColor
 else
   " Enable 256 color terminal
   set t_Co=256
-  set background=dark
   colorscheme PaperColor
 endif
 
@@ -27,8 +26,7 @@ if has('gui_running')
   set t_vb=
 endif
 
-set showbreak=\ \ \
-set fillchars=vert:│,fold:─
+set showbreak=>\
 
 " hightlight column row in respect of textwidth
 set colorcolumn=+0
