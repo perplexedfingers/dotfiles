@@ -19,7 +19,7 @@ endif
 
 if dein#tap('vim-gitgutter')
   let g:gitgutter_sh = $SHELL
-  let g:gitgutter_sign_column_always = 1
+  set signcolumn=yes
 endif
 
 if dein#tap('caw.vim')
@@ -59,18 +59,19 @@ if dein#tap('neoformat')
   let g:neoformat_python_autopep8 = {
         \'exe': 'autopep8',
         \'stdin': 1,
-        \'args': ['--aggressive',
-        \         '-']
+        \'args': ['-',
+        \         '--aggressive']
         \}
   let g:neoformat_python_isort = {
         \'exe': 'isort',
         \'stdin': 1,
-        \'args': ['--combine-star',
+        \'args': ['-',
+        \         '--combine-star',
         \         '--combine-as',
         \         '--order-by-type',
         \         '--multi_line 0',
         \         '--balanced',
-        \         '-']
+        \         '--quiet']
         \}
 
   let g:neoformat_try_formatprg = 1
@@ -81,6 +82,12 @@ endif
 
 if dein#tap('neomake')
   let g:neomake_python_flake8_maker = {'args': ['--ignore=E501']}
+  let g:neomake_python_python3_maker = {
+        \ 'errorformat': '%E%f:%l:%c: %m',
+        \ 'serialize': 1,
+        \ 'serialize_abort_on_error': 1,
+        \ 'output_stream': 'stdout',
+        \ }
   let g:neomake_open_list = 1
 endif
 
@@ -90,9 +97,13 @@ if dein#tap('vim-table-mode')
     \ | let g:table_mode_header_fillchar="="
 endif
 
-if dein#tap('jedi-vim')
-  let g:jedi#popup_on_dot = 0
-  let g:jedi#completions_command = "<C-N>"
-  let g:jefi#force_py_version = 3
+if dein#tap('papercolor-theme')
+  let g:PaperColor_Theme_Options = {
+  \   'language': {
+  \     'python': {
+  \       'highlight_builtins' : 1
+  \     }
+  \ }
+  \}
 endif
 " vim: set ts=2 sw=2 tw=80 et :

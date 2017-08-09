@@ -4,12 +4,6 @@
 
 scriptencoding utf-8
 
-if &compatible ||
-      \ (exists('g:loaded_vim_better_default') && g:loaded_vim_better_default)
-   finish
-endif
-let g:loaded_vim_better_default = 1
-
 let s:save_cpo = &cpoptions
 set cpoptions&vim
 
@@ -79,7 +73,7 @@ set listchars=tab:>-,extends:>,precedes:<,nbsp:‡,trail:~,eol:$
 
 set termencoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set fileencodings=utf-8,ucs-bom
 
 set wildignore+=*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip
 set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
@@ -87,7 +81,7 @@ set wildignore+=*\\tmp\\*,*.exe            " Windows
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
-command! W w !sudo tee % > /dev/null
+command! W w !sudo tee > /dev/null %
 
 set background=dark           " Assume dark background
 set cursorline                " Highlight current line
@@ -103,7 +97,6 @@ set foldmethod=syntax
 highlight clear SignColumn
 highlight clear LineNr
 
-" if ( ! has('nvim') || $DISPLAY !=? '') && has('clipboard')
 if has('clipboard')
   if has('unnamedplus')
     set clipboard& clipboard+=unnamedplus
