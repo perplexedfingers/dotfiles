@@ -3,7 +3,7 @@ scriptencoding utf-8
 " -----
 
 set background=dark
-if exists('+termguicolors') && $TERM !~# '^rxvt'
+if exists('+termguicolors')
   " Enable true color
   set termguicolors
   colorscheme PaperColor

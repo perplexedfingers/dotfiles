@@ -25,7 +25,9 @@ augroup MyAutoCmd " {{{
     \ | endif
 
   autocmd FileType help
-    \ setlocal iskeyword+=: | setlocal iskeyword+=# | setlocal iskeyword+=-
+    \ setlocal iskeyword+=: |
+    \ setlocal iskeyword+=# |
+    \ setlocal iskeyword+=-
 
   autocmd FileType crontab setlocal nobackup nowritebackup
 
@@ -34,18 +36,23 @@ augroup MyAutoCmd " {{{
   autocmd FileType gitcommit,qfreplace setlocal nofoldenable
 
   autocmd BufNewFile,BufRead *.js,*.html,*.css
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4
+    \ setlocal tabstop=4 |
+    \ setlocal softtabstop=4 |
+    \ setlocal textwidth=120 |
+    \ setlocal expandtab |
+    \ setlocal shiftwidth=4
 
   autocmd BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
+    \ setlocal tabstop=4 |
+    \ setlocal softtabstop=4 |
+    \ setlocal shiftwidth=4 |
+    \ setlocal textwidth=120 |
+    \ setlocal expandtab |
+    \ setlocal autoindent |
+    \ setlocal fileformat=unix |
+    \ setlocal smarttab |
+    \ setlocal nosmartindent |
+    \ setlocal foldmethod=indent
 
   autocmd FileType zsh setlocal foldenable foldmethod=marker
 
@@ -55,8 +62,7 @@ augroup MyAutoCmd " {{{
     \ setlocal path+=./;/
 
   autocmd FileType markdown
-    \ setlocal spell expandtab autoindent
-      \ formatoptions=tcroqn2 comments=n:>
+    \ setlocal spell expandtab autoindent formatoptions=tcroqn2 comments=n:>
 
   autocmd FileType apache setlocal path+=./;/
 
