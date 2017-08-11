@@ -6,7 +6,9 @@ set background=dark
 if exists('+termguicolors')
   " Enable true color
   set termguicolors
-  colorscheme PaperColor
+  let g:quantum_black=1
+  let g:quantum_italics=1
+  colorscheme quantum
 else
   " Enable 256 color terminal
   set t_Co=256

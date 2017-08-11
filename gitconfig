@@ -42,5 +42,5 @@
 	prompt = false
 [rebase]
 	autoSquash = true
-[http]
-	proxy = http://web-proxy.sgp.hpecorp.net:8080
+# [http]
+# 	proxy = http://web-proxy.sgp.hpecorp.net:8080

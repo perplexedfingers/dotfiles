@@ -5,6 +5,7 @@
 " ---
 call dein#add('Shougo/dein.vim')
 call dein#add('NLKNguyen/papercolor-theme')
+call dein#add('tyrannicaltoucan/vim-quantum')
 
 " LAZY LOADING
 " --------------------------------------------------------

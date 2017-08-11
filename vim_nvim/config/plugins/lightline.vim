@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 let g:lightline = {
-  \ 'colorscheme': 'PaperColor',
+  \ 'colorscheme': 'one',
   \ 'mode_map': { 'c': 'NORMAL' },
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
