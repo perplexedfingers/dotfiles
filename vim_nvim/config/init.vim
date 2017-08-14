@@ -24,12 +24,6 @@ if ! isdirectory(expand($VARPATH))
 endif
 
 " }}}
-" Load vault settings "{{{
-" if filereadable(expand('$VIMPATH/.vault.vim'))
-"   execute 'source' expand('$VIMPATH/.vault.vim')
-" endif
-
-" }}}
 " Respect XDG specification {{{
 if ! empty($XDG_CONFIG_HOME) && isdirectory($XDG_CONFIG_HOME.'/vim')
   let $MYVIMRC=expand('$XDG_CONFIG_HOME/vim/config/vimrc')
