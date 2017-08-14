@@ -53,6 +53,8 @@ call dein#add('rhysd/committia.vim', {'on_path': 'COMMIT_EDITMSG'})
 " Completion {{{
 " ----------
 call dein#add('roxma/nvim-completion-manager', {'on_ft': 'python'})
+call dein#add('vim-erlang/vim-erlang-tags', {'on_ft': 'erlang'})
+call dein#add('vim-erlang/vim-erlang-omnicomplete', {'on_ft': 'erlang'})
 
 " }}}
 
