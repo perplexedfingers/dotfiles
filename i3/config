@@ -163,3 +163,9 @@ exec_always ~/.config/i3/natural_mouse_scroll.sh
 # xrandr --output #{display_name} --brightness [0.0|1.0]
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+new_window none
+
+hide_edge_borders both
+
+popup_during_fullscreen smart
