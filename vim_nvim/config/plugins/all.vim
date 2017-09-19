@@ -15,6 +15,43 @@ endif
 
 if dein#tap('rainbow')
   let g:rainbow_active = 1
+  	let g:rainbow_conf = {
+          \'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+          \	'ctermfgs': ['lightblue', 'lightyellow',
+          \              'lightcyan', 'lightmagenta'],
+          \	'operators': '_,\|+\|-\|*\|\/\|===\|!==_',
+          \	'parentheses': ['start=/(/ end=/)/ fold',
+          \                 'start=/\[/ end=/\]/ fold',
+          \                 'start=/{/ end=/}/ fold'],
+          \	'separately': {
+          \		'javascript': {
+          \			'parentheses': ['start=/(/ end=/)/',
+          \                     'start=/\[/ end=/\]/',
+          \                     'start=/{/ end=/}/'],
+          \   },
+          \		'vim': {
+          \			'parentheses': ['start=/(/ end=/)/',
+          \                     'start=/\[/ end=/\]/',
+          \                     'start=/{/ end=/}/ fold',
+          \                     'start=/(/ end=/)/ containedin=vimFuncBody',
+          \                     'start=/\[/ end=/\]/ containedin=vimFuncBody',
+          \                     'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+          \		},
+          \		'html': {
+          \			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+          \		},
+          \		'css': 0,
+          \	}
+          \}
+endif
+
+if dein#tap('nvim-completion-manager')
+  " don't give |ins-completion-menu| messages.  For example,
+  " '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
+  set shortmess+=c
+
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endif
 
 if dein#tap('vim-gitgutter')

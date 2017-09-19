@@ -35,14 +35,14 @@ augroup MyAutoCmd " {{{
 
   autocmd FileType gitcommit,qfreplace setlocal nofoldenable
 
-  autocmd BufNewFile,BufRead *.js,*.html,*.css
-    \ setlocal tabstop=4 |
-    \ setlocal softtabstop=4 |
+  autocmd BufNewFile,BufRead *.html,*.css
+    \ setlocal tabstop=2 |
+    \ setlocal softtabstop=2 |
     \ setlocal textwidth=120 |
     \ setlocal expandtab |
-    \ setlocal shiftwidth=4
+    \ setlocal shiftwidth=2
 
-  autocmd BufNewFile,BufRead *.py
+  autocmd BufNewFile,BufRead *.py,*.js
     \ setlocal tabstop=4 |
     \ setlocal softtabstop=4 |
     \ setlocal shiftwidth=4 |
