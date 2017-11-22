@@ -37,3 +37,44 @@ for git configuration
     cd ~
     ln -s path/to/gitmessage .gitmessage
     ln -s path/to/gitcommit .gitcommit
+
+
+note for Python packages
+------------------------
+
+- flake8
+  vim-vint
+  yamllint
+  jedi
+  neovim
+  proselint
+  http_promt
+  ipython
+  autotpep8
+  isort
+  shyaml
+  glances
+  jsbeautifier
+
+
+note for command line tools
+---------------------------
+
+- tmux
+  neovim
+  ripgrep
+  fd
+  fish
+  git
+  mecurial
+  fossil
+  python3
+  rsync
+  sudo
+  ctags
+  global(gtags)
+  tree
+  shellcheck
+  mosh
+  ncdu
+  hunspell
