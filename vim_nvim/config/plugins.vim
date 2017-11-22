@@ -30,6 +30,7 @@ call dein#add('benekastah/neomake', {'on_cmd': 'Neomake',
 call dein#add('tyru/caw.vim', {'on_map': {'nx': '<Plug>'}})
 call dein#add('justinmk/vim-sneak', {'on_map': '<Plug>Sneak_'})
 call dein#add('machakann/vim-sandwich', {'on_path': '.*'})
+call dein#add('rstacruz/sparkup', {'on_ft': 'html', 'rtp': 'vim'})
 
 " }}}
 
