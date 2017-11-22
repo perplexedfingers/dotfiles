@@ -1,26 +1,29 @@
-for neovim/vim with XDG support
+for vim/neovim with XDG support
 ==========
+
 .. code:: sh
 
     mkdir ~/.config
     cd ~/.config
-    ln =s path/to/vim_nvim nvim
+    ln -s path/to/vim_nvim nvim
     cd nvim
     make test
     make install
 
 for vim/neovim without XDG support
 =======
+
 .. code:: sh
 
     cd ~
-    ln =s path/to/vim_nvim .vim
+    ln -s path/to/vim_nvim .vim
     cd .vim
     make test
     make install
 
 for tmux
 ========
+
 .. code:: sh
 
     cd ~
@@ -29,6 +32,7 @@ for tmux
 
 for git configuration
 =====================
+
 .. code:: sh
 
     cd ~
