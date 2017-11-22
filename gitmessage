@@ -16,6 +16,24 @@
 # test (when adding missing tests)
 # chore (maintain)
 #
+# Allowed <scope>:
+# utility
+# upgrade
+# snippet
+# scheduling
+# rest
+# reservation
+# reporting
+# release
+# module
+# jobber
+# installation
+# gui
+# database
+# core
+# atlas
+# agent
+#
 # <subject> text:
 # This is a very short description of the change.
 # use imperative, present tense: "change" not "changed" nor "changes"
@@ -71,5 +89,5 @@
 # Linux_hello_ctrl_alm_notify.json should make corresponding change as wll
 #
 # BREAKING CHANGE: All cirrus snippets have been restructured for general purpose
-# 
+#
 # Closes #QXCR1001435702
