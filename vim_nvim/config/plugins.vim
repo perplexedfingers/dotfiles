@@ -5,6 +5,8 @@
 " ---
 call dein#add('Shougo/dein.vim')
 call dein#add('NLKNguyen/papercolor-theme')
+call dein#add('itchyny/lightline.vim', {
+  \'hook_add': 'source '.$VIMPATH.'/config/plugins/lightline.vim'})
 
 " LAZY LOADING
 " --------------------------------------------------------
@@ -35,8 +37,6 @@ call dein#add('machakann/vim-sandwich', {'on_path': '.*'})
 
 " Interface {{{
 " ---------
-call dein#add('itchyny/lightline.vim', {'on_path': '.*',
-  \'hook_add': 'source '.$VIMPATH.'/config/plugins/lightline.vim'})
 call dein#add('mhinz/vim-signify', {'on_path': '.*'})
 call dein#add('ntpeters/vim-better-whitespace', {'on_path': '.*'})
 call dein#add('luochen1990/rainbow', {'on_path': '.*'})
