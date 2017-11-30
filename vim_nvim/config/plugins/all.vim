@@ -11,6 +11,8 @@ if dein#tap('tagbar')
 endif
 
 if dein#tap('vim-sneak')
+  map f <Plug>Sneak_s
+  map F <Plug>Sneak_S
 endif
 
 if dein#tap('rainbow')
@@ -96,23 +98,17 @@ endif
 if dein#tap('neoformat')
   let g:neoformat_enabled_python = ['autopep8', 'isort']
 
-  let g:neoformat_python_autopep8 = {
-        \'exe': 'autopep8',
-        \'stdin': 1,
-        \'args': ['-',
-        \         '--aggressive']
-        \}
-  let g:neoformat_python_isort = {
-        \'exe': 'isort',
-        \'stdin': 1,
-        \'args': ['-',
-        \         '--combine-star',
-        \         '--combine-as',
-        \         '--order-by-type',
-        \         '--multi_line 0',
-        \         '--balanced',
-        \         '--quiet']
-        \}
+  " let g:neoformat_python_isort = {
+  "       \'exe': 'isort',
+  "       \'stdin': 1,
+  "       \'args': ['-',
+  "       \         '--combine-star',
+  "       \         '--combine-as',
+  "       \         '--order-by-type',
+  "       \         '--multi_line 0',
+  "       \         '--balanced',
+  "       \         '--quiet']
+  "       \}
 
   let g:neoformat_try_formatprg = 1
   let g:neoformat_basic_format_align = 1
