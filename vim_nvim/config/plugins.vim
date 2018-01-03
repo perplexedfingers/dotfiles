@@ -13,7 +13,6 @@ call dein#add('itchyny/lightline.vim', {
 
 " Commands {{{
 " --------
-call dein#add('lambdalisue/gina.vim', {'on_cmd': 'Gina'})
 call dein#add('mhinz/vim-grepper', {'on_cmd': 'Grepper'})
 call dein#add('jsfaint/gen_tags.vim', {
   \'on_cmd': ['GenCtags', 'ClearCtags', 'GenGTAGS', 'ClearGTAGS']})
