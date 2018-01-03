@@ -41,6 +41,7 @@
 	template = ~/.gitmessage
 [diff]
 	tool = vimdiff
+	algorithm = histogram
 [difftool]
 	prompt = false
 [rebase]
