@@ -8,19 +8,11 @@ call dein#add('NLKNguyen/papercolor-theme')
 call dein#add('itchyny/lightline.vim', {
   \'hook_add': 'source '.$VIMPATH.'/config/plugins/lightline.vim'})
 
-" LAZY LOADING
-" --------------------------------------------------------
-
 " Commands {{{
 " --------
-call dein#add('mhinz/vim-grepper', {'on_cmd': 'Grepper'})
-call dein#add('jsfaint/gen_tags.vim', {
-  \'on_cmd': ['GenCtags', 'ClearCtags', 'GenGTAGS', 'ClearGTAGS']})
-call dein#add('Yggdroot/indentLine', {'on_cmd': 'IndentLinesToggle'})
-call dein#add('sbdchd/neoformat', {'on_cmd': 'Neoformat'})
-call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle'})
 call dein#add('dhruvasagar/vim-table-mode', {
   \'on_cmd': ['TableModeToggle', 'Tableize', 'TableSort']})
+call dein#add('sbdchd/neoformat', {'on_cmd': 'Neoformat'})
 call dein#add('benekastah/neomake', {'on_cmd': 'Neomake',
   \'hook_add': 'source'.$VIMPATH.'/config/plugins/neomake.vim'})
 
@@ -28,20 +20,25 @@ call dein#add('benekastah/neomake', {'on_cmd': 'Neomake',
 
 " Shorcuts {{{
 " --------
-call dein#add('tyru/caw.vim', {'on_map': {'nx': '<Plug>'}})
-call dein#add('justinmk/vim-sneak', {'on_map': '<Plug>Sneak_'})
+call dein#add('tyru/caw.vim', {'on_path': '.*'})
 call dein#add('machakann/vim-sandwich', {'on_path': '.*'})
+call dein#add('justinmk/vim-sneak', {'on_map': {'oxn': '<Plug>Sneak'}})
 call dein#add('rstacruz/sparkup', {'on_ft': 'html', 'rtp': 'vim'})
 
 " }}}
 
 " Interface {{{
 " ---------
+call dein#add('Yggdroot/indentLine', {'on_cmd': 'IndentLinesToggle'})
+call dein#add('jsfaint/gen_tags.vim', {
+  \'on_cmd': ['GenCtags', 'ClearCtags', 'GenGTAGS', 'ClearGTAGS'], 'normalized_name': 'gen_tags'})
+call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle', 'depends': 'gen_tags'})
 call dein#add('mhinz/vim-signify', {'on_path': '.*'})
 call dein#add('ntpeters/vim-better-whitespace', {'on_path': '.*'})
 call dein#add('luochen1990/rainbow', {'on_path': '.*'})
 call dein#add('itchyny/vim-cursorword', {'on_path': '.*'})
-call dein#add('sheerun/vim-polyglot', {'on_path': '.*'})
+call dein#add('sheerun/vim-polyglot', {'on_path': '.*', 'on_source': 'context_filetype'})
+call dein#add('Shougo/context_filetype.vim', {'on_path': '.*', 'normalized_name': 'context_filetype'})
 call dein#add('rhysd/committia.vim', {'on_path': 'COMMIT_EDITMSG'})
 
 " }}}
