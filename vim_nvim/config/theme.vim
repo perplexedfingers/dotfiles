@@ -30,4 +30,6 @@ set showbreak=>\
 " hightlight column row in respect of textwidth
 set colorcolumn=+0
 
+set signcolumn=yes
+
 " vim: set ts=2 sw=2 tw=80 et :
