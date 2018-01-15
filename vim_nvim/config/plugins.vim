@@ -31,14 +31,14 @@ call dein#add('rstacruz/sparkup', {'on_ft': 'html', 'rtp': 'vim'})
 " ---------
 call dein#add('Yggdroot/indentLine', {'on_cmd': 'IndentLinesToggle'})
 call dein#add('jsfaint/gen_tags.vim', {
-  \'on_cmd': ['GenCtags', 'ClearCtags', 'GenGTAGS', 'ClearGTAGS'], 'normalized_name': 'gen_tags'})
-call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle', 'depends': 'gen_tags'})
+  \'on_cmd': ['GenCtags', 'ClearCtags', 'GenGTAGS', 'ClearGTAGS']})
+call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle', 'depends': 'gen_tags.vim'})
 call dein#add('mhinz/vim-signify', {'on_path': '.*'})
 call dein#add('ntpeters/vim-better-whitespace', {'on_path': '.*'})
 call dein#add('luochen1990/rainbow', {'on_path': '.*'})
 call dein#add('itchyny/vim-cursorword', {'on_path': '.*'})
-call dein#add('sheerun/vim-polyglot', {'on_path': '.*', 'on_source': 'context_filetype'})
-call dein#add('Shougo/context_filetype.vim', {'on_path': '.*', 'normalized_name': 'context_filetype'})
+call dein#add('sheerun/vim-polyglot', {'on_path': '.*', 'on_source': 'context_filetype.vim'})
+call dein#add('Shougo/context_filetype.vim', {'on_path': '.*'})
 call dein#add('rhysd/committia.vim', {'on_path': 'COMMIT_EDITMSG'})
 
 " }}}
