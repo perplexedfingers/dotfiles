@@ -48,13 +48,55 @@ if dein#tap('rainbow')
         \}
 endif
 
-if dein#tap('nvim-completion-manager')
-  " don't give |ins-completion-menu| messages.  For example,
-  " '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
-  set shortmess+=c
+if dein#tap('prabirshrestha/asyncomplete.vim')
+  let g:asyncomplete_auto_popup = 0
 
-  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
+
+  inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ asyncomplete#force_refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+  let g:asyncomplete_remove_duplicates = 1
+
+  set completeopt+=preview
+  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+endif
+
+if dein#tap('prabirshrestha/asyncomplete-tags.vim')
+  call asyncomplete#register_source(asyncomplete#sources#tags#get_source_options({
+    \ 'name': 'tags',
+    \ 'completor': function('asyncomplete#sources#tags#completor'),
+    \ 'config': {
+    \    'max_file_size': 50000000,
+    \  },
+    \ }))
+endif
+
+if dein#tap('prabirshrestha/asyncomplete-omni.vim')
+  call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+    \ 'name': 'omni',
+    \ 'whitelist': ['*'],
+    \ 'blacklist': ['html'],
+    \ 'completor': function('asyncomplete#sources#omni#completor')
+    \  }))
+endif
+
+if dein#tap('prabirshrestha/asyncomplete-buffer.vim')
+  call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+    \ 'name': 'buffer',
+    \ 'whitelist': ['*'],
+    \ 'completor': function('asyncomplete#sources#buffer#completor')
+    \  }))
+endif
+
+if dein#tap('jedi-vim')
+  let g:jedi#force_py_version = 3
 endif
 
 if dein#tap('signify')

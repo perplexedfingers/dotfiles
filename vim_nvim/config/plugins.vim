@@ -45,9 +45,15 @@ call dein#add('rhysd/committia.vim', {'on_path': 'COMMIT_EDITMSG'})
 
 " Completion {{{
 " ----------
-call dein#add('roxma/nvim-completion-manager', {'on_ft': 'python'})
-call dein#add('vim-erlang/vim-erlang-tags', {'on_ft': 'erlang'})
-call dein#add('vim-erlang/vim-erlang-omnicomplete', {'on_ft': 'erlang'})
+call dein#add('prabirshrestha/asyncomplete.vim', {'on_path': '.*'})
+call dein#add('yami-beta/asyncomplete-omni.vim', {'on_path': '.*', 'depends': 'asyncomplete.vim'})
+call dein#add('prabirshrestha/asyncomplete-buffer.vim', {'on_path': '.*', 'depends': 'asyncomplete.vim'})
+call dein#add('prabirshrestha/asyncomplete-tags.vim', {'depends': ['gen_tags.vim', 'asyncomplete.vim']})
+
+call dein#add('davidhalter/jedi-vim', {'on_ft': 'python', 'depends': 'asyncomplete-omni.vim'})
+
+call dein#add('vim-erlang/vim-erlang-tags', {'on_ft': 'erlang', 'depends': 'asyncomplete-tags.vim'})
+call dein#add('vim-erlang/vim-erlang-omnicomplete', {'on_ft': 'erlang', 'depends': 'asyncomplete-omni.vim'})
 
 " }}}
 
