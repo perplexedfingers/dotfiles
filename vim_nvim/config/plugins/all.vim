@@ -113,11 +113,9 @@ if dein#tap('caw.vim')
 endif
 
 if dein#tap('gen_tags.vim')
-  autocmd BufReadPost,FileReadPost,StdinReadPost *.py execute ":GenCtags"
-  autocmd VimLeavePre *.py execute ":ClearCtags!"
-  " Gtags supports only c, cpp and some (v6.5.3)
-  autocmd BufReadPost,FileReadPost,StdinReadPost *.c{,pp} execute ":GenGTAGS"
-  autocmd VimLeavePre *.c{,pp} execute ":ClearGTAGS!"
+  " Need to config gtags, so that it can read files other than c.
+  autocmd BufReadPost,FileReadPost,StdinReadPost *.c{,pp},*.py,*.erl execute ":GenGTAGS"
+  autocmd VimLeavePre *.c{,pp},*.py,*.erl execute ":ClearGTAGS!"
 endif
 
 if dein#tap('neoformat')
