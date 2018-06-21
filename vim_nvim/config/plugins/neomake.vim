@@ -21,24 +21,9 @@ let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
 let g:neomake_info_sign = {'text': '§', 'texthl': 'NeomakeInfoSign'}
 
 let g:lint_filetypes = [
-  \  'ansible', 'python', 'php', 'ruby', 'vim', 'go', 'sh',
-  \  'javascript', 'jsx', 'javascript.jsx', 'json', 'css',
+  \  'python', 'vim', 'sh',
+  \  'javascript', 'json', 'css',
   \  'markdown', 'html', 'yaml'
   \ ]
-
-let g:neomake_html_jsbeautify_maker = {
-  \'exe': 'js-beautify',
-  \'args': ['--space-in-paren', '--jslint-happy',
-  \         '--space-after-a-non-function']}
-
-let g:neomake_css_jsbeautify_maker = {
-  \'exe': 'js-beautify',
-  \'args': ['--space-in-paren', '--jslint-happy',
-  \         '--space-after-a-non-function']}
-
-let g:neomake_javascript_jsbeautify_maker = {
-  \'exe': 'js-beautify',
-  \'args': ['--space-in-paren', '--jslint-happy',
-  \         '--space-after-a-non-function']}
 
 " vim: set ts=2 sw=2 tw=80 et :

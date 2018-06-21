@@ -38,13 +38,6 @@ cnoremap <C-b> <Left>
 cnoremap <C-d> <C-w>
 
 " }}}
-" File operations {{{
-" ---------------
-
-" " When pressing <leader>cd switch to the directory of the open buffer
-" map <Leader>cd :cd %:p:h<CR>:pwd<CR>
-
-" }}}
 " Editor UI {{{
 " ---------
 
@@ -86,9 +79,6 @@ noremap  <Leader>mk :m-2<CR>==
 noremap  <Leader>mj :m+<CR>==
 vnoremap <Leader>mk :m-2<CR>gv=gv
 vnoremap <Leader>mj :m'>+<CR>gv=gv
-
-" nnoremap <Leader>se :<C-u>SessionSave last<CR>
-" nnoremap <Leader>os :<C-u>execute 'source '.g:session_directory.'/last.vim'<CR>
 
 " augroup MyAutoCmd " {{{
 

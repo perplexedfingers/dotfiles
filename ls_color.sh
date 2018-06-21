@@ -1,2 +1,2 @@
 #/usr/local/env sh
-export LSCOLORS=Exfxcxdxbxegedabagacad
+export LSCOLORS=dxfxcxdxbxegedabagacad

@@ -49,19 +49,6 @@ if dein#tap('rainbow')
 endif
 
 if dein#tap('prabirshrestha/asyncomplete.vim')
-  let g:asyncomplete_auto_popup = 0
-
-  function! s:check_back_space() abort
-      let col = col('.') - 1
-      return !col || getline('.')[col - 1]  =~ '\s'
-  endfunction
-
-  inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ asyncomplete#force_refresh()
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
   let g:asyncomplete_remove_duplicates = 1
 
   set completeopt+=preview
@@ -71,9 +58,10 @@ endif
 if dein#tap('prabirshrestha/asyncomplete-tags.vim')
   call asyncomplete#register_source(asyncomplete#sources#tags#get_source_options({
     \ 'name': 'tags',
+    \ 'whitelist': ['python'],
     \ 'completor': function('asyncomplete#sources#tags#completor'),
     \ 'config': {
-    \    'max_file_size': 50000000,
+    \    'max_file_size': 500000,
     \  },
     \ }))
 endif
@@ -95,6 +83,16 @@ if dein#tap('prabirshrestha/asyncomplete-buffer.vim')
     \  }))
 endif
 
+if dein#tap('prabirshrestha/vim-lsp')
+  if executable('plys')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+  endif
+endif
+
 if dein#tap('jedi-vim')
   let g:jedi#force_py_version = 3
 endif
@@ -110,6 +108,7 @@ endif
 if dein#tap('caw.vim')
 	let g:caw_hatpos_skip_blank_line = 1
 	let g:caw_dollarpos_skip_blank_line = 1
+	autocmd FileType robot let b:caw_oneline_comment = '#'
 endif
 
 if dein#tap('gen_tags.vim')
