@@ -1,10 +1,8 @@
 [push]
 	default = upstream
 [core]
-	trustctime = false
+    whitespace = tab-in-indent trailing-space
 	editor = nvim
-	filemode = true
-	autocrlf = input
 	eol = lf
 	safecrlf = true
 [color]
@@ -35,7 +33,7 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
 	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 [user]
-	email = ray-chen-ting.zhu@hpe.com
+	email = ray.zhu@hpe.com
 	name = Ray Zhu
 [commit]
 	template = ~/.gitmessage
@@ -46,5 +44,3 @@
 	prompt = false
 [rebase]
 	autoSquash = true
-# [http]
-# 	proxy = http://web-proxy.sgp.hpecorp.net:8080

@@ -9,7 +9,6 @@ set cpoptions&vim
 
 " Neovim has set these as default
 if !has('nvim')
-
   set nocompatible
 
   syntax on                      " Syntax highlighting
@@ -29,7 +28,6 @@ if !has('nvim')
   set viminfo+=!                 " Viminfo include !
   set wildmenu                   " Show list instead of just completing
   set ttymouse=xterm2
-
 endif
 
 set lazyredraw                 " redraw on-demand
@@ -87,7 +85,6 @@ set background=dark           " Assume dark background
 set cursorline                " Highlight current line
 set fileformats=unix,dos,mac  " Use Unix as the standard file type
 set number                    " Line numbers on
-set relativenumber            " Relative numbers on
 set linebreak
 set foldenable
 set foldlevelstart=3
