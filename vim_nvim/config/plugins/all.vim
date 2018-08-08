@@ -132,14 +132,6 @@ if dein#tap('neoformat')
   "       \         '--quiet']
   "       \}
 
-  let g:neoformat_javascript_jsbeautify = {
-        \'exe': 'js-beautify',
-        \'stdin': 1,
-        \'args': ['-',
-        \         '--jslint-happy',
-        \         '--good-stuff']
-        \}
-
   let g:neoformat_try_formatprg = 1
   let g:neoformat_basic_format_align = 1
   let g:neoformat_basic_format_retab = 1
@@ -154,12 +146,5 @@ if dein#tap('vim-table-mode')
 endif
 
 if dein#tap('papercolor-theme')
-  let g:PaperColor_Theme_Options = {
-  \   'language': {
-  \     'python': {
-  \       'highlight_builtins' : 1
-  \     }
-  \ }
-  \}
 endif
 " vim: set ts=2 sw=2 tw=80 et :
