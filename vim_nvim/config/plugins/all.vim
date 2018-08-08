@@ -132,6 +132,14 @@ if dein#tap('neoformat')
   "       \         '--quiet']
   "       \}
 
+  let g:neoformat_javascript_jsbeautify = {
+        \'exe': 'js-beautify',
+        \'stdin': 1,
+        \'args': ['-',
+        \         '--jslint-happy',
+        \         '--good-stuff']
+        \}
+
   let g:neoformat_try_formatprg = 1
   let g:neoformat_basic_format_align = 1
   let g:neoformat_basic_format_retab = 1
