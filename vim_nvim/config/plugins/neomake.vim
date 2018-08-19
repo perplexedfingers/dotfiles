@@ -1,7 +1,5 @@
 scriptencoding utf-8
 
-" Neomake
-" ---------
 let g:neomake_python_flake8_maker = {'args': ['--ignore=E501']}
 let g:neomake_python_python3_maker = {
       \ 'errorformat': '%E%f:%l:%c: %m',
@@ -19,11 +17,5 @@ let g:neomake_error_sign = {'text': '✖', 'texthl': 'ErrorMsg'}
 let g:neomake_warning_sign = {'text': '◆', 'texthl': 'WarningMsg'}
 let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
 let g:neomake_info_sign = {'text': '§', 'texthl': 'NeomakeInfoSign'}
-
-let g:lint_filetypes = [
-  \  'python', 'vim', 'sh',
-  \  'javascript', 'json', 'css',
-  \  'markdown', 'html', 'yaml'
-  \ ]
 
 " vim: set ts=2 sw=2 tw=80 et :

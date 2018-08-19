@@ -1,28 +1,10 @@
 Vim configuration
 =================
 
-Lean mean Vim/Neovim machine, ~40ms startup time.
-Best with Neovim or Vim 8.0+ with +lua and +python extensions enabled.
-
-Features
-========
-
 - Neovim-centric
-- Fast startup time
-- Robust, yet light weight
 - Lazy-load 90% of plugins with `dein`__
-- Modular configuration
-- Extensive ``deoplete`` and ``neocomplete`` setup
-- Lightweight simple status
-- Easy customizable theme
-- Premium color-schemes
 
 __ https://github.com/Shougo/dein.vim
-
-Upgrade
-=======
-
-Run `make update`
 
 XDG conformity
 ==============
@@ -49,7 +31,6 @@ Structure
 =========
 
 - `config`_ - Configuration
-
   - `plugins`_ - Plugin configurations
   - `bindings.vim`_ - Key bindings
   - `filetype.vim`_ - Language behavior
@@ -80,16 +61,6 @@ Structure
 .. _init.vim: ./init.vim
 .. _vimrc: ./vimrc
 
-Plugin Highlights
-=================
-- Package management with caching enabled and lazy loading
-- Project-aware tabs and label
-- PHP completion, indent, folds, syntax
-- Languages: Ansible, css3, csv, json, less, markdown, mustache
-- Helpers: Undo tree, bookmarks, git, tmux navigation, hex editor, sessions, and much more.
-
-**Note** that 90% of the plugins are *lazy-loaded*.
-
 Non Lazy-Loaded Plugins
 =======================
 
@@ -119,42 +90,7 @@ Language
 --------
 Mainly use `polyglot`_
 
-+------------------+--------------------------------------------------------+
-| Name             | Description                                            |
-+==================+========================================================+
-| `mustache`_      | Mustache and handlebars syntax                         |
-+------------------+--------------------------------------------------------+
-| `jinja`_         | Jinja support in vim                                   |
-+------------------+--------------------------------------------------------+
-| `css3-syntax`_   | CSS3 syntax support to vim's built-in `syntax/css.vim` |
-+------------------+--------------------------------------------------------+
-| `csv`_           | Handling column separated data                         |
-+------------------+--------------------------------------------------------+
-| `i3`_            | i3 window manager config syntax                        |
-+------------------+--------------------------------------------------------+
-| `portfile`_      | Macports portfile configuration files                  |
-+------------------+--------------------------------------------------------+
-| `vim-git`_       | Git support                                            |
-+------------------+--------------------------------------------------------+
-| `syntax-vim-ex`_ | Vim script syntax enhance                              |
-+------------------+--------------------------------------------------------+
-| `neco-vim`_      | Vim source for neocomplete/deoplete                    |
-+------------------+--------------------------------------------------------+
-| `logstash.vim`_  | Logstash support                                       |
-+------------------+--------------------------------------------------------+
-
 .. _polyglot: https://github.com/sheerun/vim-polyglot
-.. _mustache: https://github.com/mustache/vim-mustache-handlebars
-.. _jinja: https://github.com/mitsuhiko/vim-jinja
-.. _css3-syntax: https://github.com/hail2u/vim-css3-syntax
-.. _csv: https://github.com/chrisbra/csv.vim
-.. _logstash: https://github.com/robbles/logstash.vim
-.. _i3: https://github.com/PotatoesMaster/i3-vim-syntax
-.. _portfile: https://github.com/jstrater/mpvim
-.. _vim-git: https://github.com/tpope/vim-git
-.. _syntax-vim-ex: https://github.com/vim-jp/syntax-vim-ex
-.. _neco-vim: https://github.com/Shougo/neco-vim
-.. _logstash.vim: https://github.com/robbles/logstash.vim
 
 Commands
 --------
@@ -164,28 +100,19 @@ Commands
 +==================+=========================================================================================================+
 | `caw.vim`_       | Vim comment plugin: supported operator/non-operator mappings, repeatable by dot-command, 300+ filetypes |
 +------------------+---------------------------------------------------------------------------------------------------------+
-| `gita`_          | An awesome git handling plugin                                                                          |
-+------------------+---------------------------------------------------------------------------------------------------------+
 | `indentline`_    | Display vertical indention lines                                                                        |
 +------------------+---------------------------------------------------------------------------------------------------------+
 | `vim-indent`_    | Tab Space convert                                                                                       |
 +------------------+---------------------------------------------------------------------------------------------------------+
-| `vim-abolish`_   | Replace variant of words                                                                                |
-+------------------+---------------------------------------------------------------------------------------------------------+
-| `tagbar`_        | Tag view                                                                                                |
-+------------------+---------------------------------------------------------------------------------------------------------+
 
 .. _caw.vim: https://github.com/tyru/caw.vim
 .. _nerdtree: https://github.com/scrooloose/nerdtree
-.. _gita: https://github.com/lambdalisue/vim-gita
 .. _vim-asterisk: https://github.com/haya14busa/vim-asterisk
 .. _vim-anzu: https://github.com/osyo-manga/vim-anzu
 .. _undotree: https://github.com/mbbill/undotree
 .. _codi: https://github.com/metakirby5/codi.vim
 .. _vim-peekaboo: https://github.com/junegunn/vim-peekaboo
 .. _vim-indent: https://github.com/timkendrick/vim-indent
-.. _vim-abolish: https://github.com/tpope/vim-abolish
-.. _tagbar: https://github.com/majutsushi/tagbar
 .. _asyncrun: https://github.com/skywind3000/asyncrun.vim
 .. _choosewin: https://github.com/t9md/vim-choosewin
 
@@ -232,8 +159,6 @@ Completion
 +-------------------+---------------------------------------------------------------+
 | Name              | Description                                                   |
 +===================+===============================================================+
-| `gen_tags`_       | Tags management                                               |
-+-------------------+---------------------------------------------------------------+
 | `neopairs`_       | Auto insert pairs when complete done                          |
 +-------------------+---------------------------------------------------------------+
 | `gen_tags`_       | A simple plugin generate ctags and gtags database for vim     |

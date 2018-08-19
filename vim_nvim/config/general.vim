@@ -10,7 +10,6 @@ set cpoptions&vim
 " Neovim has set these as default
 if !has('nvim')
   set nocompatible
-
   syntax on                      " Syntax highlighting
   filetype plugin indent on      " Automatically detect file types
   set autoindent                 " Indent at the same level of the previous line
@@ -35,6 +34,8 @@ set showfulltag                " Show tag and tidy search in completion
 set complete-=i                " Exclude files completion
 set completeopt=menuone        " Show menu even for one item
 set completeopt+=noselect      " Do not select a match in the menu
+set completeopt+=preview
+set omnifunc=syntaxcomplete#Complete
 set shortmess=atI     " No help Uganda information
 set ignorecase        " Case sensitive search
 set smartcase         " Case sensitive when uc present

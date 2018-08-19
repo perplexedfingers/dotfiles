@@ -21,6 +21,13 @@ for vim/neovim without XDG support
     make test
     make install
 
+update vim/neovim package from command line
+========
+
+.. code:: sh
+
+    nvim --headless -c 'call dein#update() | q'
+
 for tmux
 ========
 
@@ -46,16 +53,16 @@ note for Python packages
 - flake8
 - vim-vint
 - yamllint
-- jedi
 - neovim
+- python-language-server
 - proselint
-- http_promt
+- http_prompt
 - ipython
 - autotpep8
 - isort
 - shyaml
 - glances
-- jsbeautifier
+- thefuck
 
 
 note for command line tools
@@ -64,6 +71,7 @@ note for command line tools
 - tmux
 - neovim
 - ripgrep
+- bat
 - fd
 - fish
 - git
@@ -72,8 +80,8 @@ note for command line tools
 - python3
 - rsync
 - sudo
-- ctags
-- global(gtags)
+.. - ctags
+.. - global(gtags)
 - tree
 - shellcheck
 - mosh

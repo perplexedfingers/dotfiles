@@ -80,25 +80,4 @@ noremap  <Leader>mj :m+<CR>==
 vnoremap <Leader>mk :m-2<CR>gv=gv
 vnoremap <Leader>mj :m'>+<CR>gv=gv
 
-" augroup MyAutoCmd " {{{
-
-"   if has('mac')
-"     " Use Marked for real-time Markdown preview
-"     autocmd FileType markdown
-"       \ nnoremap <Leader>P :silent !open -a Marked\ 2.app '%:p'<CR>:redraw!<CR>
-"     " Use Dash on Mac, for context help
-"     autocmd FileType ansible,go,php,css,less,html,markdown
-"       \ nnoremap <silent><buffer> K :!open -g dash://"<C-R>=split(&ft, '\.')[0]<CR>:<cword>"&<CR><CR>
-"     autocmd FileType javascript,javascript.jsx,sql,ruby,conf,sh
-"       \ nnoremap <silent><buffer> K :!open -g dash://"<cword>"&<CR><CR>
-"   else
-"     " Use Zeal on Linux for context help
-"     autocmd FileType ansible,go,php,css,less,html,markdown
-"       \ nnoremap <silent><buffer> K :!zeal --query "<C-R>=split(&ft, '\.')[0]<CR>:<cword>"&<CR><CR>
-"     autocmd FileType javascript,javascript.jsx,sql,ruby,conf,sh
-"       \ nnoremap <silent><buffer> K :!zeal --query "<cword>"&<CR><CR>
-"   endif
-
-" augroup END
-" }}}
 " vim: set ts=2 sw=2 tw=80 et :

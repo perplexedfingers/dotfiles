@@ -5,17 +5,9 @@ XDG_CACHE_HOME ?= $(HOME)/.cache
 .DEFAULT: install
 
 install:
-	pip install --user flake8 vim-vint yamllint jedi neovim proselint
+	pip install --user flake8 vim-vint yamllint python-language-server isort autopep8 neovim proselint
 	@mkdir -vp "$(XDG_CACHE_HOME)/vim/"{backup,session,swap,tags,undo,view}; \
 	$(vim) -c 'call dein#recache_runtimepath() | echo "Installation complete!"' +q
-
-update:
-	@git pull --ff --ff-only; \
-	$(vim) --cmd 'set nomore' -c 'call dein#clear_state() | call dein#update()' +q
-upgrade: update
-
-uninstall:
-	rm -rf "$(XDG_CACHE_HOME)/vim"
 
 test:
 	ifeq ('$(vim)', 'nvim')
@@ -50,4 +42,4 @@ test:
         $(error .. MISSING! Is pip available in PATH?))
 
 
-.PHONY: install update upgrade uninstall test
+.PHONY: install test

@@ -1,14 +1,11 @@
 scriptencoding utf-8
-" Theme {{{
-" -----
 
 if exists('+termguicolors')
-  " Enable true color
   set termguicolors
 else
-  " Enable 256 color terminal
   set t_Co=256
 endif
+
 set background=dark
 colorscheme PaperColor
 

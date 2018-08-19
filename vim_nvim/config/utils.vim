@@ -1,7 +1,3 @@
-
-" Commands
-"---------------------------------------------------------
-" Autocommands {{{
 augroup MyAutoCmd
 
   " Check timestamp on window enter. More eager than 'autoread'

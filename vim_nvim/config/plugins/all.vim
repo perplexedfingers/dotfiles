@@ -1,13 +1,7 @@
 scriptencoding utf-8
-" Plugin Settings
-"---------------------------------------------------------
+
 if dein#tap('committia.vim')
   let g:committia_min_window_width = 70
-endif
-
-if dein#tap('tagbar')
-  map <F7> :TagbarToggle<CR>
-  let g:tagbar_iconchars = ['+', '-']
 endif
 
 if dein#tap('vim-sneak')
@@ -48,53 +42,51 @@ if dein#tap('rainbow')
         \}
 endif
 
-if dein#tap('prabirshrestha/asyncomplete.vim')
+if dein#tap('asyncomplete.vim')
   let g:asyncomplete_remove_duplicates = 1
-
-  set completeopt+=preview
-  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+  let g:asyncomplete_smart_completion = 1
+  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif  " auto close
 endif
 
-if dein#tap('prabirshrestha/asyncomplete-tags.vim')
-  call asyncomplete#register_source(asyncomplete#sources#tags#get_source_options({
-    \ 'name': 'tags',
-    \ 'whitelist': ['python'],
-    \ 'completor': function('asyncomplete#sources#tags#completor'),
-    \ 'config': {
-    \    'max_file_size': 500000,
-    \  },
-    \ }))
+if dein#tap('tmux-complete.vim')
+  let g:tmuxcomplete#asyncomplete_source_options = {
+            \ 'name':      'tmux',
+            \ 'whitelist': ['*'],
+            \ 'config': {
+            \     'splitmode':      'words',
+            \     'filter_prefix':   1,
+            \     'show_incomplete': 1,
+            \     'sort_candidates': 0,
+            \     'scrollback':      0,
+            \     'truncate':        0
+            \     }
+            \ }
 endif
 
-if dein#tap('prabirshrestha/asyncomplete-omni.vim')
-  call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-    \ 'name': 'omni',
-    \ 'whitelist': ['*'],
-    \ 'blacklist': ['html'],
-    \ 'completor': function('asyncomplete#sources#omni#completor')
-    \  }))
+if dein#tap('asyncomplete-buffer.vim')
+  function! s:for_buffer() abort
+      call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+        \ 'name': 'buffer',
+        \ 'whitelist': ['*'],
+        \ 'blacklist': ['go'],
+        \ 'completor': function('asyncomplete#sources#buffer#completor'),
+        \ }))
+  endfunction
+
+  call dein#set_hook('asyncomplete-buffer.vim', 'hook_post_source', function('s:for_buffer'))
 endif
 
-if dein#tap('prabirshrestha/asyncomplete-buffer.vim')
-  call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-    \ 'name': 'buffer',
-    \ 'whitelist': ['*'],
-    \ 'completor': function('asyncomplete#sources#buffer#completor')
-    \  }))
-endif
+if dein#tap('asyncomplete-omni.vim')
+  function! s:for_omni() abort
+      call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+        \ 'name': 'omni',
+        \ 'whitelist': ['*'],
+        \ 'blacklist': ['c', 'cpp', 'html'],
+        \ 'completor': function('asyncomplete#sources#omni#completor')
+        \  }))
+  endfunction
 
-if dein#tap('prabirshrestha/vim-lsp')
-  if executable('plys')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-  endif
-endif
-
-if dein#tap('jedi-vim')
-  let g:jedi#force_py_version = 3
+  call dein#set_hook('asyncomplete-omni.vim', 'hook_post_source', function('s:for_omni'))
 endif
 
 if dein#tap('signify')
@@ -109,12 +101,6 @@ if dein#tap('caw.vim')
 	let g:caw_hatpos_skip_blank_line = 1
 	let g:caw_dollarpos_skip_blank_line = 1
 	autocmd FileType robot let b:caw_oneline_comment = '#'
-endif
-
-if dein#tap('gen_tags.vim')
-  " Need to config gtags, so that it can read files other than c.
-  autocmd BufReadPost,FileReadPost,StdinReadPost *.c{,pp},*.py,*.erl execute ":GenGTAGS"
-  autocmd VimLeavePre *.c{,pp},*.py,*.erl execute ":ClearGTAGS!"
 endif
 
 if dein#tap('neoformat')
@@ -143,8 +129,5 @@ if dein#tap('vim-table-mode')
   autocmd BufEnter *.rst let g:table_mode_corner_corner="+"
     \ | let g:table_mode_header_fillchar="="
   autocmd BufLeave *.rst unlet g:table_mode_header_fillchar
-endif
-
-if dein#tap('papercolor-theme')
 endif
 " vim: set ts=2 sw=2 tw=80 et :

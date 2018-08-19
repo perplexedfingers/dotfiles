@@ -14,16 +14,16 @@ nnoremap <Space>  <Nop>
 xnoremap <Space>  <Nop>
 nnoremap ,        <Nop>
 xnoremap ,        <Nop>
-
 " }}}
+
 " Ensure cache directory "{{{
 if ! isdirectory(expand($VARPATH))
   " Create missing dirs i.e. cache/{undo,backup}
   call mkdir(expand('$VARPATH/undo'), 'p')
   call mkdir(expand('$VARPATH/backup'))
 endif
-
 " }}}
+
 " Respect XDG specification {{{
 if ! empty($XDG_CONFIG_HOME) && isdirectory($XDG_CONFIG_HOME.'/vim')
   let $MYVIMRC=expand('$XDG_CONFIG_HOME/vim/config/vimrc')
@@ -38,8 +38,8 @@ if ! empty($XDG_CONFIG_HOME) && isdirectory($XDG_CONFIG_HOME.'/vim')
     set runtimepath+=$VIMPATH/after
   endif
 endif
-
 " }}}
+
 " Setup dein {{{
 if &runtimepath !~# '/dein.vim'
   let s:dein_dir = expand('$VARPATH/dein').'/repos/github.com/Shougo/dein.vim'
@@ -50,14 +50,14 @@ if &runtimepath !~# '/dein.vim'
   execute 'set runtimepath+='.substitute(
     \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
 endif
-
 " }}}
+
 " Load less plugins while SSHing to remote machines {{{
 if len($SSH_CLIENT)
   let $VIM_MINIMAL = 1
 endif
-
 " }}}
+
 " Disable default plugins "{{{
 
 " Disable menu.vim
