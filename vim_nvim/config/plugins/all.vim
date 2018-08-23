@@ -63,32 +63,6 @@ if dein#tap('tmux-complete.vim')
             \ }
 endif
 
-if dein#tap('asyncomplete-buffer.vim')
-  function! s:for_buffer() abort
-      call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-        \ 'name': 'buffer',
-        \ 'whitelist': ['*'],
-        \ 'blacklist': ['go'],
-        \ 'completor': function('asyncomplete#sources#buffer#completor'),
-        \ }))
-  endfunction
-
-  call dein#set_hook('asyncomplete-buffer.vim', 'hook_post_source', function('s:for_buffer'))
-endif
-
-if dein#tap('asyncomplete-omni.vim')
-  function! s:for_omni() abort
-      call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-        \ 'name': 'omni',
-        \ 'whitelist': ['*'],
-        \ 'blacklist': ['c', 'cpp', 'html'],
-        \ 'completor': function('asyncomplete#sources#omni#completor')
-        \  }))
-  endfunction
-
-  call dein#set_hook('asyncomplete-omni.vim', 'hook_post_source', function('s:for_omni'))
-endif
-
 if dein#tap('signify')
   let g:signify_vcs_list = ['git', 'hg']
   let g:signify_cursorhold_insert = 1
