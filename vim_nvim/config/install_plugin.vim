@@ -2,13 +2,11 @@ call dein#add('Shougo/dein.vim')
 
 " theme
 call dein#add('NLKNguyen/papercolor-theme')
-call dein#add('itchyny/lightline.vim', {
-  \'hook_add': 'source '.$VIMPATH.'/config/plugins/lightline.vim'})
+call dein#add('itchyny/lightline.vim')
 
 " code edit helper
 call dein#add('sbdchd/neoformat', {'on_cmd': 'Neoformat'})
-call dein#add('benekastah/neomake', {'on_cmd': 'Neomake',
-  \'hook_add': 'source'.$VIMPATH.'/config/plugins/neomake.vim'})
+call dein#add('benekastah/neomake', {'on_cmd': 'Neomake'})
 call dein#add('Yggdroot/indentLine', {'on_cmd': 'IndentLinesToggle'})
 call dein#add('rstacruz/sparkup', {'on_ft': 'html', 'rtp': 'vim'})
 
