@@ -58,10 +58,10 @@ nnoremap <silent> gr :<C-u>tabprevious<CR>
 " --------------
 
 " Remove spaces at the end of lines
-nnoremap <silent> ,<Space> :<C-u>silent! keeppatterns %substitute/\s\+$//e<CR>
+nnoremap <silent> <Leader><Space> :<C-u>silent! keeppatterns %substitute/\s\+$//e<CR>
 
-" Diff
-nnoremap <silent> <expr> ,d ":\<C-u>".(&diff?"diffoff":"diffthis")."\<CR>"
+" " Diff
+" nnoremap <silent> <expr> <Leader>d ":\<C-u>".(&diff?"diffoff":"diffthis")."\<CR>"
 
 " Location list movement
 nmap <Leader>j :lnext<CR>
@@ -71,13 +71,13 @@ nmap <Leader>k :lprev<CR>
 vnoremap <Leader>S y:execute @@<CR>:echo 'Sourced selection.'<CR>
 nnoremap <Leader>S ^vg_y:execute @@<CR>:echo 'Sourced line.'<CR>
 
-" Yank buffer's absolute path to X11 clipboard
-nnoremap <Leader>y :let @+=expand("%:p")<CR>:echo 'Copied to clipboard.'<CR>
+" " Yank buffer's absolute path to X11 clipboard
+" nnoremap <Leader>y :let @+=expand("%:p")<CR>:echo 'Copied to clipboard.'<CR>
 
-" Drag current line/s vertically and auto-indent
-noremap  <Leader>mk :m-2<CR>==
-noremap  <Leader>mj :m+<CR>==
-vnoremap <Leader>mk :m-2<CR>gv=gv
-vnoremap <Leader>mj :m'>+<CR>gv=gv
+" " Drag current line/s vertically and auto-indent
+" noremap  <Leader>mk :m-2<CR>==
+" noremap  <Leader>mj :m+<CR>==
+" vnoremap <Leader>mk :m-2<CR>gv=gv
+" vnoremap <Leader>mj :m'>+<CR>gv=gv
 
 " vim: set ts=2 sw=2 tw=80 et :

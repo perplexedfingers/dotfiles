@@ -2,19 +2,17 @@ call dein#add('Shougo/dein.vim')
 
 " theme
 call dein#add('NLKNguyen/papercolor-theme')
-call dein#add('itchyny/lightline.vim', {
-  \'hook_add': 'source '.$VIMPATH.'/config/plugins/lightline.vim'})
+call dein#add('itchyny/lightline.vim')
 
 " code edit helper
 call dein#add('sbdchd/neoformat', {'on_cmd': 'Neoformat'})
-call dein#add('benekastah/neomake', {'on_cmd': 'Neomake',
-  \'hook_add': 'source'.$VIMPATH.'/config/plugins/neomake.vim'})
+call dein#add('benekastah/neomake', {'on_cmd': 'Neomake'})
 call dein#add('Yggdroot/indentLine', {'on_cmd': 'IndentLinesToggle'})
 call dein#add('rstacruz/sparkup', {'on_ft': 'html', 'rtp': 'vim'})
 
 " edit shortcut
 call dein#add('dhruvasagar/vim-table-mode', {
-  \'on_cmd': ['TableModeToggle', 'Tableize', 'TableSort']})
+            \'on_cmd': ['TableModeToggle', 'Tableize', 'TableSort']})
 call dein#add('tyru/caw.vim', {'on_path': '.*'})
 call dein#add('machakann/vim-sandwich', {'on_path': '.*'})
 call dein#add('justinmk/vim-sneak', {'on_map': {'oxn': '<Plug>Sneak'}})
@@ -31,27 +29,31 @@ call dein#add('mfukar/robotframework-vim', {'on_ft': ['robot', 'txt', 'rst', 'ht
 
 " completion
 function! s:for_buffer() abort
-  call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-    \ 'name': 'buffer',
-    \ 'whitelist': ['*'],
-    \ 'blacklist': ['go'],
-    \ 'completor': function('asyncomplete#sources#buffer#completor'),
-    \ }))
+    call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+                \'name': 'buffer',
+                \ 'whitelist': ['*'],
+                \ 'blacklist': ['go'],
+                \ 'completor': function('asyncomplete#sources#buffer#completor'),
+                \ }))
 endfunction
 
 function! s:for_omni() abort
-  call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-    \ 'name': 'omni',
-    \ 'whitelist': ['*'],
-    \ 'blacklist': ['c', 'cpp', 'html'],
-    \ 'completor': function('asyncomplete#sources#omni#completor')
-    \  }))
+    call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+                \'name': 'omni',
+                \ 'whitelist': ['*'],
+                \ 'blacklist': ['c', 'cpp', 'html'],
+                \ 'completor': function('asyncomplete#sources#omni#completor')
+                \  }))
 endfunction
 
 call dein#add('prabirshrestha/asyncomplete.vim', {'on_path': '.*'})
-call dein#add('prabirshrestha/asyncomplete-buffer.vim', {'on_path': '.*', 'depends': 'asyncomplete.vim', 'hook_post_source': function('s:for_buffer')})
+call dein#add('prabirshrestha/asyncomplete-buffer.vim', {
+            \'on_path': '.*', 'depends': 'asyncomplete.vim',
+            \'hook_post_source': function('s:for_buffer')})
 call dein#add('wellle/tmux-complete.vim', {'on_path': '.*', 'depends': 'asyncomplete.vim'})
-call dein#add('yami-beta/asyncomplete-omni.vim', {'on_path': '.*', 'depends': 'asyncomplete.vim', 'hook_post_source': function('s:for_omni')})
+call dein#add('yami-beta/asyncomplete-omni.vim', {
+            \'on_path': '.*', 'depends': 'asyncomplete.vim',
+            \'hook_post_source': function('s:for_omni')})
 call dein#add('vim-erlang/vim-erlang-omnicomplete', {'on_ft': 'erlang', 'depends': 'asyncomplete-omni.vim'})
 
 call dein#add('prabirshrestha/async.vim', {'on_path': '.*', 'depends': 'asyncomplete.vim'})

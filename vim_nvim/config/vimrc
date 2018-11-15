@@ -45,9 +45,9 @@ let s:path = expand('$VARPATH/dein')
 if dein#load_state(s:path)
   call dein#begin(s:path, [
     \ expand('<sfile>'),
-    \ expand('$VIMPATH/config/plugins.vim')
+    \ expand('$VIMPATH/config/install_plugin.vim')
     \ ])
-  call s:source_file('plugins.vim')
+  call s:source_file('install_plugin.vim')
 
   if isdirectory(expand('$VIMPATH/dev'))
     call dein#local(expand('$VIMPATH/dev'), {'frozen': 1, 'merged': 0})
@@ -62,7 +62,7 @@ if dein#load_state(s:path)
   endif
 endif
 
-call s:source_file('plugins/all.vim')
+call s:source_file('config_plugin.vim')
 
 autocmd VimEnter * call dein#call_hook('post_source')
 autocmd VimEnter * call dein#call_hook('source')
