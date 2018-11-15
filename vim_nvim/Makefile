@@ -5,7 +5,7 @@ XDG_CACHE_HOME ?= $(HOME)/.cache
 .DEFAULT: install
 
 install:
-	pip install --user flake8 vim-vint yamllint python-language-server isort autopep8 neovim proselint
+	pip install --user prospector vulture python-language-server isort autopep8 neovim
 	@mkdir -vp "$(XDG_CACHE_HOME)/vim/"{backup,session,swap,tags,undo,view}; \
 	$(vim) -c 'call dein#recache_runtimepath() | echo "Installation complete!"' +q
 

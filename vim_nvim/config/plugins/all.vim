@@ -42,6 +42,16 @@ if dein#tap('rainbow')
         \}
 endif
 
+if dein#tap('papercolor-theme')
+  let g:PaperColor_Theme_Options = {
+  \   'language': {
+  \     'python': {
+  \       'highlight_builtins' : 1
+  \     }
+  \ }
+  \}
+endif
+
 if dein#tap('asyncomplete.vim')
   let g:asyncomplete_remove_duplicates = 1
   let g:asyncomplete_smart_completion = 1
@@ -78,24 +88,29 @@ if dein#tap('caw.vim')
 endif
 
 if dein#tap('neoformat')
-  let g:neoformat_enabled_python = ['autopep8', 'isort']
-
-  " let g:neoformat_python_isort = {
-  "       \'exe': 'isort',
-  "       \'stdin': 1,
-  "       \'args': ['-',
-  "       \         '--combine-star',
-  "       \         '--combine-as',
-  "       \         '--order-by-type',
-  "       \         '--multi_line 0',
-  "       \         '--balanced',
-  "       \         '--quiet']
-  "       \}
-
+  let g:neoformat_run_all_formatters = 1
   let g:neoformat_try_formatprg = 1
   let g:neoformat_basic_format_align = 1
   let g:neoformat_basic_format_retab = 1
   let g:neoformat_basic_format_trim = 1
+
+  let g:neoformat_python_autopep8 ={
+        \'exe': 'autopep8',
+        \'args': ['-', '--max-line-length 120'],
+        \'stdin': 1
+        \}
+  let g:neoformat_python_isort = {
+        \'exe': 'isort',
+        \'stdin': 1,
+        \'args': ['-',
+        \         '--combine-star',
+        \         '--combine-as',
+        \         '--order-by-type',
+        \         '--multi-line 0',
+        \         '--balanced',
+        \         '--quiet']
+        \}
+  let g:neoformat_enabled_python = ['autopep8', 'isort']
 endif
 
 if dein#tap('vim-table-mode')
