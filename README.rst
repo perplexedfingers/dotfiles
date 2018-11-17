@@ -47,22 +47,18 @@ for git configuration
     ln -s path/to/gitcommit .gitcommit
 
 
-note for Python packages
+note for Python3 packages
 ========================
 
-- flake8
-- vim-vint
-- yamllint
+- prospector
 - neovim
 - python-language-server
-- proselint
-- http_prompt
 - ipython
 - autotpep8
 - isort
-- shyaml
-- glances
 - thefuck
+- vim-vint
+- proselint
 
 
 note for command line tools
@@ -78,12 +74,14 @@ note for command line tools
 - mecurial
 - fossil
 - python3
+- rust
 - rsync
-- sudo
-.. - ctags
-.. - global(gtags)
 - tree
+- watch
+- sudo
 - shellcheck
 - mosh
 - ncdu
 - hunspell
+- ctags
+- global(gtags)
