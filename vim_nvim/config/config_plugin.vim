@@ -163,7 +163,7 @@ if dein#tap('neomake')
         \ }
 
   let g:neomake_python_prospector_maker = {
-              \ 'args': ['--output-format', 'pylint', '--doc-warnings', '--member-warnings', '--full-pep8', '--max-line-length', '120'],
+              \ 'args': ['--no-autodetect', '--output-format', 'pylint', '--doc-warnings', '--member-warnings', '--full-pep8', '--max-line-length', '120'],
               \ 'errorformat': '%f:%l: %m'
               \ }
 
