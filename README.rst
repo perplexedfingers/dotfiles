@@ -44,7 +44,7 @@ for git configuration
 
     cd ~
     ln -s path/to/gitmessage .gitmessage
-    ln -s path/to/gitcommit .gitcommit
+    ln -s path/to/gitcommit ~/.config/git/config
 
 
 note for Python3 packages
@@ -64,6 +64,8 @@ note for Python3 packages
 note for command line tools
 ===========================
 
+- curl
+- wget
 - tmux
 - neovim
 - ripgrep
@@ -79,6 +81,7 @@ note for command line tools
 - tree
 - watch
 - sudo
+- kr
 - shellcheck
 - mosh
 - ncdu
