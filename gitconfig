@@ -35,8 +35,6 @@
 [user]
 	email = ray.zhu@hpe.com
 	name = Ray Zhu
-[commit]
-	template = ~/.gitmessage
 [diff]
 	tool = vimdiff
 	algorithm = histogram
