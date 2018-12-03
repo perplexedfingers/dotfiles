@@ -1,6 +1,7 @@
 [push]
 	default = upstream
 [core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
     whitespace = tab-in-indent trailing-space
 	editor = nvim
 	eol = lf
@@ -8,6 +9,23 @@
 [color]
 	ui = true
 	interactive = auto
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[diff-so-fancy]
+	markEmptyLines = false
+	changeHunkIndicators = false
+	stripLeadingSymbols = false
+	useUnicodeRuler = false
 [credential]
 	helper = cache --timeout=3600
 [merge]
@@ -32,9 +50,6 @@
 	dc = diff --cached
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
 	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
-[user]
-	email = ray.zhu@hpe.com
-	name = Ray Zhu
 [diff]
 	tool = vimdiff
 	algorithm = histogram

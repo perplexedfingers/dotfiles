@@ -81,6 +81,7 @@ note for command line tools
 - tree
 - watch
 - sudo
+- diff-so-fancy
 - kr
 - shellcheck
 - mosh
