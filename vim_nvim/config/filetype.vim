@@ -39,7 +39,7 @@ augroup MyAutoCmd " {{{
     \ setlocal expandtab |
     \ setlocal shiftwidth=2
 
-  autocmd BufNewFile,BufRead *.py,*.js
+  autocmd BufNewFile,BufRead *.py,*.js,*.elm
     \ setlocal tabstop=4 |
     \ setlocal softtabstop=4 |
     \ setlocal shiftwidth=4 |
