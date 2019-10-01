@@ -2,5 +2,3 @@
 augroup MyAutoCmd
 	autocmd CursorHold * if exists(':rshada') | rshada | wshada | endif
 augroup END
-
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
