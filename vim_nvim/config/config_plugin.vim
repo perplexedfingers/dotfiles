@@ -211,4 +211,8 @@ if dein#tap('vim-table-mode')
     \ | let g:table_mode_header_fillchar="="
   autocmd BufLeave *.rst unlet g:table_mode_header_fillchar
 endif
+
+if dein#tap('vim-slumlord')
+  let g:slumlord_plantuml_jar_path = '/home/ray/Downloads/plantuml.1.2019.9.jar'
+endif
 " vim: set ts=2 sw=2 tw=80 et :
