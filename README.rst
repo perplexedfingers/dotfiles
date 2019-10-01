@@ -59,6 +59,7 @@ note for Python3 packages
 - thefuck
 - vim-vint
 - proselint
+- httpie
 
 
 note for command line tools
@@ -75,19 +76,17 @@ note for command line tools
 - fossil
 - python3
 - rust
+- erlang
+- julia
+- elm
 - rsync
+- nix
 - tree
 - watch
 - sudo
-<<<<<<< HEAD
 - diff-so-fancy
 - kr
-||||||| 828c3c2... Update README
-- kr
-=======
->>>>>>> parent of 828c3c2... Update README
 - shellcheck
-- mosh
 - ncdu
 - hunspell
 - ctags
