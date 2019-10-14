@@ -4,14 +4,12 @@ call dein#add('Shougo/dein.vim')
 call dein#add('rhysd/vim-color-spring-night')
 call dein#add('itchyny/lightline.vim')
 
-" code edit helper
+" edit helper
 call dein#add('sbdchd/neoformat', {'on_cmd': 'Neoformat'})
 call dein#add('benekastah/neomake', {'on_cmd': 'Neomake'})
 call dein#add('Yggdroot/indentLine', {'on_cmd': 'IndentLinesToggle'})
 call dein#add('rstacruz/sparkup', {'on_ft': 'html', 'rtp': 'vim'})
 call dein#add('scrooloose/vim-slumlord', {'on_ft': 'plantuml'})
-
-" edit shortcut
 call dein#add('dhruvasagar/vim-table-mode', {
             \'on_cmd': ['TableModeToggle', 'Tableize', 'TableSort']})
 call dein#add('tyru/caw.vim', {'on_path': '.*'})
