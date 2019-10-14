@@ -140,6 +140,17 @@ if dein#tap('tmux-complete.vim')
             \ }
 endif
 
+if dein#tap('vim-lsp')
+  let g:lsp_diagnostics_enabled = 0
+  augroup lsp_folding
+    autocmd!
+    autocmd FileType python setlocal
+        \ foldmethod=expr
+        \ foldexpr=lsp#ui#vim#folding#foldexpr()
+        \ foldtext=lsp#ui#vim#folding#foldtext()
+  augroup end
+endif
+
 if dein#tap('signify')
   let g:signify_vcs_list = ['git', 'hg']
   let g:signify_cursorhold_insert = 1
@@ -163,20 +174,12 @@ if dein#tap('neomake')
         \ }
 
   let g:neomake_python_prospector_maker = {
-              \ 'args': ['--no-autodetect', '--output-format', 'pylint', '--doc-warnings', '--member-warnings', '--full-pep8', '--max-line-length', '120'],
+              \ 'args': ['--no-autodetect', '--output-format', 'pylint', '--member-warnings', '--max-line-length', '120'],
               \ 'errorformat': '%f:%l: %m'
               \ }
 
-  let g:neomake_open_list = 1
-
-  let g:neomake_verbose = 1
   let g:neomake_serialize = 1
   let g:neomake_serialize_abort_on_error = 1
-
-  let g:neomake_error_sign = {'text': '✖', 'texthl': 'ErrorMsg'}
-  let g:neomake_warning_sign = {'text': '◆', 'texthl': 'WarningMsg'}
-  let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
-  let g:neomake_info_sign = {'text': '§', 'texthl': 'NeomakeInfoSign'}
 endif
 
 if dein#tap('neoformat')
