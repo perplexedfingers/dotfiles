@@ -7,7 +7,7 @@ else
 endif
 
 set background=dark
-colorscheme PaperColor
+colorscheme spring-night
 
 if has('gui_running')
   set guifont=Monaco:h14

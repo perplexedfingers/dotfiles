@@ -1,7 +1,7 @@
 call dein#add('Shougo/dein.vim')
 
 " theme
-call dein#add('NLKNguyen/papercolor-theme')
+call dein#add('rhysd/vim-color-spring-night')
 call dein#add('itchyny/lightline.vim')
 
 " code edit helper
