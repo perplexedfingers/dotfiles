@@ -152,7 +152,7 @@ if dein#tap('vim-lsp')
 endif
 
 if dein#tap('signify')
-  let g:signify_vcs_list = ['git', 'hg']
+  let g:signify_vcs_list = ['git', 'hg', 'fossil']
   let g:signify_cursorhold_insert = 1
   let g:signify_cursorhold_normal = 1
   let g:signify_update_on_bufenter = 0
