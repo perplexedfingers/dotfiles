@@ -1,6 +1,6 @@
 " Reload vim config automatically {{{
 execute 'autocmd MyAutoCmd BufWritePost '.$VIMPATH.'/config/*vim,vimrc nested'
-  \ .' source $MYVIMRC | redraw'
+      \ .' source $MYVIMRC | redraw'
 " }}}
 
 augroup MyAutoCmd " {{{
@@ -10,21 +10,21 @@ augroup MyAutoCmd " {{{
 
   " Reload Vim script automatically if setlocal autoread
   autocmd BufWritePost,FileWritePost *.vim nested
-    \ if &l:autoread > 0 | source <afile> |
-    \   echo 'source '.bufname('%') |
-    \ endif
+        \ if &l:autoread > 0 | source <afile> |
+        \   echo 'source '.bufname('%') |
+        \ endif
 
   " Update filetype on save if empty
   autocmd BufWritePost * nested
-    \ if &l:filetype ==# '' || exists('b:ftdetect')
-    \ |   unlet! b:ftdetect
-    \ |   filetype detect
-    \ | endif
+        \ if &l:filetype ==# '' || exists('b:ftdetect')
+        \ |   unlet! b:ftdetect
+        \ |   filetype detect
+        \ | endif
 
   autocmd FileType help
-    \ setlocal iskeyword+=: |
-    \ setlocal iskeyword+=# |
-    \ setlocal iskeyword+=-
+        \ setlocal iskeyword+=: |
+        \ setlocal iskeyword+=# |
+        \ setlocal iskeyword+=-
 
   autocmd FileType crontab setlocal nobackup nowritebackup
 
@@ -32,34 +32,39 @@ augroup MyAutoCmd " {{{
 
   autocmd FileType gitcommit,qfreplace setlocal nofoldenable
 
-  autocmd BufNewFile,BufRead *.html,*.css
-    \ setlocal tabstop=2 |
-    \ setlocal softtabstop=2 |
-    \ setlocal textwidth=120 |
-    \ setlocal expandtab |
-    \ setlocal shiftwidth=2
+  autocmd BufNewFile,BufRead *.html,*.css,*.js,*.vue
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2
+        \ setlocal textwidth=120 |
+        \ setlocal expandtab |
+        \ setlocal autoindent |
+        \ setlocal fileformat=unix |
+        \ setlocal smarttab |
+        \ setlocal nosmartindent |
+        \ setlocal foldmethod=syntax
 
-  autocmd BufNewFile,BufRead *.py,*.js,*.elm
-    \ setlocal tabstop=4 |
-    \ setlocal softtabstop=4 |
-    \ setlocal shiftwidth=4 |
-    \ setlocal textwidth=120 |
-    \ setlocal expandtab |
-    \ setlocal autoindent |
-    \ setlocal fileformat=unix |
-    \ setlocal smarttab |
-    \ setlocal nosmartindent |
-    \ setlocal foldmethod=indent
+  autocmd BufNewFile,BufRead *.py,*.elm
+        \ setlocal tabstop=4 |
+        \ setlocal softtabstop=4 |
+        \ setlocal shiftwidth=4 |
+        \ setlocal textwidth=120 |
+        \ setlocal expandtab |
+        \ setlocal autoindent |
+        \ setlocal fileformat=unix |
+        \ setlocal smarttab |
+        \ setlocal nosmartindent |
+        \ setlocal foldmethod=indent
 
   autocmd FileType zsh setlocal foldenable foldmethod=marker
 
   " Improved include pattern
   autocmd FileType html
-    \ setlocal includeexpr=substitute(v:fname,'^\\/','','') |
-    \ setlocal path+=./;/
+        \ setlocal includeexpr=substitute(v:fname,'^\\/','','') |
+        \ setlocal path+=./;/
 
   autocmd FileType markdown
-    \ setlocal spell expandtab autoindent formatoptions=tcroqn2 comments=n:>
+        \ setlocal spell expandtab autoindent formatoptions=tcroqn2 comments=n:>
 
   autocmd FileType apache setlocal path+=./;/
 
@@ -109,17 +114,17 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 " Markdown {{{
 let g:markdown_fenced_languages = [
-  \  'css',
-  \  'javascript',
-  \  'js=javascript',
-  \  'json=javascript',
-  \  'python',
-  \  'py=python',
-  \  'sh',
-  \  'sass',
-  \  'xml',
-  \  'vim'
-  \]
+      \  'css',
+      \  'javascript',
+      \  'js=javascript',
+      \  'json=javascript',
+      \  'python',
+      \  'py=python',
+      \  'sh',
+      \  'sass',
+      \  'xml',
+      \  'vim'
+      \]
 " }}}
 
 " Folding {{{
