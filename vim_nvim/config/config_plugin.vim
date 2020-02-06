@@ -166,17 +166,17 @@ if dein#tap('caw.vim')
 endif
 
 if dein#tap('neomake')
-  let g:neomake_python_python3_maker = {
-        \ 'errorformat': '%E%f:%l:%c: %m',
-        \ 'serialize': 1,
-        \ 'serialize_abort_on_error': 1,
-        \ 'output_stream': 'stdout',
-        \ }
-
   let g:neomake_python_prospector_maker = {
-        \ 'args': ['--no-autodetect', '--output-format', 'pylint', '--member-warnings', '--max-line-length', '120'],
-        \ 'errorformat': '%f:%l: %m'
-        \ }
+    \ 'args': ['--output-format', 'pylint', '--message-only', '--absolute-paths', '%:p'],
+    \ 'errorformat':
+        \ '%-G%.%#module named%.%#,' .
+        \ '%f:%l:%c [%t%n%.%#] %m,' .
+        \ '%f:%l: [%t%n%.%#] %m,' .
+        \ '%f:%l: [%.%#] %m,' .
+        \ '%f:%l:%c [%.%#] %m',
+    \ }
+
+  let g:neomake_python_enabled_makers = ['prospector', 'python']
 
   let g:neomake_javascript_enbaled_markers = ['standard']
   let g:neomake_serialize = 1
