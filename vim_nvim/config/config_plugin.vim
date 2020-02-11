@@ -167,7 +167,9 @@ endif
 
 if dein#tap('neomake')
   let g:neomake_python_prospector_maker = {
-    \ 'args': ['--output-format', 'pylint', '--message-only', '--absolute-paths', '%:p'],
+    \ 'args': ['--output-format', 'pylint',
+               \'--uses', 'django',
+               \'--absolute-paths', '%:p'],
     \ 'errorformat':
         \ '%-G%.%#module named%.%#,' .
         \ '%f:%l:%c [%t%n%.%#] %m,' .
