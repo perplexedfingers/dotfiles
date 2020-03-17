@@ -21,10 +21,10 @@ augroup MyAutoCmd " {{{
         \ |   filetype detect
         \ | endif
 
-  autocmd FileType help
-        \ setlocal iskeyword+=: |
-        \ setlocal iskeyword+=# |
-        \ setlocal iskeyword+=-
+  autocmd FileType help setlocal
+        \ iskeyword+=:
+        \ iskeyword+=#
+        \ iskeyword+=-
 
   autocmd FileType crontab setlocal nobackup nowritebackup
 
@@ -32,39 +32,39 @@ augroup MyAutoCmd " {{{
 
   autocmd FileType gitcommit,qfreplace setlocal nofoldenable
 
-  autocmd BufNewFile,BufRead *.html,*.css,*.js,*.vue
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2
-        \ setlocal textwidth=120 |
-        \ setlocal expandtab |
-        \ setlocal autoindent |
-        \ setlocal fileformat=unix |
-        \ setlocal smarttab |
-        \ setlocal nosmartindent |
-        \ setlocal foldmethod=syntax
+  autocmd BufNewFile,BufRead *.html,*.css,*.js,*.vue setlocal
+        \ tabstop=2
+        \ softtabstop=2
+        \ shiftwidth=2
+        \ textwidth=120
+        \ expandtab
+        \ autoindent
+        \ fileformat=unix
+        \ smarttab
+        \ nosmartindent
+        \ foldmethod=syntax
 
-  autocmd BufNewFile,BufRead *.py,*.elm
-        \ setlocal tabstop=4 |
-        \ setlocal softtabstop=4 |
-        \ setlocal shiftwidth=4 |
-        \ setlocal textwidth=120 |
-        \ setlocal expandtab |
-        \ setlocal autoindent |
-        \ setlocal fileformat=unix |
-        \ setlocal smarttab |
-        \ setlocal nosmartindent |
-        \ setlocal foldmethod=indent
+  autocmd BufNewFile,BufRead *.py,*.elm setlocal
+        \ tabstop=4
+        \ softtabstop=4
+        \ shiftwidth=4
+        \ textwidth=120
+        \ expandtab
+        \ autoindent
+        \ fileformat=unix
+        \ smarttab
+        \ nosmartindent
+        \ foldmethod=indent
 
   autocmd FileType zsh setlocal foldenable foldmethod=marker
 
   " Improved include pattern
-  autocmd FileType html
-        \ setlocal includeexpr=substitute(v:fname,'^\\/','','') |
-        \ setlocal path+=./;/
+  autocmd FileType html setlocal
+        \ includeexpr=substitute(v:fname,'^\\/','','')
+        \ path+=./;/
 
-  autocmd FileType markdown
-        \ setlocal spell expandtab autoindent formatoptions=tcroqn2 comments=n:>
+  autocmd FileType markdown setlocal
+        \spell expandtab autoindent formatoptions=tcroqn2 comments=n:>
 
   autocmd FileType apache setlocal path+=./;/
 
