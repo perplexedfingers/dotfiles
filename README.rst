@@ -50,7 +50,7 @@ for git configuration
 note for Python3 packages
 ========================
 
-- prospector
+- flake8
 - neovim
 - python-language-server
 - ipython

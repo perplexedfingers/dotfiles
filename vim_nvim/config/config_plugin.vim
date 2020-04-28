@@ -178,7 +178,7 @@ if dein#tap('neomake')
         \ '%f:%l:%c [%.%#] %m',
     \ }
 
-  let g:neomake_python_enabled_makers = ['prospector', 'python']
+  let g:neomake_python_enabled_makers = ['flake8', 'python']
 
   let g:neomake_javascript_enbaled_markers = ['standard']
   let g:neomake_serialize = 1
