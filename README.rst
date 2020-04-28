@@ -84,7 +84,7 @@ note for command line tools
 - tree
 - watch
 - sudo
-- diff-so-fancy
+- git-delta
 - kr
 - shellcheck
 - ncdu

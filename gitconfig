@@ -1,7 +1,9 @@
 [push]
 	default = upstream
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta --dark\
+        --plus-color="green" --plus-emph-color="magenta"\
+        --minus-color="red" --minus-emph-color="cyan"
     whitespace = tab-in-indent trailing-space
 	editor = nvim
 	eol = lf
@@ -21,11 +23,8 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
-[diff-so-fancy]
-	markEmptyLines = false
-	changeHunkIndicators = false
-	stripLeadingSymbols = false
-	useUnicodeRuler = false
+[interactive]
+    diffFilter = delta --color-only
 [credential]
 	helper = cache --timeout=3600
 [merge]
