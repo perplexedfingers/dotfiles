@@ -7,12 +7,10 @@ call dein#add('itchyny/lightline.vim')
 " edit helper
 call dein#add('Yggdroot/indentLine', {'on_cmd': 'IndentLinesToggle'})
 call dein#add('rstacruz/sparkup', {'on_ft': 'html', 'rtp': 'vim'})
-call dein#add('scrooloose/vim-slumlord', {'on_ft': 'plantuml'})
 call dein#add('dhruvasagar/vim-table-mode', {
             \'on_cmd': ['TableModeToggle', 'Tableize', 'TableSort']})
 call dein#add('tyru/caw.vim', {'on_path': '.*'})
 call dein#add('machakann/vim-sandwich', {'on_path': '.*'})
-call dein#add('justinmk/vim-sneak', {'on_map': {'oxn': '<Plug>Sneak'}})
 
 " display enhancement
 call dein#add('mhinz/vim-signify', {'on_path': '.*'})

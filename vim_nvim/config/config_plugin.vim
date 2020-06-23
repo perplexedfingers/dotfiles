@@ -71,12 +71,6 @@ if dein#tap('committia.vim')
   let g:committia_min_window_width = 70
 endif
 
-if dein#tap('vim-sneak')
-  " s is conflicted with sandwich
-  map f <Plug>Sneak_s
-  map F <Plug>Sneak_S
-endif
-
 if dein#tap('rainbow')
   let g:rainbow_active = 1
   let g:rainbow_conf = {
@@ -146,7 +140,6 @@ if dein#tap('vim-lsp')
       \ foldexpr=lsp#ui#vim#folding#foldexpr()
       \ foldtext=lsp#ui#vim#folding#foldtext()
   if executable('pyls')
-    " pip install python-language-server
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
@@ -189,9 +182,5 @@ if dein#tap('vim-table-mode')
   autocmd BufEnter *.rst let g:table_mode_corner_corner="+"
         \ | let g:table_mode_header_fillchar="="
   autocmd BufLeave *.rst unlet g:table_mode_header_fillchar
-endif
-
-if dein#tap('vim-slumlord')
-  let g:slumlord_plantuml_jar_path = '/home/ray/Downloads/plantuml.1.2019.9.jar'
 endif
 " vim: set ts=2 sw=2 tw=80 et :
