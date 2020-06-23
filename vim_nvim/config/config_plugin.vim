@@ -122,7 +122,6 @@ endif
 if dein#tap('asyncomplete.vim')
   let g:asyncomplete_remove_duplicates = 1
   let g:asyncomplete_smart_completion = 1
-  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif  " auto close
 endif
 
 if dein#tap('tmux-complete.vim')
@@ -141,14 +140,11 @@ if dein#tap('tmux-complete.vim')
 endif
 
 if dein#tap('vim-lsp')
-  let g:lsp_diagnostics_enabled = 0
-  augroup lsp_folding
-    autocmd!
-    autocmd FileType python setlocal
-          \ foldmethod=expr
-          \ foldexpr=lsp#ui#vim#folding#foldexpr()
-          \ foldtext=lsp#ui#vim#folding#foldtext()
-  augroup end
+  let g:lsp_signs_enabled = 1
+  let g:lsp_diagnostics_echo_cursor = 1
+  set foldmethod=expr
+      \ foldexpr=lsp#ui#vim#folding#foldexpr()
+      \ foldtext=lsp#ui#vim#folding#foldtext()
   if executable('pyls')
     " pip install python-language-server
     au User lsp_setup call lsp#register_server({
@@ -186,52 +182,6 @@ if dein#tap('caw.vim')
   let g:caw_hatpos_skip_blank_line = 1
   let g:caw_dollarpos_skip_blank_line = 1
   autocmd FileType robot let b:caw_oneline_comment = '#'
-endif
-
-if dein#tap('neomake')
-  let g:neomake_python_prospector_maker = {
-    \ 'args': ['--output-format', 'pylint',
-               \'--uses', 'django',
-               \'--absolute-paths', '%:p'],
-    \ 'errorformat':
-        \ '%-G%.%#module named%.%#,' .
-        \ '%f:%l:%c [%t%n%.%#] %m,' .
-        \ '%f:%l: [%t%n%.%#] %m,' .
-        \ '%f:%l: [%.%#] %m,' .
-        \ '%f:%l:%c [%.%#] %m',
-    \ }
-
-  let g:neomake_python_enabled_makers = ['flake8', 'python']
-
-  let g:neomake_javascript_enbaled_markers = ['standard']
-  let g:neomake_serialize = 1
-  let g:neomake_serialize_abort_on_error = 1
-endif
-
-if dein#tap('neoformat')
-  let g:neoformat_run_all_formatters = 1
-  let g:neoformat_try_formatprg = 1
-  let g:neoformat_basic_format_align = 1
-  let g:neoformat_basic_format_retab = 1
-  let g:neoformat_basic_format_trim = 1
-
-  let g:neoformat_python_autopep8 ={
-        \'exe': 'autopep8',
-        \'args': ['-', '--max-line-length 120'],
-        \'stdin': 1
-        \}
-  let g:neoformat_python_isort = {
-        \'exe': 'isort',
-        \'stdin': 1,
-        \'args': ['-',
-        \         '--combine-star',
-        \         '--combine-as',
-        \         '--order-by-type',
-        \         '--multi-line 0',
-        \         '--balanced',
-        \         '--quiet']
-        \}
-  let g:neoformat_enabled_python = ['autopep8', 'isort']
 endif
 
 if dein#tap('vim-table-mode')

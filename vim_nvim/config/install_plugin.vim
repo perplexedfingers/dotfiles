@@ -5,8 +5,6 @@ call dein#add('rhysd/vim-color-spring-night')
 call dein#add('itchyny/lightline.vim')
 
 " edit helper
-call dein#add('sbdchd/neoformat', {'on_cmd': 'Neoformat'})
-call dein#add('benekastah/neomake', {'on_cmd': 'Neomake'})
 call dein#add('Yggdroot/indentLine', {'on_cmd': 'IndentLinesToggle'})
 call dein#add('rstacruz/sparkup', {'on_ft': 'html', 'rtp': 'vim'})
 call dein#add('scrooloose/vim-slumlord', {'on_ft': 'plantuml'})
