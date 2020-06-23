@@ -58,6 +58,6 @@ call dein#add('vim-erlang/vim-erlang-omnicomplete', {'on_ft': 'erlang', 'depends
 call dein#add('prabirshrestha/async.vim', {'on_path': '.*', 'depends': 'asyncomplete.vim'})
 call dein#add('prabirshrestha/vim-lsp', {'on_path': '.*', 'depends': ['asyncomplete.vim', 'async.vim']})
 call dein#add('prabirshrestha/asyncomplete-lsp.vim', {'on_path': '.*', 'depends': ['asyncomplete.vim', 'vim-lsp']})
-call dein#add('ryanolsonx/vim-lsp-python', {'on_ft': 'python', 'depends': 'asyncomplete-lsp.vim'})
+call dein#add('mattn/vim-lsp-settings', {'on_cmd': ['LspInstallServer', 'LspUninstallServer'], 'depends': 'asyncomplete-lsp.vim', 'merged': 0})
 
 " vim: set ts=2 sw=2 tw=80 et
