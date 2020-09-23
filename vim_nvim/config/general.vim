@@ -103,6 +103,10 @@ if has('clipboard')
   endif
 endif
 
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+endif
+
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
