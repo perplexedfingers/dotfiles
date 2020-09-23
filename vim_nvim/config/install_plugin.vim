@@ -22,19 +22,23 @@ call dein#add('rhysd/committia.vim', {'on_path': 'COMMIT_EDITMSG'})
 call dein#add('mfukar/robotframework-vim', {'on_ft': ['robot', 'txt', 'rst', 'html']})
 call dein#add('alvarolizama/vim-html', {'on_ft': ['django', 'html']})
 
-call dein#add('prabirshrestha/asyncomplete.vim', {'on_path': '.*'})
+call dein#add('prabirshrestha/asyncomplete.vim')
 call dein#add('prabirshrestha/asyncomplete-buffer.vim', {
-            \'on_path': '.*', 'depends': 'asyncomplete.vim',
-            \'hook_post_source': function('s:for_buffer')})
-call dein#add('wellle/tmux-complete.vim', {'on_path': '.*', 'depends': 'asyncomplete.vim'})
-call dein#add('yami-beta/asyncomplete-omni.vim', {
-            \'on_path': '.*', 'depends': 'asyncomplete.vim',
-            \'hook_post_source': function('s:for_omni')})
-call dein#add('vim-erlang/vim-erlang-omnicomplete', {'on_ft': 'erlang', 'depends': 'asyncomplete-omni.vim'})
+           \'depends': 'asyncomplete.vim'})
+call dein#add('wellle/tmux-complete.vim',
+           \{'depends': 'asyncomplete.vim'})
+call dein#add('yami-beta/asyncomplete-omni.vim',
+            \{'depends': 'asyncomplete.vim'})
+call dein#add('vim-erlang/vim-erlang-omnicomplete'
+           \, {'on_ft': 'erlang', 'depends': 'asyncomplete-omni.vim'})
 
-call dein#add('prabirshrestha/async.vim', {'on_path': '.*', 'depends': 'asyncomplete.vim'})
-call dein#add('prabirshrestha/vim-lsp', {'on_path': '.*', 'depends': ['asyncomplete.vim', 'async.vim']})
-call dein#add('prabirshrestha/asyncomplete-lsp.vim', {'on_path': '.*', 'depends': ['asyncomplete.vim', 'vim-lsp']})
-call dein#add('mattn/vim-lsp-settings', {'on_cmd': ['LspInstallServer', 'LspUninstallServer'], 'depends': 'asyncomplete-lsp.vim', 'merged': 0})
+call dein#add('prabirshrestha/async.vim'
+           \, {'depends': 'asyncomplete.vim'})
+call dein#add('prabirshrestha/vim-lsp'
+           \, {'depends': ['asyncomplete.vim', 'async.vim']})
+call dein#add('prabirshrestha/asyncomplete-lsp.vim'
+           \, {'depends': ['asyncomplete.vim', 'vim-lsp']})
+call dein#add('mattn/vim-lsp-settings'
+           \, {'on_cmd': ['LspInstallServer', 'LspUninstallServer'], 'depends': 'asyncomplete-lsp.vim', 'merged': 0})
 
 " vim: set ts=2 sw=2 tw=80 et
