@@ -118,6 +118,24 @@ if dein#tap('asyncomplete.vim')
   let g:asyncomplete_smart_completion = 1
 endif
 
+if dein#tap('asyncomplete-omni.vim')
+  call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+        \ 'name': 'omni',
+        \ 'whitelist': ['*'],
+        \ 'blacklist': ['c', 'cpp', 'html'],
+        \ 'completor': function('asyncomplete#sources#omni#completor')
+        \ }))
+endif
+
+if dein#tap('asyncomplete-buffer.vim')
+  call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+        \ 'name': 'buffer',
+        \ 'allowlist': ['*'],
+        \ 'blocklist': ['go'],
+        \ 'completor': function('asyncomplete#sources#buffer#completor')
+        \ }))
+endif
+
 if dein#tap('tmux-complete.vim')
   let g:tmuxcomplete#asyncomplete_source_options = {
         \ 'name':      'tmux',

@@ -22,25 +22,6 @@ call dein#add('Shougo/context_filetype.vim', {'on_path': '.*'})
 call dein#add('rhysd/committia.vim', {'on_path': 'COMMIT_EDITMSG'})
 call dein#add('mfukar/robotframework-vim', {'on_ft': ['robot', 'txt', 'rst', 'html']})
 
-" completion
-function! s:for_buffer() abort
-    call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-                \'name': 'buffer',
-                \ 'whitelist': ['*'],
-                \ 'blacklist': ['go'],
-                \ 'completor': function('asyncomplete#sources#buffer#completor'),
-                \ }))
-endfunction
-
-function! s:for_omni() abort
-    call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-                \'name': 'omni',
-                \ 'whitelist': ['*'],
-                \ 'blacklist': ['c', 'cpp', 'html'],
-                \ 'completor': function('asyncomplete#sources#omni#completor')
-                \  }))
-endfunction
-
 call dein#add('prabirshrestha/asyncomplete.vim', {'on_path': '.*'})
 call dein#add('prabirshrestha/asyncomplete-buffer.vim', {
             \'on_path': '.*', 'depends': 'asyncomplete.vim',
