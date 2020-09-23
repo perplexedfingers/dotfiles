@@ -20,6 +20,7 @@ call dein#add('sheerun/vim-polyglot', {'on_path': '.*', 'on_source': 'context_fi
 call dein#add('Shougo/context_filetype.vim', {'on_path': '.*'})
 call dein#add('rhysd/committia.vim', {'on_path': 'COMMIT_EDITMSG'})
 call dein#add('mfukar/robotframework-vim', {'on_ft': ['robot', 'txt', 'rst', 'html']})
+call dein#add('alvarolizama/vim-html', {'on_ft': ['django', 'html']})
 
 call dein#add('prabirshrestha/asyncomplete.vim', {'on_path': '.*'})
 call dein#add('prabirshrestha/asyncomplete-buffer.vim', {
