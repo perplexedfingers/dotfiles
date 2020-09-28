@@ -31,6 +31,12 @@ call dein#add('yami-beta/asyncomplete-omni.vim',
             \{'depends': 'asyncomplete.vim'})
 call dein#add('vim-erlang/vim-erlang-omnicomplete'
            \, {'on_ft': 'erlang', 'depends': 'asyncomplete-omni.vim'})
+call dein#add('vim-erlang/vim-erlang-compiler'
+           \, {'on_ft': 'erlang'})
+call dein#add('vim-erlang/erlang-motions.vim'
+           \, {'on_ft': 'erlang'})
+call dein#add('vim-erlang/vim-erlang-skeletons'
+           \, {'on_ft': 'erlang', 'on_cmd': ['ErlServer', 'ErlStatem', 'ErlSupervisor', 'ErlEvent', 'ErlApplication', 'ErlEscript']})
 
 call dein#add('prabirshrestha/async.vim'
            \, {'depends': 'asyncomplete.vim'})
