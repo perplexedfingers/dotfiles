@@ -103,16 +103,6 @@ if dein#tap('rainbow')
         \}
 endif
 
-if dein#tap('papercolor-theme')
-  let g:PaperColor_Theme_Options = {
-        \   'language': {
-        \     'python': {
-        \       'highlight_builtins' : 1
-        \     }
-        \ }
-        \}
-endif
-
 if dein#tap('asyncomplete.vim')
   let g:asyncomplete_remove_duplicates = 1
   let g:asyncomplete_smart_completion = 1
@@ -200,5 +190,9 @@ if dein#tap('vim-table-mode')
   autocmd BufEnter *.rst let g:table_mode_corner_corner="+"
         \ | let g:table_mode_header_fillchar="="
   autocmd BufLeave *.rst unlet g:table_mode_header_fillchar
+endif
+
+if dein#tap('vim-color-spring-night')
+  colorscheme spring-night
 endif
 " vim: set ts=2 sw=2 tw=80 et :
