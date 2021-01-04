@@ -87,7 +87,7 @@ let g:PHP_removeCRwhenUnix = 0
 " }}}
 
 " Python {{{
-let g:python_highlight_all = 1
+let g:python_highlight_all = 0
 " }}}
 
 " Vim {{{
