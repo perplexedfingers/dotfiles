@@ -2,7 +2,7 @@ scriptencoding utf-8
 
 if dein#tap('lightline.vim')
   let g:lightline = {
-        \ 'colorscheme': 'material',
+        \ 'colorscheme': 'seoul256',
         \ 'mode_map': { 'c': 'NORMAL' },
         \ 'active': {
         \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
