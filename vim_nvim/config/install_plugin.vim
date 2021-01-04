@@ -3,6 +3,8 @@ call dein#add('Shougo/dein.vim')
 " theme
 call dein#add('rhysd/vim-color-spring-night')
 call dein#add('itchyny/lightline.vim')
+call dein#add('zaki/zazen')
+call dein#add('andreypopp/vim-colors-plain')
 
 " edit helper
 call dein#add('Yggdroot/indentLine', {'on_cmd': 'IndentLinesToggle'})

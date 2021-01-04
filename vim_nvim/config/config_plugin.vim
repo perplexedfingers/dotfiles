@@ -191,8 +191,4 @@ if dein#tap('vim-table-mode')
         \ | let g:table_mode_header_fillchar="="
   autocmd BufLeave *.rst unlet g:table_mode_header_fillchar
 endif
-
-if dein#tap('vim-color-spring-night')
-  colorscheme spring-night
-endif
 " vim: set ts=2 sw=2 tw=80 et :
