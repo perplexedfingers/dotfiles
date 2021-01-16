@@ -53,11 +53,15 @@ else
   else
     let $VARPATH=expand('$HOME/.cache/vim')
   endif
-  " Ensure cache directory
-  if ! isdirectory(expand($VARPATH))
-    call mkdir(expand('$VARPATH/undo'), 'p')
-    call mkdir(expand('$VARPATH/backup'))
-  endif
+  let $SWAP_DIR=expand($VARPATH.'/swap')
+  let $UNDO_DIR=expand($VARPATH.'/undo')
+  let $BACKUP_DIR=expand($VARPATH.'/backup')
+  call mkdir($SWAP_DIR, 'p')
+  call mkdir($UNDO_DIR, 'p')
+  call mkdir($BACKUP_DIR, 'p')
+  set directory=$SWAP_DIR,.
+  set backupdir=$BACKUP_DIR,.
+  set undodir=$UNDO_DIR,.
 endif
 
 if has('gui_running')
