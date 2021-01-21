@@ -63,8 +63,8 @@ augroup MyAutoCmd " {{{
         \ includeexpr=substitute(v:fname,'^\\/','','')
         \ path+=./;/
 
-  autocmd FileType markdown setlocal
-        \ spell expandtab autoindent formatoptions=tcroqn2 comments=n:>
+  autocmd FileType markdown,rst setlocal
+        \ spell expandtab autoindent formatoptions=tcroqn2 comments=n:> tw=100
 
   autocmd FileType apache setlocal path+=./;/
 
