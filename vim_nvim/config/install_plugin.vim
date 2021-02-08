@@ -12,6 +12,8 @@ call dein#add('dhruvasagar/vim-table-mode', {
             \'on_cmd': ['TableModeToggle', 'Tableize', 'TableSort']})
 call dein#add('tyru/caw.vim', {'on_path': '.*'})
 call dein#add('machakann/vim-sandwich', {'on_path': '.*'})
+call dein#add('lotabout/skim', {'on_path': '.*', 'build': './install', 'path': '~/.skim'})
+call dein#add('lotabout/skim.vim', {'on_path': '.*', 'depends': ['skim']})
 
 " display enhancement
 call dein#add('mhinz/vim-signify', {'on_path': '.*'})
