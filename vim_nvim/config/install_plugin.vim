@@ -14,6 +14,7 @@ call dein#add('tyru/caw.vim', {'on_path': '.*'})
 call dein#add('machakann/vim-sandwich', {'on_path': '.*'})
 call dein#add('lotabout/skim', {'on_path': '.*', 'build': './install', 'path': '~/.skim'})
 call dein#add('lotabout/skim.vim', {'on_path': '.*', 'depends': ['skim']})
+call dein#add('ludovicchabant/vim-gutentags', {'on_path': '.*', 'if': "executable('ctags')"})
 
 " display enhancement
 call dein#add('mhinz/vim-signify', {'on_path': '.*'})
@@ -40,6 +41,7 @@ call dein#add('vim-erlang/erlang-motions.vim'
            \, {'on_ft': 'erlang'})
 call dein#add('vim-erlang/vim-erlang-skeletons'
            \, {'on_ft': 'erlang', 'on_cmd': ['ErlServer', 'ErlStatem', 'ErlSupervisor', 'ErlEvent', 'ErlApplication', 'ErlEscript']})
+call dein#add('prabirshrestha/asyncomplete-tags.vim', {'depends': 'asyncomplete.vim', 'if': "executable('ctags')"})
 
 call dein#add('prabirshrestha/async.vim'
            \, {'depends': 'asyncomplete.vim'})
