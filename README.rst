@@ -59,7 +59,6 @@ note for Python3 packages
 - thefuck
 - vim-vint
 - proselint
-- httpie
 
 
 note for command line tools
@@ -91,3 +90,4 @@ note for command line tools
 - hunspell
 - ctags
 - global(gtags)
+- ht
