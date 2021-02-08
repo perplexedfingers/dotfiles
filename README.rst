@@ -88,6 +88,5 @@ note for command line tools
 - shellcheck
 - ncdu
 - hunspell
-- ctags
-- global(gtags)
+- universal-ctags
 - ht
