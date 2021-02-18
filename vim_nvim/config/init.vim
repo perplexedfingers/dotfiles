@@ -47,22 +47,22 @@ else
   augroup MyAutoCmd
     autocmd CursorHold * if exists(':rshada') | rshada | wshada | endif
   augroup END
-
-  if ! empty($XDG_CONFIG_HOME) && isdirectory($XDG_CONFIG_HOME.'/vim')
-    let $VARPATH=expand('$XDG_CACHE_HOME/vim')
-  else
-    let $VARPATH=expand('$HOME/.cache/vim')
-  endif
-  let $SWAP_DIR=expand($VARPATH.'/swap')
-  let $UNDO_DIR=expand($VARPATH.'/undo')
-  let $BACKUP_DIR=expand($VARPATH.'/backup')
-  call mkdir($SWAP_DIR, 'p')
-  call mkdir($UNDO_DIR, 'p')
-  call mkdir($BACKUP_DIR, 'p')
-  set directory=$SWAP_DIR,.
-  set backupdir=$BACKUP_DIR,.
-  set undodir=$UNDO_DIR,.
 endif
+
+if ! empty($XDG_CONFIG_HOME) && isdirectory($XDG_CONFIG_HOME.'/vim')
+  let $VARPATH=expand('$XDG_CACHE_HOME/vim')
+else
+  let $VARPATH=expand('$HOME/.cache/vim')
+endif
+let $SWAP_DIR=expand($VARPATH.'/swap')
+let $UNDO_DIR=expand($VARPATH.'/undo')
+let $BACKUP_DIR=expand($VARPATH.'/backup')
+call mkdir($SWAP_DIR, 'p')
+call mkdir($UNDO_DIR, 'p')
+call mkdir($BACKUP_DIR, 'p')
+set directory=$SWAP_DIR,.
+set backupdir=$BACKUP_DIR,.
+set undodir=$UNDO_DIR,.
 
 if has('gui_running')
   set guioptions=Mc        " Disable menu.vim
