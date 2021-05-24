@@ -44,19 +44,17 @@ for git configuration
 
     cd ~
     ln -s path/to/gitmessage .gitmessage
-    ln -s path/to/gitcommit .gitcommit
+    ln -s path/to/gitconfig .gitconfig
 
 
 note for Python3 packages
 ========================
 
-- flake8
 - neovim
-- python-language-server
-- ipython
-- autotpep8
+- python-language-server[all]
 - isort
-- thefuck
+  - pyls-isort
+- ipython
 - vim-vint
 - proselint
 
@@ -73,16 +71,11 @@ note for command line tools
 - git
 - mecurial
 - fossil
-- python3
-- rust
-- erlang
-- julia
-- elm
 - rsync
 - nix
 - tree
 - watch
-- sudo
+- doas
 - git-delta
 - kr
 - shellcheck
