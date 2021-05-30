@@ -167,6 +167,14 @@ if dein#tap('vim-lsp')
         \ })
   endif
 
+  if executable('erlang_ls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'erlang_ls',
+        \ 'cmd': {server_info->['erlang_ls']},
+        \ 'whitelist': ['erlang'],
+        \ })
+  endif
+
   function! s:on_lsp_buffer_enabled() abort
       setlocal omnifunc=lsp#complete
       setlocal signcolumn=yes

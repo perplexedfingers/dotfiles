@@ -83,3 +83,4 @@ note for command line tools
 - hunspell
 - universal-ctags
 - ht
+- erlang_ls
