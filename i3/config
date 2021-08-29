@@ -156,7 +156,7 @@ bar {
         tray_output primary
 }
 
-exec_always ~/.config/i3/disable_cap.sh
+# exec_always ~/.config/i3/disable_cap.sh
 exec_always ~/.config/i3/natural_mouse_scroll.sh
 
 # xrandr -q | ag "connect"  <= to get display name
