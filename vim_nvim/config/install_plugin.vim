@@ -3,7 +3,6 @@ call dein#add('Shougo/dein.vim')
 " theme
 call dein#add('itchyny/lightline.vim')
 call dein#add('zaki/zazen')
-call dein#add('LuRsT/austere.vim')
 
 " edit helper
 call dein#add('rstacruz/sparkup', {'on_ft': 'html', 'rtp': 'vim'})
