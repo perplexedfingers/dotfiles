@@ -166,6 +166,15 @@ if dein#tap('vim-lsp')
         \ 'whitelist': ['python'],
         \ })
   endif
+  " TODO not working
+  if dein#tap('vim-rescript')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rescript',
+        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'node ~/.cache/vim/dein/repos/github.com/rescript-lang/vim-rescript/server/out/server.js --node-ipc']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'bsconfig.json'))},
+        \ 'whitelist': ['rescript'],
+        \ })
+  endif
 
   if executable('erlang_ls')
     au User lsp_setup call lsp#register_server({
