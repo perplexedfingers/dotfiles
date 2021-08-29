@@ -24,80 +24,12 @@ function! s:source_file(path) abort
   execute 'source' fnameescape($VIMPATH.'/config/'.a:path)
 endfunction
 
-function! s:lazy_load_filetype() abort
-  redir => l:filetype_out
-  silent! filetype
-  redir END
-  if l:filetype_out =~# 'OFF'
-    silent! filetype plugin indent on
-    syntax enable
-    filetype detect
-  endif
-endfunction
-
-" Set augroup
-augroup MyAutoCmd
-  autocmd!
-  " Lazy-loading filetype syntax and highlighting
-  autocmd MyAutoCmd FileType,Syntax,BufNewFile,BufNew,BufRead
-        \ * call s:lazy_load_filetype()
-augroup END
-
-" Initialize base requirements
 if has('vim_starting')
-  call s:source_file('init.vim')
+  " call s:source_file('minimal.vim') " A just-work vim setting for short-term use
+  call s:source_file('extended.vim') " A more complicated setting, including the tiny one
 endif
 
-" Loading configuration modules
-call s:source_file('filetype.vim')
-call s:lazy_load_filetype()
-call s:source_file('utils.vim')
-call s:source_file('bindings.vim')
-
-" Setup dein
-if executable('git')
-  " Install dein
-  if &runtimepath !~# '/dein.vim'
-    let s:dein_dir = expand('$VARPATH/dein').'/repos/github.com/Shougo/dein.vim'
-    if ! isdirectory(s:dein_dir)
-      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
-    endif
-
-    execute 'set runtimepath+='.substitute(
-      \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
-  endif
-
-  " Initialize dein.vim
-  let s:path = expand('$VARPATH/dein')
-  if dein#load_state(s:path)
-    call dein#begin(s:path, [
-      \ expand('<sfile>'),
-      \ expand('$VIMPATH/config/install_plugin.vim')
-      \ ])
-
-    call s:source_file('install_plugin.vim')
-
-    if isdirectory(expand('$VIMPATH/dev'))
-      call dein#local(expand('$VIMPATH/dev'), {'frozen': 1, 'merged': 0})
-    endif
-    call dein#end()
-    call dein#save_state()
-    if dein#check_install()
-      if ! has('nvim')
-        set nomore
-      endif
-      call dein#install()
-    endif
-  endif
-
-  call s:source_file('config_plugin.vim')
-
-  autocmd VimEnter * call dein#call_hook('post_source')
-  autocmd VimEnter * call dein#call_hook('source')
-
-  filetype plugin indent on
-  syntax enable
-endif
+call s:source_file('with_plugin.vim')
 
 set secure
 " vim: set ts=2 sw=2 tw=80 et :
