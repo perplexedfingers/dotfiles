@@ -13,6 +13,7 @@ call dein#add('tyru/caw.vim', {'on_path': '.*'})
 call dein#add('machakann/vim-sandwich', {'on_path': '.*'})
 call dein#add('ludovicchabant/vim-gutentags', {'on_path': '.*', 'if': "executable('ctags')"})
 
+" autocomplete
 call dein#add('prabirshrestha/asyncomplete.vim')
 call dein#add('prabirshrestha/asyncomplete-buffer.vim', {
            \'depends': 'asyncomplete.vim'})

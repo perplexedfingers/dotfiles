@@ -1,9 +1,14 @@
 scriptencoding utf-8
 
 if dein#tap('lightline.vim')
+  set laststatus=2
+  set noshowmode
+  if !has('gui_running')
+    set t_Co=256
+  endif
+
   let g:lightline = {
-        \ 'colorscheme': 'seoul256',
-        \ 'mode_map': { 'c': 'NORMAL' },
+        \ 'colorscheme': 'nord',
         \ 'active': {
         \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
         \ },
@@ -68,19 +73,13 @@ if dein#tap('lightline.vim')
 endif
 
 if dein#tap('committia.vim')
-  let g:committia_min_window_width = 70
+  let g:committia_min_window_width = 72
 endif
 
 if dein#tap('rainbow')
   let g:rainbow_active = 1
   let g:rainbow_conf = {
-        \'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-        \ 'ctermfgs': ['lightblue', 'lightyellow',
-        \              'lightcyan', 'lightmagenta'],
         \ 'operators': '_,\|+\|-\|*\|\/\|===\|!==_',
-        \ 'parentheses': ['start=/(/ end=/)/ fold',
-        \                 'start=/\[/ end=/\]/ fold',
-        \                 'start=/{/ end=/}/ fold'],
         \ 'separately': {
         \   'javascript': {
         \     'parentheses': ['start=/(/ end=/)/',
@@ -97,8 +96,7 @@ if dein#tap('rainbow')
         \   },
         \   'html': {
         \     'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-        \   },
-        \   'css': 0,
+        \   }
         \ }
         \}
 endif
@@ -144,7 +142,7 @@ endif
 if dein#tap('asyncomplete-tags.vim')
   au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#tags#get_source_options({
         \ 'name': 'tags',
-        \ 'allowlist': ['c'],
+        \ 'allowlist': ['c', 'python'],
         \ 'completor': function('asyncomplete#sources#tags#completor'),
         \ 'config': {
         \    'max_file_size': 50000000,
@@ -223,8 +221,6 @@ endif
 
 if dein#tap('zazen')
   colorscheme zazen
-elseif dein#tap('austere.vim')
-  colorscheme austere
 endif
 
 if dein#tap('vim-gutentags')

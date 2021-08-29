@@ -1,10 +1,8 @@
-" Reload vim config automatically {{{
+" Reload vim config automatically
 execute 'autocmd MyAutoCmd BufWritePost '.$VIMPATH.'/config/*vim,vimrc nested'
       \ .' source $MYVIMRC | redraw'
-" }}}
 
-augroup MyAutoCmd " {{{
-
+augroup MyAutoCmd
   " Automatically set read-only for files being edited elsewhere
   autocmd SwapExists * nested let v:swapchoice = 'o'
 
@@ -21,16 +19,28 @@ augroup MyAutoCmd " {{{
         \ |   filetype detect
         \ | endif
 
+  autocmd Syntax * if 5000 < line('$') | syntax sync minlines=200 | endif
+
+  autocmd FileType crontab setlocal nobackup nowritebackup
+
+  autocmd FileType gitcommit,uml,plantuml setlocal spell
+
+  autocmd FileType gitcommit,qfreplace setlocal nofoldenable
+
+  autocmd FileType zsh setlocal foldenable foldmethod=marker
+
+  autocmd FileType fish setlocal foldenable foldmethod=indent
+
+  autocmd FileType apache setlocal path+=./;/
+
+  autocmd FileType cam setlocal nonumber synmaxcol=10000
+
+  autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> %s/\s\+$//e
+
   autocmd FileType help setlocal
         \ iskeyword+=:
         \ iskeyword+=#
         \ iskeyword+=-
-
-  autocmd FileType crontab setlocal nobackup nowritebackup
-
-  autocmd FileType gitcommit setlocal spell
-
-  autocmd FileType gitcommit,qfreplace setlocal nofoldenable
 
   autocmd BufNewFile,BufRead *.html,*.css,*.js,*.vue setlocal
         \ tabstop=2
@@ -56,8 +66,6 @@ augroup MyAutoCmd " {{{
         \ nosmartindent
         \ foldmethod=indent
 
-  autocmd FileType zsh setlocal foldenable foldmethod=marker
-
   " Improved include pattern
   autocmd FileType html setlocal
         \ includeexpr=substitute(v:fname,'^\\/','','')
@@ -66,37 +74,24 @@ augroup MyAutoCmd " {{{
   autocmd FileType markdown,rst setlocal
         \ spell expandtab autoindent formatoptions=tcroqn2 comments=n:> tw=100
 
-  autocmd FileType apache setlocal path+=./;/
-
-  autocmd FileType cam setlocal nonumber synmaxcol=10000
-
   autocmd FileType go highlight default link goErr WarningMsg |
         \ match goErr /\<err\>/
 
-  autocmd Syntax * if 5000 < line('$') | syntax sync minlines=200 | endif
-
-  autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> %s/\s\+$//e
-
-augroup END " }}}
+augroup END
 
 " Internal Plugin Settings  {{{
-" ------------------------
 
-" PHP {{{
+" PHP
 let g:PHP_removeCRwhenUnix = 0
-" }}}
 
-" Python {{{
+" Python
 let g:python_highlight_all = 0
-" }}}
 
-" Vim {{{
+" Vim
 let g:vimsyntax_noerror = 1
-" }}}
 
-" Bash {{{
+" Bash
 let g:is_bash = 1
-" }}}
 
 " Java {{{
 let g:java_highlight_functions = 'style'
