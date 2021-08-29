@@ -1,4 +1,4 @@
-[core]
+[core]   
     whitespace = tab-in-indent trailing-space cr-at-eol
 	eol = lf
 	safecrlf = true
