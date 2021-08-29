@@ -223,11 +223,12 @@ endif
 
 if dein#tap('zazen')
   colorscheme zazen
-elseif dein#tap('austere')
+elseif dein#tap('austere.vim')
   colorscheme austere
 endif
 
 if dein#tap('vim-gutentags')
+  let g:gutentags_ctags_executable = '/usr/local/bin/ctags'
   let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
   command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
 
