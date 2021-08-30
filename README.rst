@@ -1,5 +1,5 @@
-for vim/neovim with XDG support
-==========
+For vim/neovim with XDG support
+===============================
 
 .. code:: sh
 
@@ -10,8 +10,8 @@ for vim/neovim with XDG support
     make test
     make install
 
-for vim/neovim without XDG support
-=======
+For vim/neovim without XDG support
+==================================
 
 .. code:: sh
 
@@ -21,14 +21,14 @@ for vim/neovim without XDG support
     make test
     make install
 
-update vim/neovim package from command line
-========
+Update vim/neovim package from command line
+===========================================
 
 .. code:: sh
 
     nvim --headless -c 'call dein#update() | q'
 
-for tmux
+For tmux
 ========
 
 .. code:: sh
@@ -36,8 +36,9 @@ for tmux
     cd ~
     ln -s path/to/tmux.conf .tmux.conf
 
+Prefix key combinations is ``C-g``
 
-for git configuration
+For git configuration
 =====================
 
 .. code:: sh
@@ -47,19 +48,18 @@ for git configuration
     ln -s path/to/gitconfig .gitconfig
 
 
-note for Python3 packages
+Note for Python3 packages
 ========================
 
-- neovim
+- pynvim
 - python-language-server[all]
 - isort
   - pyls-isort
 - ipython
-- vim-vint
-- proselint
+- bpython
 
 
-note for command line tools
+Note for command line tools
 ===========================
 
 - tmux
@@ -71,16 +71,17 @@ note for command line tools
 - git
 - mecurial
 - fossil
+- pijul
 - rsync
 - nix
 - tree
 - watch
 - doas
 - git-delta
-- kr
 - shellcheck
 - ncdu
 - hunspell
 - universal-ctags
-- ht
+- httpie
+- xh
 - erlang_ls

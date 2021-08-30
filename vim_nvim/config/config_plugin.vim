@@ -72,10 +72,6 @@ if dein#tap('lightline.vim')
   endfunction
 endif
 
-if dein#tap('committia.vim')
-  let g:committia_min_window_width = 72
-endif
-
 if dein#tap('rainbow')
   let g:rainbow_active = 1
   let g:rainbow_conf = {
@@ -102,26 +98,66 @@ if dein#tap('rainbow')
 endif
 
 if dein#tap('asyncomplete.vim')
-  let g:asyncomplete_remove_duplicates = 1
-  let g:asyncomplete_smart_completion = 1
+  " removing duplicates
+  function! s:my_asyncomplete_preprocessor(options, matches) abort
+    let l:visited = {}
+    let l:items = []
+    for [l:source_name, l:matches] in items(a:matches)
+      for l:item in l:matches['items']
+        if stridx(l:item['word'], a:options['base']) == 0
+          if !has_key(l:visited, l:item['word'])
+            call add(l:items, l:item)
+            let l:visited[l:item['word']] = 1
+          endif
+        endif
+      endfor
+    endfor
+
+    call asyncomplete#preprocess_complete(a:options, l:items)
+  endfunction
+  let g:asyncomplete_preprocessor = [function('s:my_asyncomplete_preprocessor')]
+
+  " Use traditional C-n/C-p to show autocomplete rather showing while typing
+  let g:asyncomplete_auto_popup = 0
+  function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
+  inoremap <silent><expr> <C-n>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ asyncomplete#force_refresh()
+  inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-h>"
 endif
 
 if dein#tap('asyncomplete-omni.vim')
-  call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+  autocmd User asyncomplete_setup call asyncomplete#register_source(
+        \asyncomplete#sources#omni#get_source_options({
         \ 'name': 'omni',
-        \ 'whitelist': ['*'],
-        \ 'blacklist': ['c', 'cpp', 'html'],
-        \ 'completor': function('asyncomplete#sources#omni#completor')
+        \ 'allowlist': ['*'],
+        \ 'blocklist': ['c', 'cpp', 'html'],
+        \ 'completor': function('asyncomplete#sources#omni#completor'),
+        \ 'config': {
+        \   'show_source_kind': 1,
+        \ },
         \ }))
 endif
 
 if dein#tap('asyncomplete-buffer.vim')
-  call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+  autocmd User asyncomplete_setup call asyncomplete#register_source(
+        \asyncomplete#sources#buffer#get_source_options({
         \ 'name': 'buffer',
         \ 'allowlist': ['*'],
         \ 'blocklist': ['go'],
-        \ 'completor': function('asyncomplete#sources#buffer#completor')
+        \ 'completor': function('asyncomplete#sources#buffer#completor'),
+        \ 'config': {
+        \    'max_buffer_size': 5000000,
+        \  },
         \ }))
+endif
+
+if dein#tap('vim-better-whitespace')
+  nnoremap <silent> <Leader><Space> :StripWhitespace<CR>
 endif
 
 if dein#tap('tmux-complete.vim')
@@ -140,7 +176,8 @@ if dein#tap('tmux-complete.vim')
 endif
 
 if dein#tap('asyncomplete-tags.vim')
-  au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#tags#get_source_options({
+  autocmd User asyncomplete_setup call asyncomplete#register_source(
+        \asyncomplete#sources#tags#get_source_options({
         \ 'name': 'tags',
         \ 'allowlist': ['c', 'python'],
         \ 'completor': function('asyncomplete#sources#tags#completor'),
@@ -152,11 +189,6 @@ if dein#tap('asyncomplete-tags.vim')
 endif
 
 if dein#tap('vim-lsp')
-  let g:lsp_signs_enabled = 1
-  let g:lsp_diagnostics_echo_cursor = 1
-  set foldmethod=expr
-      \ foldexpr=lsp#ui#vim#folding#foldexpr()
-      \ foldtext=lsp#ui#vim#folding#foldtext()
   if executable('pyls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
@@ -164,15 +196,16 @@ if dein#tap('vim-lsp')
         \ 'whitelist': ['python'],
         \ })
   endif
-  " TODO not working
-  if dein#tap('vim-rescript')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rescript',
-        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'node ~/.cache/vim/dein/repos/github.com/rescript-lang/vim-rescript/server/out/server.js --node-ipc']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'bsconfig.json'))},
-        \ 'whitelist': ['rescript'],
-        \ })
-  endif
+
+  " Only work for node RPC
+  " if dein#tap('vim-rescript')
+  "   au User lsp_setup call lsp#register_server({
+  "      \ 'name': 'rescript-language-server',
+  "      \ 'cmd': { server_info->[&shell, &shellcmdflag, 'node ~/.cache/vim/dein/repos/github.com/rescript-lang/vim-rescript/server/out/server.js --stdio']},
+  "      \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'bsconfig.json'))},
+  "      \ 'whitelist': ['rescript'],
+  "      \ })
+  " endif
 
   if executable('erlang_ls')
     au User lsp_setup call lsp#register_server({
@@ -182,12 +215,15 @@ if dein#tap('vim-lsp')
         \ })
   endif
 
+  let g:lsp_diagnostics_echo_cursor = 1
+  set foldmethod=expr
+      \ foldexpr=lsp#ui#vim#folding#foldexpr()
+      \ foldtext=lsp#ui#vim#folding#foldtext()
+
   function! s:on_lsp_buffer_enabled() abort
       setlocal omnifunc=lsp#complete
       setlocal signcolumn=yes
       if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-      nmap <buffer> gd <plug>(lsp-definition)
-      nmap <buffer> <f2> <plug>(lsp-rename)
       " refer to doc to add more commands
   endfunction
 
@@ -210,6 +246,17 @@ if dein#tap('caw.vim')
   let g:caw_hatpos_skip_blank_line = 1
   let g:caw_dollarpos_skip_blank_line = 1
   autocmd FileType robot let b:caw_oneline_comment = '#'
+endif
+
+if dein#tap('vim-sandwitch')
+  let g:sandwich#recipes += [
+      \   {
+      \     'external': ['it', 'at'],
+      \     'noremap' : 1,
+      \     'filetype': ['html'],
+      \     'input'   : ['t'],
+      \   },
+      \ ]
 endif
 
 if dein#tap('vim-table-mode')
