@@ -1,30 +1,5 @@
 scriptencoding utf-8
 
-if dein#tap('rainbow')
-  let g:rainbow_active = 1
-  let g:rainbow_conf = {
-        \ 'operators': '_,\|+\|-\|*\|\/\|===\|!==_',
-        \ 'separately': {
-        \   'javascript': {
-        \     'parentheses': ['start=/(/ end=/)/',
-        \                     'start=/\[/ end=/\]/',
-        \                     'start=/{/ end=/}/'],
-        \   },
-        \   'vim': {
-        \     'parentheses': ['start=/(/ end=/)/',
-        \                     'start=/\[/ end=/\]/',
-        \                     'start=/{/ end=/}/ fold',
-        \                     'start=/(/ end=/)/ containedin=vimFuncBody',
-        \                     'start=/\[/ end=/\]/ containedin=vimFuncBody',
-        \                     'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-        \   },
-        \   'html': {
-        \     'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-        \   }
-        \ }
-        \}
-endif
-
 if dein#tap('asyncomplete.vim')
   " removing duplicates
   function! s:my_asyncomplete_preprocessor(options, matches) abort
