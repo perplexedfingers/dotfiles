@@ -50,11 +50,17 @@ function! DisplayCurrentMode() abort
     return l:current_status_mode
 endfunction
 
+function! DisplayGitBranchName()
+    let l:branchname = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+    return strlen(l:branchname) > 0? l:branchname : ''
+endfunction
+
 set statusline=
 set statusline+=[%{DisplayCurrentMode()}]
 set statusline+=[%f%H%M%R%W%Y]
 set statusline+=%q
 set statusline+=[%P]
-set statusline+=%=
-set statusline+=[C#:%03c]
 set statusline+=[B#:%n]
+set statusline+=%=
+set statusline+=[%{DisplayGitBranchName()}]
+set statusline+=[C#:%03c]
