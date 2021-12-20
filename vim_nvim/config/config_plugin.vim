@@ -118,6 +118,7 @@ if dein#tap('vim-lsp')
         \ })
   endif
 
+  let g:lsp_format_sync_timeout = 1000
   let g:lsp_diagnostics_virtual_text_enabled = 0
   let g:lsp_diagnostics_highlights_enabled = 0
   let g:lsp_diagnostics_echo_cursor = 1
