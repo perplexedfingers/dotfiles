@@ -57,6 +57,8 @@ Note for Python3 packages
   - pyls-isort
 - ipython
 - bpython
+- pipx
+- poetry
 
 
 Note for command line tools
