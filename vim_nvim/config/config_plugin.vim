@@ -118,6 +118,8 @@ if dein#tap('vim-lsp')
         \ })
   endif
 
+  let g:lsp_diagnostics_virtual_text_enabled = 0
+  let g:lsp_diagnostics_highlights_enabled = 0
   let g:lsp_diagnostics_echo_cursor = 1
   set foldmethod=expr
       \ foldexpr=lsp#ui#vim#folding#foldexpr()
