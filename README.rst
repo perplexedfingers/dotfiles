@@ -68,6 +68,7 @@ Note for command line tools
 - neovim
 - ripgrep
 - bat
+- exa
 - fd
 - fish
 - git
