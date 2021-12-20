@@ -261,7 +261,7 @@ augroup END
 call s:source_file('filetype.vim')
 call s:lazy_load_filetype()
 call s:source_file('bindings.vim')
+call s:source_file('statusline.vim')
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
-
