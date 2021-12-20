@@ -49,7 +49,6 @@ call dein#add('ludovicchabant/vim-gutentags', {'on_path': '.*', 'if': "executabl
 " display enhancement
 call dein#add('mhinz/vim-signify', {'on_path': '.*'})
 call dein#add('ntpeters/vim-better-whitespace', {'on_path': '.*'})
-call dein#add('luochen1990/rainbow', {'on_path': '.*'})
 call dein#add('Shougo/context_filetype.vim', {'on_path': '.*'})
 call dein#add('Yggdroot/indentLine', {'on_cmd': 'IndentLinesToggle'})
 
