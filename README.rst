@@ -26,7 +26,7 @@ Update vim/neovim package from command line
 
 .. code:: sh
 
-    nvim --headless -c 'call dein#update() | q'
+    nvim --headless -c 'call dein#update() | messages | q'
 
 For tmux
 ========
