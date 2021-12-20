@@ -55,13 +55,10 @@ Non Lazy-Loaded Plugins
 +==============+========================================+
 | `dein`_      | Dark powered Vim/Neovim plugin manager |
 +--------------+----------------------------------------+
-| `lightline`_ | Simple status line                     |
-+--------------+----------------------------------------+
 | `zazen`_     | Minimal color scheme                   |
 +--------------+----------------------------------------+
 
 .. _dein: https://github.com/Shougo/dein.vim
-.. _lightline: https://github.com/Yggdroot/indentLine
 .. _zazen: https://github.com/zaki/zazen
 
 Syntax and filetype
@@ -120,8 +117,6 @@ Interface
 +--------------------------+--------------------------------------------+
 | `vim-better-whitespace`_ | Highlight and remove trailing spaces       |
 +--------------------------+--------------------------------------------+
-| `rainbow`_               | Parenthesis highlight                      |
-+--------------------------+--------------------------------------------+
 | `context_filetype`_      | Change filetype according to given pattern |
 +--------------------------+--------------------------------------------+
 | `indentLine`_            | Indent guide                               |
@@ -129,7 +124,6 @@ Interface
 
 .. _vim-signify: https://github.com/mhinz/vim-signify
 .. _vim-better-whitespace: https://github.com/ntpeters/vim-better-whitespace
-.. _rainbow: https://github.com/luochen1990/rainbow
 .. _context_filetype: https://github.com/Shougo/context_filetype.vim
 .. _indentline: https://github.com/Yggdroot/indentLine
 
