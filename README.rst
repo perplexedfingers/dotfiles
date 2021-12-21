@@ -26,7 +26,7 @@ Update vim/neovim package from command line
 
 .. code:: sh
 
-    nvim --headless -c 'call dein#update() | messages | q'
+    nvim --headless -c "call dein#update() | call map(dein#check_clean(), { _, val -> delete(val, 'rf')}) | call dein#recache_runtimepath() | messages | q"
 
 For tmux
 ========
