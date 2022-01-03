@@ -167,6 +167,7 @@ set autowrite      " Automatically write a file when leaving a modified buffer
 set mousehide      " Hide the mouse cursor while typing
 set hidden         " Allow buffer switching without saving
 set showbreak=>\
+set textwidth=140
 set colorcolumn=+0 " hightlight column row in respect of textwidth
 set signcolumn=yes
 set ruler          " Show the ruler
