@@ -51,14 +51,11 @@ For git configuration
 Note for Python3 packages
 ========================
 
-- pynvim
-- python-language-server[all]
-- isort
-  - pyls-isort
 - ipython
 - bpython
 - pipx
 - poetry
+- pyenv
 
 
 Note for command line tools
