@@ -1,51 +1,23 @@
-<type>(<scope>): <subject>
+# Title: Summary, imperative, start upper case, don't end with a period
+# No more than 50 chars. #### 50 chars is here: #
 
-<body>
+# Remember blank line between title and body.
 
-<footer>
+# Body: Explain *what* and *why* (not *how*). Include task ID (Jira issue).
+# Wrap at 72 chars. ################################## which is here: #
 
-# 50-character subject line
-# 72-character wrapped longer description.
+
+# At the end: Include Co-authored-by for all contributors.
+# Include at least one empty line before it. Format:
+# Co-authored-by: name <user@users.noreply.github.com>
 #
-# Allowed <type>:
-# feat (feature)
-# fix (bug fix)
-# docs (documentation)
-# style (formatting, missing semi colons, …)
-# refactor
-# test (when adding missing tests)
-# chore (maintain)
+# How to Write a Git Commit Message:
+# https://chris.beams.io/posts/git-commit/
 #
-# Allowed <scope>:
-# utility
-# upgrade
-# snippet
-# scheduling
-# rest
-# reservation
-# reporting
-# release
-# module
-# jobber
-# installation
-# gui
-# database
-# core
-# atlas
-# agent
-#
-# <subject> text:
-# This is a very short description of the change.
-# use imperative, present tense: "change" not "changed" nor "changes"
-# don't capitalize first letter
-# no dot (.) at the end
-#
-# <body> text:
-# just as in <subject> use imperative, present tense
-# includes motivation for the change and contrasts with previous behavior
-#
-# <footer> text:
-# breaking changes
-# referencing issues
-# Closes #123
-# Closes #CIR-123_US, #CIR-222_D, #QXCR1001436551
+# 1.Separate subject from body with a blank line
+# 2. Limit the subject line to 50 characters
+# 3. Capitalize the subject line
+# 4. Do not end the subject line with a period
+# 5. Use the imperative mood in the subject line
+# 6. Wrap the body at 72 characters
+# 7. Use the body to explain what and why vs. how
