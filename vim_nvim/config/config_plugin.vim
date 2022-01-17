@@ -92,9 +92,22 @@ if dein#tap('asyncomplete-tags.vim')
 endif
 
 if dein#tap('vim-lsp')
-  if executable('pyls')
+  if executable('poetry')
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
+       \ 'name': 'pylsp in poetry',
+       \ 'cmd': { server_info->[&shell, &shellcmdflag, 'poetry run pylsp']},
+       \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'pyproject.toml'))},
+       \ 'whitelist': ['python'],
+       \ })
+  elseif executable('pylsp')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pylsp in system',
+        \ 'cmd': {server_info->['pylsp']},
+        \ 'whitelist': ['python'],
+        \ })
+  elseif executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls in system',
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
         \ })
@@ -177,7 +190,7 @@ if dein#tap('zazen')
 endif
 
 if dein#tap('vim-gutentags')
-  let g:gutentags_ctags_executable = '/usr/local/bin/ctags'
+  let g:gutentags_ctags_executable = '/usr/sbin/ctags'
   let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
   command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
 
