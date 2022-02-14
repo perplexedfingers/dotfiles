@@ -82,3 +82,5 @@
 [delta "commits"]
     commit-style = raw
     commit-decoration-style = bold yellow box ul
+[commit]
+    template = ~/.gitmessage
