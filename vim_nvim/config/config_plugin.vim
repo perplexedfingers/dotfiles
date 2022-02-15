@@ -193,6 +193,39 @@ if dein#tap('zazen')
   colorscheme zazen
 endif
 
+if dein#tap('goyo.vim')
+  let g:goyo_linenr = 1
+
+  function! s:goyo_enter()
+    let b:quitting = 0
+    let b:quitting_bang = 0
+    autocmd QuitPre <buffer> let b:quitting = 1
+    cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+
+    if exists('$TMUX')
+      silent !tmux set status off
+    endif
+  endfunction
+
+  function! s:goyo_leave()
+    " Quit Vim if this is the only remaining buffer
+    if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+      if b:quitting_bang
+        qa!
+      else
+        qa
+      endif
+    endif
+
+    if exists('$TMUX')
+      silent !tmux set status on
+    endif
+  endfunction
+
+  autocmd! User GoyoEnter call <SID>goyo_enter()
+  autocmd! User GoyoLeave call <SID>goyo_leave()
+endif
+
 if dein#tap('vim-gutentags')
   let g:gutentags_ctags_executable = '/usr/sbin/ctags'
   let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
