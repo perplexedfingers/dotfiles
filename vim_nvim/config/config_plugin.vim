@@ -135,6 +135,10 @@ if dein#tap('vim-lsp')
   let g:lsp_diagnostics_virtual_text_enabled = 0
   let g:lsp_diagnostics_highlights_enabled = 0
   let g:lsp_diagnostics_echo_cursor = 1
+  let g:lsp_diagnostics_signs_priority_map = {
+        \'LspError': 11,
+        \'LspWarning': 7,
+        \}
   set foldmethod=expr
       \ foldexpr=lsp#ui#vim#folding#foldexpr()
       \ foldtext=lsp#ui#vim#folding#foldtext()
