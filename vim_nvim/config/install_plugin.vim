@@ -41,6 +41,7 @@ call dein#add('vim-erlang/vim-erlang-skeletons'
 call dein#add('rstacruz/sparkup', {'on_ft': 'html', 'rtp': 'vim'})
 call dein#add('dhruvasagar/vim-table-mode', {
             \'on_cmd': 'TableModeToggle'})
+call dein#add('junegunn/goyo.vim', {'on_cmd': 'Goyo'})
 
 call dein#add('tyru/caw.vim', {'on_path': '.*'})
 call dein#add('machakann/vim-sandwich', {'on_path': '.*'})
