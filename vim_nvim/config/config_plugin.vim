@@ -35,7 +35,7 @@ endif
 
 if dein#tap('asyncomplete-omni.vim')
   autocmd User asyncomplete_setup call asyncomplete#register_source(
-        \asyncomplete#sources#omni#get_source_options({
+        \{
         \ 'name': 'omni',
         \ 'allowlist': ['*'],
         \ 'blocklist': ['c', 'cpp', 'html'],
@@ -43,12 +43,12 @@ if dein#tap('asyncomplete-omni.vim')
         \ 'config': {
         \   'show_source_kind': 1,
         \ },
-        \ }))
+        \ })
 endif
 
 if dein#tap('asyncomplete-buffer.vim')
   autocmd User asyncomplete_setup call asyncomplete#register_source(
-        \asyncomplete#sources#buffer#get_source_options({
+        \{
         \ 'name': 'buffer',
         \ 'allowlist': ['*'],
         \ 'blocklist': ['go'],
@@ -56,7 +56,7 @@ if dein#tap('asyncomplete-buffer.vim')
         \ 'config': {
         \    'max_buffer_size': 5000000,
         \  },
-        \ }))
+        \ })
 endif
 
 if dein#tap('vim-better-whitespace')
@@ -80,14 +80,14 @@ endif
 
 if dein#tap('asyncomplete-tags.vim')
   autocmd User asyncomplete_setup call asyncomplete#register_source(
-        \asyncomplete#sources#tags#get_source_options({
+        \{
         \ 'name': 'tags',
-        \ 'allowlist': ['c', 'python'],
+        \ 'allowlist': ['*'],
         \ 'completor': function('asyncomplete#sources#tags#completor'),
         \ 'config': {
         \    'max_file_size': 50000000,
         \  },
-        \ }))
+        \ })
   " 50 MB for the tag file
 endif
 
@@ -97,19 +97,19 @@ if dein#tap('vim-lsp')
        \ 'name': 'pylsp in poetry',
        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'poetry run pylsp']},
        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'pyproject.toml'))},
-       \ 'whitelist': ['python'],
+       \ 'allowlist': ['python'],
        \ })
   elseif executable('pylsp')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pylsp in system',
         \ 'cmd': {server_info->['pylsp']},
-        \ 'whitelist': ['python'],
+        \ 'allowlist': ['python'],
         \ })
   elseif executable('pyls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls in system',
         \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
+        \ 'allowlist': ['python'],
         \ })
   endif
 
@@ -127,7 +127,7 @@ if dein#tap('vim-lsp')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'erlang_ls',
         \ 'cmd': {server_info->['erlang_ls']},
-        \ 'whitelist': ['erlang'],
+        \ 'allowlist': ['erlang'],
         \ })
   endif
 
@@ -161,7 +161,7 @@ if dein#tap('signify')
   let g:signify_vcs_list = ['git', 'hg', 'fossil']
   let g:signify_cursorhold_insert = 1
   let g:signify_cursorhold_normal = 1
-  let g:signify_update_on_bufenter = 0
+  let g:signify_update_on_bufenter = 1
   let g:signify_update_on_focusgained = 1
 endif
 
@@ -197,26 +197,12 @@ if dein#tap('goyo.vim')
   let g:goyo_linenr = 1
 
   function! s:goyo_enter()
-    let b:quitting = 0
-    let b:quitting_bang = 0
-    autocmd QuitPre <buffer> let b:quitting = 1
-    cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-
     if exists('$TMUX')
       silent !tmux set status off
     endif
   endfunction
 
   function! s:goyo_leave()
-    " Quit Vim if this is the only remaining buffer
-    if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-      if b:quitting_bang
-        qa!
-      else
-        qa
-      endif
-    endif
-
     if exists('$TMUX')
       silent !tmux set status on
     endif
@@ -227,7 +213,7 @@ if dein#tap('goyo.vim')
 endif
 
 if dein#tap('vim-gutentags')
-  let g:gutentags_ctags_executable = '/usr/sbin/ctags'
+  let g:gutentags_ctags_executable = '/usr/local/bin/uctags'
   let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
   command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
 
@@ -235,10 +221,6 @@ if dein#tap('vim-gutentags')
   let g:gutentags_generate_on_missing = 1
   let g:gutentags_generate_on_write = 1
   let g:gutentags_generate_on_empty_buffer = 0
-  let g:gutentags_ctags_extra_args = [
-      \ '--tag-relative=yes',
-      \ '--fields=+ailmnS',
-      \ ]
   let g:gutentags_file_list_command = {
         \ 'markers': {
         \   '.git': 'git ls-files',
@@ -293,4 +275,5 @@ if dein#tap('vim-gutentags')
         \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
         \ ]
 endif
+
 " vim: set ts=2 sw=2 tw=80 et :

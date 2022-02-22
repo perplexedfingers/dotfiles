@@ -1,7 +1,3 @@
-" Reload vim config automatically
-execute 'autocmd MyAutoCmd BufWritePost '.$VIMPATH.'/config/*vim,vimrc nested'
-      \ .' source $MYVIMRC | redraw'
-
 augroup MyAutoCmd
   " Automatically set read-only for files being edited elsewhere
   autocmd SwapExists * nested let v:swapchoice = 'o'

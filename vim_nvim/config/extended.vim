@@ -1,25 +1,6 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! s:lazy_load_filetype() abort
-  redir => l:filetype_out
-  silent! filetype
-  redir END
-  if l:filetype_out =~# 'OFF'
-    silent! filetype plugin indent on
-    syntax enable
-    filetype detect
-  endif
-endfunction
-
-" Set augroup
-augroup MyAutoCmd
-  autocmd!
-  " Lazy-loading filetype syntax and highlighting
-  autocmd MyAutoCmd FileType,Syntax,BufNewFile,BufNew,BufRead
-        \ * call s:lazy_load_filetype()
-augroup END
-
 if !has('nvim')
   set nocompatible
   filetype plugin indent on
@@ -58,22 +39,6 @@ else
     autocmd CursorHold * if exists(':rshada') | rshada | wshada | endif
   augroup END
 endif
-
-if ! empty($XDG_CONFIG_HOME) && isdirectory($XDG_CONFIG_HOME.'/vim')
-  let $VARPATH=expand('$XDG_CACHE_HOME/vim')
-else
-  let $VARPATH=expand('$HOME/.cache/vim')
-endif
-let $SWAP_DIR=expand($VARPATH.'/swap')
-let $UNDO_DIR=expand($VARPATH.'/undo')
-let $BACKUP_DIR=expand($VARPATH.'/backup')
-call mkdir($SWAP_DIR, 'p')
-call mkdir($UNDO_DIR, 'p')
-call mkdir($BACKUP_DIR, 'p')
-set directory=$SWAP_DIR,.
-set backupdir=$BACKUP_DIR,.
-set undodir=$UNDO_DIR,.
-set backup
 
 if has('gui_running')
   set guioptions=Mc        " Disable menu.vim
@@ -206,21 +171,16 @@ set foldenable
 set foldmarker={,}
 set foldlevel=0
 set foldmethod=marker
-" set foldcolumn=3
+set foldcolumn=3
 set foldlevelstart=99
 
 set background=dark         " Assume dark background
 set cursorline              " Highlight current line
 set fileformats=unix,dos,mac        " Use Unix as the standard file type
 set fillchars=stl:\ ,stlnc:\ ,fold:\ ,vert:│
-" set relativenumber          " Relative numbers on
 
 highlight clear SignColumn  " SignColumn should match background
 highlight clear LineNr      " Current line number row will have same background color in relative mode
-
-function! s:source_file(path) abort
-  execute 'source' fnameescape($VIMPATH.'/config/'.a:path)
-endfunction
 
 augroup MyAutoCmd
   " Check timestamp on window enter. More eager than 'autoread'
@@ -257,11 +217,23 @@ augroup MyAutoCmd
     \ | wincmd J | endif
 augroup END
 
+" Set swap, undo, and backup location
+let $CACHE_PATH=expand('$HOME/.cache/vim')
+let $SWAP_DIR=expand($CACHE_PATH.'/swap')
+let $UNDO_DIR=expand($CACHE_PATH.'/undo')
+let $BACKUP_DIR=expand($CACHE_PATH.'/backup')
+call mkdir($SWAP_DIR, 'p')
+call mkdir($UNDO_DIR, 'p')
+call mkdir($BACKUP_DIR, 'p')
+set directory=$SWAP_DIR,.
+set backupdir=$BACKUP_DIR,.
+set undodir=$UNDO_DIR,.
+set backup
+
 " Loading configuration modules
-call s:source_file('filetype.vim')
-call s:lazy_load_filetype()
-call s:source_file('bindings.vim')
-call s:source_file('statusline.vim')
+execute "source ".fnameescape(expand('$HOME/.vim/config/filetype.vim')) 
+execute "source ".fnameescape(expand('$HOME/.vim/config/bindings.vim')) 
+execute "source ".fnameescape(expand('$HOME/.vim/config/statusline.vim')) 
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
