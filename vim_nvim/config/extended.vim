@@ -53,7 +53,6 @@ if !has('nvim')
     set undodir=/tmp//,.
   endif
 else
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
   " Write history on idle
   augroup MyAutoCmd
     autocmd CursorHold * if exists(':rshada') | rshada | wshada | endif
