@@ -111,17 +111,11 @@ if dein#tap('vim-lsp')
   function! Vim_lsp() abort
     if executable('poetry')
       au User lsp_setup call lsp#register_server({
-         \ 'name': 'pylsp in poetry',
-         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'poetry run pylsp']},
+         \ 'name': 'pyls in poetry',
+         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'poetry run pyls']},
          \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'pyproject.toml'))},
          \ 'allowlist': ['python'],
          \ })
-    elseif executable('pylsp')
-      au User lsp_setup call lsp#register_server({
-          \ 'name': 'pylsp in system',
-          \ 'cmd': {server_info->['pylsp']},
-          \ 'allowlist': ['python'],
-          \ })
     elseif executable('pyls')
       au User lsp_setup call lsp#register_server({
           \ 'name': 'pyls in system',
