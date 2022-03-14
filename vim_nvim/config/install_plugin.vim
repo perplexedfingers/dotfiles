@@ -44,7 +44,7 @@ call dein#add('sheerun/vim-polyglot', {'merged': 0, 'merge_ftdetect': v:true})
 call dein#add('Shougo/context_filetype.vim', {'on_source': 'vim-polyglot'})
 call dein#add('vim-scripts/django.vim', {'on_ft': ['django', 'htmldjango']})
 call dein#add('rescript-lang/vim-rescript', {'on_path': ['.res', '.resi'], 'merge_ftdetect': v:true})
-call dein#add('rhysd/committia.vim', {'on_path': ['COMMIT_EDITMSG', 'MERGE_MSG']})
+call dein#add('rhysd/committia.vim', {'on_ft': 'gitcommit'})
 call dein#add('perplexedfingers/robotframework-vim', {'on_path': ['.robot', '.resource', '.txt', '.rst', '.html'], 'merge_ftdetect': v:true})
 
 " vim: set ts=2 sw=2 tw=80 et
