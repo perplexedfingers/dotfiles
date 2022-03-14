@@ -109,20 +109,24 @@ endif
 
 if dein#tap('vim-lsp')
   function! Vim_lsp() abort
-    if executable('poetry')
-      au User lsp_setup call lsp#register_server({
-         \ 'name': 'pyls in poetry',
-         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'poetry run pyls']},
-         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'pyproject.toml'))},
-         \ 'allowlist': ['python'],
-         \ })
-    elseif executable('pyls')
-      au User lsp_setup call lsp#register_server({
-          \ 'name': 'pyls in system',
-          \ 'cmd': {server_info->['pyls']},
-          \ 'allowlist': ['python'],
-          \ })
-    endif
+    if executable('pipx') && executable('pylsp')
+      if executable('poetry')
+        au User lsp_setup call lsp#register_server({
+           \ 'name': 'pylsp with poetry project',
+           \ 'cmd': { server_info->[&shell, &shellcmdflag, 'pylsp']},
+           \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'pyproject.toml'))},
+           \ 'allowlist': ['python'],
+           \ })
+      end
+      if executable('pipenv')
+        au User lsp_setup call lsp#register_server({
+           \ 'name': 'pylsp with pipenv project',
+           \ 'cmd': { server_info->[&shell, &shellcmdflag, 'pylsp']},
+           \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'Pipfile'))},
+           \ 'allowlist': ['python'],
+           \ })
+      end
+    end
 
     " Only work for node RPC
     " if dein#tap('vim-rescript')
