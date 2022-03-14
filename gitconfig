@@ -2,6 +2,7 @@
     whitespace = tab-in-indent trailing-space cr-at-eol
 	eol = lf
 	safecrlf = true
+    editor = vim
 
 [credential]
 	helper = cache --timeout=3600
