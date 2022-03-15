@@ -50,15 +50,15 @@ Plugins
 Non Lazy-Loaded Plugins
 -----------------------
 
-+--------------+----------------------------------------+
-| Name         | Description                            |
-+==============+========================================+
-| `dein`_      | Dark powered Vim/Neovim plugin manager |
-+--------------+----------------------------------------+
-| `zazen`_     | Minimal color scheme                   |
-+--------------+----------------------------------------+
++-------------+---------------------------------------+
+| Name        | Description                           |
++=============+=======================================+
+| `vim_plug`_ | Plugin manager that `poly-glot` works |
++-------------+---------------------------------------+
+| `zazen`_    | Minimal color scheme                  |
++-------------+---------------------------------------+
 
-.. _dein: https://github.com/Shougo/dein.vim
+.. _vim_plug: https://github.com/junegunn/vim-plug
 .. _zazen: https://github.com/zaki/zazen
 
 Syntax and filetype
@@ -202,7 +202,7 @@ Editor UI
 Plugin commands or shortcuts
 ===========================
 
-``dein``
+``vim_plug``
 ------
 
 Call its functions.  For example:
@@ -211,11 +211,11 @@ To update all plugins from command line
 
 .. code:: sh
 
-  nvim --headless -c\
-  'call dein#update()\
-  | call map(dein#check_clean(), "delete(v:val, \'rf\')")\
-  | call dein#recache_runtimepath()\
-  | q'
+  nvim -es -u init.vim -i NONE -c "PlugUpdate" -c "qa"
+
+`-u` is used here to force (n)vim to read only the given vimrc. See :h startup. `-i` is used here to
+skip viminfo (vim) or shada (nvim). Reduce the runtimepath via `--cmd` to speed up vim-plug. Add
+`-V` to debug vim-plug if there are errors.
 
 
 ``sparkup``
