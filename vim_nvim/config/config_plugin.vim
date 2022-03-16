@@ -139,8 +139,8 @@ function! Vim_lsp() abort
   let g:lsp_diagnostics_highlights_enabled = 0
   let g:lsp_diagnostics_echo_cursor = 1
   let g:lsp_diagnostics_signs_priority_map = {
-        \'LspError': 11,
-        \'LspWarning': 7,
+        \'LspError': 12,
+        \'LspWarning': 11,
         \}
   set foldmethod=expr
       \ foldexpr=lsp#ui#vim#folding#foldexpr()
