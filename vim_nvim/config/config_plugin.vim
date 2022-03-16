@@ -105,22 +105,15 @@ call Asyncomplete_tags()
 " vim-lsp
 function! Vim_lsp() abort
   if executable('pipx') && executable('pylsp')
-    if executable('poetry')
-      au User lsp_setup call lsp#register_server({
-         \ 'name': 'pylsp with poetry project',
-         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'pylsp']},
-         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'pyproject.toml'))},
-         \ 'allowlist': ['python'],
-         \ })
-    end
-    if executable('pipenv')
-      au User lsp_setup call lsp#register_server({
-         \ 'name': 'pylsp with pipenv project',
-         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'pylsp']},
-         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'Pipfile'))},
-         \ 'allowlist': ['python'],
-         \ })
-    end
+    au User lsp_setup call lsp#register_server({
+       \ 'name': 'pylsp',
+       \ 'cmd': { server_info->[&shell, &shellcmdflag, 'pylsp']},
+       \ 'root_uri':{server_info->lsp#utils#path_to_uri(
+       \   lsp#utils#find_nearest_parent_file_directory(
+       \     lsp#utils#get_buffer_path(),
+       \     ['pyproject.toml', 'Pipfile', 'requirements.txt', 'setup.py']))},
+       \ 'allowlist': ['python'],
+       \ })
   end
 
   " Only work for node RPC
