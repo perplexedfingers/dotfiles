@@ -60,6 +60,8 @@ Note for Python tools
 - poetry
 - pipenv
 - pyenv
+- proselint
+- mecurial
 
 
 Note for Rust tools
@@ -70,6 +72,7 @@ Note for Rust tools
 - exa
 - git-delta
 - xh
+- pijul
 
 
 Note for command line tools
@@ -77,12 +80,11 @@ Note for command line tools
 
 - tmux
 - neovim
+- vim
 - fd
 - fish
 - git
-- mecurial
 - fossil
-- pijul
 - rsync
 - nix
 - tree
