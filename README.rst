@@ -62,7 +62,7 @@ Note for Python tools
 - pyenv
 - proselint
 - mecurial
-
+- python-lsp-server
 
 Note for Rust tools
 ======================
