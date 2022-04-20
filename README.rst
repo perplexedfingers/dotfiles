@@ -26,6 +26,9 @@ Update vim/neovim package from command line
 
 .. code:: sh
 
+    # for vim-plug
+    vim -es -u vimrc -i NONE -c "PlugInstall" -c "PlugUpdate" -c "PlugUpgrade" -c "qa"
+    # for dein
     nvim --headless -c "call dein#update() | call map(dein#check_clean(), { _, val -> delete(val, 'rf')}) | call dein#recache_runtimepath() | messages | q"
 
 For tmux
@@ -48,14 +51,25 @@ For git configuration
     ln -s path/to/gitconfig .gitconfig
 
 
-Note for Python3 packages
+Note for Python tools
 ========================
 
+- pipx
 - ipython
 - bpython
-- pipx
 - poetry
+- pipenv
 - pyenv
+
+
+Note for Rust tools
+======================
+
+- ripgrep
+- bat
+- exa
+- git-delta
+- xh
 
 
 Note for command line tools
@@ -63,9 +77,6 @@ Note for command line tools
 
 - tmux
 - neovim
-- ripgrep
-- bat
-- exa
 - fd
 - fish
 - git
@@ -77,11 +88,9 @@ Note for command line tools
 - tree
 - watch
 - doas
-- git-delta
 - shellcheck
 - ncdu
 - hunspell
 - universal-ctags
-- httpie
-- xh
 - erlang_ls
+- nmap
