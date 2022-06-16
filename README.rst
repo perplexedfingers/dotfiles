@@ -73,6 +73,7 @@ Note for Rust tools
 - git-delta
 - xh
 - pijul
+- fd
 
 
 Note for command line tools
@@ -81,7 +82,6 @@ Note for command line tools
 - tmux
 - neovim
 - vim
-- fd
 - fish
 - git
 - fossil
