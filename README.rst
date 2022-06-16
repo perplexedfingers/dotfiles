@@ -51,8 +51,8 @@ For git configuration
     ln -s path/to/gitconfig .gitconfig
 
 
-Note for Python tools
-========================
+Note for Python-based tools
+===========================
 
 - pipx
 - ipython
@@ -63,9 +63,12 @@ Note for Python tools
 - proselint
 - mecurial
 - python-lsp-server
+- isort
+- black
+- glances
 
-Note for Rust tools
-======================
+Note for Rust-based tools
+=========================
 
 - ripgrep
 - bat
@@ -96,3 +99,4 @@ Note for command line tools
 - universal-ctags
 - erlang_ls
 - nmap
+- htop
