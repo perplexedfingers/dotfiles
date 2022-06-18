@@ -77,6 +77,7 @@ Note for Rust-based tools
 - xh
 - pijul
 - fd
+- tre
 
 
 Note for command line tools
