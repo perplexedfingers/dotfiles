@@ -101,3 +101,4 @@ Note for command line tools
 - erlang_ls
 - nmap
 - htop
+- jq
