@@ -49,11 +49,6 @@
 "     return l:current_status_mode
 " endfunction
 
-function! DisplayGitBranchName()
-    let l:branchname = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-    return strlen(l:branchname) > 0? l:branchname : 'NO VCS'
-endfunction
-
 set statusline=
 set statusline+=[%F]
 set statusline+=%y  " [FileType]
@@ -65,7 +60,6 @@ set statusline+=%q  " [Location List]
 
 set statusline+=%=
 
-set statusline+=[%{DisplayGitBranchName()}]
 set statusline+=[%04lL,%03cC]
 set statusline+=[%P]
 " set statusline+=[%{DisplayCurrentMode()}]
