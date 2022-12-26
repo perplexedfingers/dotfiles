@@ -188,33 +188,33 @@ augroup MyAutoCmd
 
   " If session is loaded, write session file on quit
   autocmd VimLeavePre *
-    \ if ! empty(v:this_session) && ! exists('g:SessionLoad')
-    \ |   execute 'mksession! '.fnameescape(v:this_session)
-    \ | endif
+  \ if ! empty(v:this_session) && ! exists('g:SessionLoad')
+  \ |   execute 'mksession! '.fnameescape(v:this_session)
+  \ | endif
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   autocmd BufReadPost *
-    \ if &ft !~ '^git\c' && ! &diff && line("'\"") > 0 && line("'\"") <= line("$")
-    \|   exe 'normal! g`"zvzz'
-    \| endif
+  \ if &ft !~ '^git\c' && ! &diff && line("'\"") > 0 && line("'\"") <= line("$")
+  \|   exe 'normal! g`"zvzz'
+  \| endif
 
   " Disable paste and/or update diff when leaving insert mode
   autocmd InsertLeave *
-    \ if &paste | setlocal nopaste mouse=a | echo 'nopaste' | endif |
-    \ if &l:diff | diffupdate | endif
+  \ if &paste | setlocal nopaste mouse=a | echo 'nopaste' | endif |
+  \ if &l:diff | diffupdate | endif
 
   " Open Quickfix window automatically
   autocmd QuickFixCmdPost [^l]* leftabove copen
-    \ | wincmd p | redraw!
+  \ | wincmd p | redraw!
   autocmd QuickFixCmdPost l* leftabove lopen
-    \ | wincmd p | redraw!
+  \ | wincmd p | redraw!
 
   " Fix window position of help/quickfix
   autocmd FileType help if &l:buftype ==# 'help'
-    \ | wincmd K | endif
+  \ | wincmd K | endif
   autocmd FileType qf   if &l:buftype ==# 'quickfix'
-    \ | wincmd J | endif
+  \ | wincmd J | endif
 augroup END
 
 " Set swap, undo, and backup location
@@ -231,9 +231,9 @@ set undodir=$UNDO_DIR,.
 set backup
 
 " Loading configuration modules
-execute "source ".fnameescape(expand('$HOME/.vim/config/filetype.vim')) 
-execute "source ".fnameescape(expand('$HOME/.vim/config/bindings.vim')) 
-execute "source ".fnameescape(expand('$HOME/.vim/config/statusline.vim')) 
+execute "source ".fnameescape(expand('$HOME/.vim/config/filetype.vim'))
+execute "source ".fnameescape(expand('$HOME/.vim/config/bindings.vim'))
+execute "source ".fnameescape(expand('$HOME/.vim/config/statusline.vim'))
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
