@@ -57,8 +57,8 @@ Note for Python-based tools
 - pipx
 - ipython
 - bpython
-- poetry
 - pipenv
+- hatch
 - pyenv
 - proselint
 - mecurial
