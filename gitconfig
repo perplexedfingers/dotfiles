@@ -16,8 +16,11 @@
 [mergetool]
 	keeptemporaries = false
 	keepbackups = false
-	prompt = true
+	prompt = false
 	trustexitcode = false
+    writeToTemp = true
+[mergetool.vimdiff]
+    layout = "(BASE / (LOCAL , REMOTE) / MERGED) + MERGED"
 
 [diff]
     colorMoved = default
@@ -48,7 +51,7 @@
     reflog = delta
     show = delta
 [interactive]
-	  diffFilter = delta --color-only --features=interactive
+    diffFilter = delta --color-only --features=interactive
 [delta "interactive"]
     keep-plus-minus-markers = false
 [delta]
