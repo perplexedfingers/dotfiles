@@ -3,7 +3,6 @@ Plug 'zaki/zazen'
 " autocomplete
 Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'prabirshrestha/asyncomplete-buffer.vim'
-    Plug 'prabirshrestha/asyncomplete-tags.vim'
     Plug 'prabirshrestha/vim-lsp'
         Plug 'prabirshrestha/asyncomplete-lsp.vim'
             Plug 'machakann/vim-lsp-julia', {'for': 'julia'}
@@ -12,6 +11,8 @@ Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'prabirshrestha/async.vim'
         Plug 'wellle/tmux-complete.vim'
 
+Plug 'puremourning/vimspector', {'for': ['erlang', 'python', 'javascript'],
+            \'on': ['VimspectorInstall', 'VimspectorUpdate']}
 
 " Erlang related autocomplete
 Plug 'vim-erlang/erlang-motions.vim', {'for': 'erlang'}
@@ -25,7 +26,6 @@ Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 
 Plug 'tyru/caw.vim'
 Plug 'machakann/vim-sandwich'
-Plug 'ludovicchabant/vim-gutentags'
 
 " display enhancement
 Plug 'mhinz/vim-signify'

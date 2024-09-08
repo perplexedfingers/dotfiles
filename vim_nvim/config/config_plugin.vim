@@ -86,22 +86,6 @@ endfunction
 
 call Tmux_complete()
 
-" asyncomplete-tags.vim
-function! Asyncomplete_tags() abort
-  autocmd User asyncomplete_setup call asyncomplete#register_source(
-        \{
-        \ 'name': 'tags',
-        \ 'allowlist': ['*'],
-        \ 'completor': function('asyncomplete#sources#tags#completor'),
-        \ 'config': {
-        \    'max_file_size': 50000000,
-        \  },
-        \ })
-  " 50 MB for the tag file
-endfunction
-
-call Asyncomplete_tags()
-
 " vim-lsp
 function! Vim_lsp() abort
   if executable('pipx') && executable('pylsp')
@@ -237,71 +221,11 @@ endfunction
 
 call Goyo()
 
-" vim-gutentags
-function! Vim_gutentags() abort
-  let g:gutentags_ctags_executable = 'ctags'
-  let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
-  command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
-
-  let g:gutentags_ctags_extra_args = [
-      \ '--tag-relative=yes',
-      \ '--fields=+ailmnS',
-      \ ]
-  let g:gutentags_file_list_command = {
-        \ 'markers': {
-        \   '.git': 'git ls-files',
-        \   '.hg': 'hg files',
-        \   },
-        \ }
-  let g:gutentags_ctags_exclude = [
-        \ '*.git', '*.svg', '*.hg',
-        \ '*/tests/*',
-        \ 'build',
-        \ 'dist',
-        \ '*sites/*/files/*',
-        \ 'bin',
-        \ 'node_modules',
-        \ 'bower_components',
-        \ 'cache',
-        \ 'compiled',
-        \ 'docs',
-        \ 'example',
-        \ 'bundle',
-        \ 'vendor',
-        \ '*.md',
-        \ '*-lock.json',
-        \ '*.lock',
-        \ '*bundle*.js',
-        \ '*build*.js',
-        \ '.*rc*',
-        \ '*.json',
-        \ '*.min.*',
-        \ '*.map',
-        \ '*.bak',
-        \ '*.zip',
-        \ '*.pyc',
-        \ '*.class',
-        \ '*.sln',
-        \ '*.Master',
-        \ '*.csproj',
-        \ '*.tmp',
-        \ '*.csproj.user',
-        \ '*.cache',
-        \ '*.pdb',
-        \ 'tags*',
-        \ 'cscope.*',
-        \ '*.css',
-        \ '*.less',
-        \ '*.scss',
-        \ '*.exe', '*.dll',
-        \ '*.mp3', '*.ogg', '*.flac',
-        \ '*.swp', '*.swo',
-        \ '*.bmp', '*.gif', '*.ico', '*.jpg', '*.png',
-        \ '*.rar', '*.zip', '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2',
-        \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
-        \ ]
+" vimspector
+function! Vimspector() abort
+  let g:vimspector_enable_mappings = 'HUMAN'
 endfunction
 
-call Vim_gutentags()
+call Vimspector()
 
 " vim: set ts=2 sw=2 tw=80 et :
