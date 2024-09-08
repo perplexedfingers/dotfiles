@@ -1,8 +1,7 @@
 [core]
-    whitespace = tab-in-indent trailing-space cr-at-eol
+	whitespace = tab-in-indent trailing-space cr-at-eol
 	eol = lf
 	safecrlf = true
-    editor = vim
 
 [credential]
 	helper = cache --timeout=3600
@@ -11,7 +10,6 @@
 	default = upstream
 
 [merge]
-	tool = vimdiff
 	conflictstyle = diff3
 [mergetool]
 	keeptemporaries = false
@@ -20,11 +18,7 @@
 	trustexitcode = false
     writeToTemp = true
 [mergetool.vimdiff]
-    layout = "(BASE / (LOCAL , REMOTE) / MERGED) + MERGED"
-
-[diff]
-    colorMoved = default
-	colorMovedWS = allow-indentation-change
+	layout = "(BASE / (LOCAL , REMOTE) / MERGED) + MERGED"
 
 [rebase]
 	autoSquash = true
@@ -42,49 +36,14 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
 	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 
-[color "diff"]
-    whitespace = black strike white
-	# TODO not showing whitespace error in git-delta
+[diff]
+	tool = difftastic
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
 [pager]
-	diff = delta
-    log = delta
-    reflog = delta
-    show = delta
-[interactive]
-    diffFilter = delta --color-only --features=interactive
-[delta "interactive"]
-    keep-plus-minus-markers = false
-[delta]
-	# inspect-raw-lines = false  # when diff.colorMoved to detect moved chunk
-	# # fix possible git-delta error
-	features = line-numbers files hunks commits
-    navigate = true
-	dark = true
-[delta "line-numbers"]
-    line-numbers = true
-    line-numbers-minus-style = "#444444"
-    line-numbers-zero-style = "#444444"
-    line-numbers-plus-style = "#444444"
-    line-numbers-left-format = "{nm:>4}┊"
-    line-numbers-left-style = blue
-    line-numbers-right-format = "{np:>4}│"
-    line-numbers-right-style = blue
-[delta "files"]
-    zero-style = syntax
-    file-style = bold yellow ul
-    file-decoration-style = none
-    file-added-label = [+]
-    file-copied-label = [==]
-    file-modified-label = [*]
-    file-removed-label = [-]
-    file-renamed-label = [->]
-[delta "hunks"]
-    hunk-header-style = file line-number syntax
-    hunk-header-file-style = red
-    hunk-header-line-number-style = "#067a00"
-    hunk-header-decoration-style = blue box
-[delta "commits"]
-    commit-style = raw
-    commit-decoration-style = bold yellow box ul
+	difftool = true
+
 [commit]
-    template = ~/.gitmessage
+	template = ~/.gitmessage
