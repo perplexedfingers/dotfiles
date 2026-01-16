@@ -23,6 +23,7 @@ Plug 'vim-erlang/vim-erlang-skeletons', {'for': 'erlang',
 Plug 'rstacruz/sparkup', {'for': 'html', 'rtp': 'vim'}
 Plug 'dhruvasagar/vim-table-mode', {'on': 'TableModeToggle'}
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
+Plug 'kamykn/spelunker.vim'
 
 Plug 'tyru/caw.vim'
 Plug 'machakann/vim-sandwich'

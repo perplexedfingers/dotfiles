@@ -228,4 +228,11 @@ endfunction
 
 call Vimspector()
 
+
+" spelunker
+function! Spelunker() abort
+  set nospell
+endfunction
+
+call Spelunker()
 " vim: set ts=2 sw=2 tw=80 et :
