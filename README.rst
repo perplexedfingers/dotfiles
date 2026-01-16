@@ -78,6 +78,7 @@ Note for Rust-based tools
 - pijul
 - fd
 - tre
+- helix
 
 
 Note for command line tools
@@ -102,3 +103,4 @@ Note for command line tools
 - nmap
 - htop
 - jq
+- ghostty
