@@ -1,0 +1,9 @@
+theme = "ttox"
+
+[editor]
+color-modes = true
+trim-final-newlines = true
+trim-trailing-whitespace = true
+
+[editor.indent-guides]
+render = true
