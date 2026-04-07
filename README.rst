@@ -59,6 +59,14 @@ For helix configuration
     ln -s path/to/config config.toml
     ln -s path/to/lang languages.toml
 
+For ghostty configuration
+=====================
+
+.. code:: sh
+
+    cd ~/Library/Application\ Support/com.mitchellh.ghostty
+    ln -s path/to/config config
+
 
 Note for Python-based tools
 ===========================
