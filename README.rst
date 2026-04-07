@@ -50,6 +50,15 @@ For git configuration
     ln -s path/to/gitmessage .gitmessage
     ln -s path/to/gitconfig .gitconfig
 
+For helix configuration
+=====================
+
+.. code:: sh
+
+    cd ~/.config/helix
+    ln -s path/to/config config.toml
+    ln -s path/to/lang languages.toml
+
 
 Note for Python-based tools
 ===========================
@@ -63,8 +72,6 @@ Note for Python-based tools
 - proselint
 - mecurial
 - python-lsp-server
-- isort
-- black
 - glances
 
 Note for Rust-based tools
@@ -73,26 +80,24 @@ Note for Rust-based tools
 - ripgrep
 - bat
 - exa
-- git-delta
+- difftastic
 - xh
 - pijul
 - fd
-- tre
 - helix
+- uv
+- biome
+- ruff
 
 
 Note for command line tools
 ===========================
 
-- tmux
-- neovim
-- vim
 - fish
 - git
 - fossil
 - rsync
 - nix
-- tree
 - watch
 - doas
 - shellcheck
