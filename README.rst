@@ -80,14 +80,13 @@ Note for Python-based tools
 - proselint
 - mecurial
 - python-lsp-server
-- glances
 
 Note for Rust-based tools
 =========================
 
 - ripgrep
 - bat
-- exa
+- eza
 - difftastic
 - xh
 - pijul
@@ -96,6 +95,11 @@ Note for Rust-based tools
 - uv
 - biome
 - ruff
+- procs
+- sd
+- dust
+- bottom
+- grex
 
 
 Note for command line tools
@@ -109,11 +113,9 @@ Note for command line tools
 - watch
 - doas
 - shellcheck
-- ncdu
 - hunspell
 - universal-ctags
 - erlang_ls
 - nmap
-- htop
 - jq
 - ghostty

@@ -44,3 +44,5 @@
 
 [commit]
 	template = ~/.gitmessage
+[init]
+	defaultBranch = main

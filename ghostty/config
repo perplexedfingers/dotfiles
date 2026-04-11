@@ -53,6 +53,7 @@ font-size = 16
 font-feature = -calt, -liga, -dlig
 theme = Peppermint
 cursor-style = block
+cursor-style-blink = false
 mouse-hide-while-typing = true
 scrollback-limit = 1000000
 maximize = true
@@ -60,7 +61,7 @@ fullscreen = true
 window-save-state = always
 clipboard-trim-trailing-spaces = true
 clipboard-paste-protection = true
-shell-integration-features = true
+shell-integration-features = no-cursor, ssh-env
 
 keybind = ctrl+g>n=new_window
 
