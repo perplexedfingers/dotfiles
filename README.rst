@@ -79,7 +79,6 @@ Note for Python-based tools
 - pyenv
 - proselint
 - mecurial
-- python-lsp-server
 
 Note for Rust-based tools
 =========================
@@ -89,7 +88,6 @@ Note for Rust-based tools
 - eza
 - difftastic
 - xh
-- pijul
 - fd
 - helix
 - uv
@@ -100,6 +98,7 @@ Note for Rust-based tools
 - dust
 - bottom
 - grex
+- ty
 
 
 Note for command line tools
