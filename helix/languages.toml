@@ -1,6 +1,6 @@
-[language-server.ruff]
-command = "ruff"
-args = ["server"]
+# [language-server.ruff]
+# command = "ruff"
+# args = ["server"]
 
 [language-server.ruff.config.settings.lint]
 select = ["E", "F", "S", "ASYNC", "BLE", "FLY",
@@ -10,9 +10,9 @@ select = ["E", "F", "S", "ASYNC", "BLE", "FLY",
 
 ignore = ["E501"]
 
-[language-server.ty]
-command = "ty"
-args = ["server"]
+# [language-server.ty]
+# command = "ty"
+# args = ["server"]
 
 [language-server.typos]
 command = "typos-lsp"

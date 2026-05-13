@@ -84,14 +84,11 @@ Note for Rust-based tools
 - xh
 - fd
 - helix
-- biome
-- ruff
 - procs
 - sd
 - dust
 - bottom
 - grex
-- ty
 - typos-lsp
 
 
@@ -111,3 +108,14 @@ Note for command line tools
 - nmap
 - jq
 - ghostty
+
+
+Note for default helix lsp
+==========================
+ref: https://github.com/helix-editor/helix/blob/master/languages.toml
+
+- vscode-html-language-server
+- vscode-css-language-server
+- commit-lsp
+- ruff
+- ty
