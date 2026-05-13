@@ -14,10 +14,22 @@ ignore = ["E501"]
 command = "ty"
 args = ["server"]
 
+[language-server.typos]
+command = "typos-lsp"
+
+
 [[language]]
 name = "python"
-language-servers = ["ruff", "ty"]
+language-servers = ["ruff", "ty", "typos"]
 formatter = { command = "sh", args = [
   "-c",
-  "uvx ruff check --extend-select I --fix - | uvx ruff format -"
+  "ruff check --extend-select I --fix - | ruff format -"
 ] }
+
+[[language]]
+name = "rst"
+language-servers = ["typos"]
+
+[[language]]
+name = "markdown"
+language-servers = ["typos"]
