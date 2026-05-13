@@ -68,17 +68,11 @@ For ghostty configuration
     ln -s path/to/config config
 
 
-Note for Python-based tools
+Note for Python tools
 ===========================
 
-- pipx
-- ipython
-- bpython
-- pipenv
-- hatch
 - pyenv
-- proselint
-- mecurial
+- uv
 
 Note for Rust-based tools
 =========================
@@ -90,7 +84,6 @@ Note for Rust-based tools
 - xh
 - fd
 - helix
-- uv
 - biome
 - ruff
 - procs
@@ -99,6 +92,7 @@ Note for Rust-based tools
 - bottom
 - grex
 - ty
+- typos-lsp
 
 
 Note for command line tools
@@ -112,7 +106,6 @@ Note for command line tools
 - watch
 - doas
 - shellcheck
-- hunspell
 - universal-ctags
 - erlang_ls
 - nmap
